@@ -93,7 +93,7 @@ public class FlightDAO {
 				flight.setFlightFinishDate(updateFlight.getFlightFinishDate());
 				flight.setFlightStartDate(updateFlight.getFlightStartDate());
 				flight.setSeatRating(updateFlight.getSeatRating());
-				
+				 
 				break;
 			}
 		}
