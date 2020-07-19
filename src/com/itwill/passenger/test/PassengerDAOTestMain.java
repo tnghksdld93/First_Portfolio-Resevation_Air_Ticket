@@ -1,7 +1,7 @@
 package com.itwill.passenger.test;
 
-public class CustomerServiceTestMain {
+public class PassengerDAOTestMain {
 	public static void main(String[] args) {
-		
+	
 	}
 }
