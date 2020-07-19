@@ -4,15 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Reservation implements Serializable{
-<<<<<<< HEAD
-	private String startPoint;			//	�����
-	private String finishPoint;			//	������
-	private int passengerNo;			//	�°���
-	private String seatRating;			//	�¼����
-	private Date startDate;				//	���³�
-	private Date comingDate;			//	���³�
-	private String passengerType;		//	�°�����
-=======
+
+
 	private String startPoint;			//	출발지
 	private String finishPoint;			//	도착지
 	private int passengerNo;			//	승객수
@@ -20,7 +13,6 @@ public class Reservation implements Serializable{
 	private Date startDate;				//	가는날
 	private Date comingDate;			//	오는날
 	private String passengerType;		//	승객유형
->>>>>>> branch 'master' of https://github.com/2020-10-itwill-javapython/teamproject-flight
 	
 	
 	public Reservation() {
@@ -71,7 +63,7 @@ public class Reservation implements Serializable{
 		this.passengerType = passengerType;
 	}
 	
-<<<<<<< HEAD
+
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
@@ -81,6 +73,5 @@ public class Reservation implements Serializable{
 	
 
 }
-=======
-}
->>>>>>> branch 'master' of https://github.com/2020-10-itwill-javapython/teamproject-flight
+
+
