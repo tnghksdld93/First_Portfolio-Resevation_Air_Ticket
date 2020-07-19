@@ -4,13 +4,13 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Reservation implements Serializable{
-	private String startPoint;			//	Ãâ¹ßÁö
-	private String finishPoint;			//	µµÂøÁö
-	private int passengerNo;			//	½Â°´¼ö
-	private String seatRating;			//	ÁÂ¼®µî±Þ
-	private Date startDate;				//	°¡´Â³¯
-	private Date comingDate;			//	¿À´Â³¯
-	private String passengerType;		//	½Â°´À¯Çü
+	private String startPoint;			//	ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String finishPoint;			//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private int passengerNo;			//	ï¿½Â°ï¿½ï¿½ï¿½
+	private String seatRating;			//	ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
+	private Date startDate;				//	ï¿½ï¿½ï¿½Â³ï¿½
+	private Date comingDate;			//	ï¿½ï¿½ï¿½Â³ï¿½
+	private String passengerType;		//	ï¿½Â°ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 	
 	public Reservation() {
@@ -71,5 +71,5 @@ public class Reservation implements Serializable{
 	}
 	
 	
-	
+
 }
