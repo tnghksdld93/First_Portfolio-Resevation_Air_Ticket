@@ -8,6 +8,10 @@ public class Flight implements Serializable{
 	private String flightStartDate;
 	private String flightFinishDate;
 	
+	public Flight() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public String getFlightName() {
 		return flightName;
 	}
