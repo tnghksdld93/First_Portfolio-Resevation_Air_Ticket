@@ -32,8 +32,57 @@ public class PassengerDAO {
 		oos.writeObject(passengerList);
 		oos.close();
 	}
-	
-	/****************UPDATE******************/
+	/*
+	 * create
+	 */ 
+	public boolean create(Passenger addPassenger) throws Exception {
+		boolean isSuccess = false;
+		ArrayList<Passenger> passengerList = readFile();
+		if (isDuplicateId(addPassenger.getMemberId())) {
+			isSuccess = false;
+			return isSuccess;
+		}
+		isSuccess = true;
+		passengerList.add(addPassenger);
+		writeFile(passengerList);
+		return isSuccess;
+	}
+	public boolean isDuplicateId(String memberId) throws Exception {
+		boolean isDuplicate = false;
+		ArrayList<Passenger> passengerList = readFile();
+		for (Passenger passenger : passengerList) {
+			if (passenger.getMemberId().equals(memberId)) {
+				isDuplicate = true;
+				break;
+			}
+		}
+		return isDuplicate;
+	}
+	/*
+	 * readAll
+	 */
+	public ArrayList<Passenger> readAll() throws Exception {
+		return readFile();
+	}
+	/*
+	 * readOne
+	 */
+	public Passenger readOne(String memberId) throws Exception {
+		Passenger findPassenger = null;
+		ArrayList<Passenger> passengerList = readFile();
+		for (Passenger passenger : passengerList) {
+			if (passenger.getMemberId().equals(memberId)) {
+				findPassenger = passenger;
+				break;
+			}
+		}
+		
+		
+		return findPassenger;
+	}
+	/*
+	 * update
+	 */
 	public void update(Passenger updatePassenger) throws Exception {
 		ArrayList<Passenger> passengerList = this.readFile();
 		for (Passenger passenger : passengerList) {
@@ -48,5 +97,20 @@ public class PassengerDAO {
 			}
 		}
 		}
-
+	/*
+	 * delete
+	 */
+	public void delete(String memberId) throws Exception {
+		ArrayList<Passenger> passengerList = readFile();
+		for (Passenger passenger : passengerList) {
+			if (passenger.getMemberId().equals(memberId)) {
+				passengerList.remove(passenger);
+				
+				break;
+			}
+		}
+		writeFile(passengerList);
+		
+	
+	}
 }
