@@ -1,5 +1,50 @@
 package com.itwill.passenger;
 
-public class Passenger {
+import java.io.Serializable;
 
+public class Passenger implements Serializable{
+	private String memberId;
+	private String memberPw;
+	private String memberName;
+	private String birthDate;
+	private String phoneNo;
+	private String newPw;
+	
+	public String getMemberId() {
+		return memberId;
+	}
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
+	}
+	public String getMemberPw() {
+		return memberPw;
+	}
+	public void setMemberPw(String memberPw) {
+		this.memberPw = memberPw;
+	}
+	public String getMemberName() {
+		return memberName;
+	}
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
+	}
+	public String getBirthDate() {
+		return birthDate;
+	}
+	public void setBirthDate(String birthDate) {
+		this.birthDate = birthDate;
+	}
+	public String getPhoneNo() {
+		return phoneNo;
+	}
+	public void setPhoneNo(String phoneNo) {
+		this.phoneNo = phoneNo;
+	}
+	public String getNewPw() {
+		return newPw;
+	}
+	public void setNewPw(String newPw) {
+		this.newPw = newPw;
+	}
+	
 }
