@@ -71,7 +71,7 @@ public class FlightDAO {
 	public ArrayList<Flight> readAll() throws Exception{
 		return this.readFile();
 	}
-	
+	 
 	
 	public Flight readOne(String flightName) throws Exception{
 		Flight findFlight = null;
