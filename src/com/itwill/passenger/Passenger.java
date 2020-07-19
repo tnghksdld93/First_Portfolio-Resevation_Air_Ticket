@@ -9,7 +9,7 @@ public class Passenger implements Serializable{
 	private String birthDate;
 	private String phoneNo;
 	private String newPw;
-	
+	 
 	public String getMemberId() {
 		return memberId;
 	}
