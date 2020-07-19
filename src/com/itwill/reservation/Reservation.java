@@ -56,7 +56,7 @@ public class Reservation implements Serializable{
 	}
 	public void setComingDate(Date comingDate) {
 		this.comingDate = comingDate;
-	}
+	} 
 	public String getPassengerType() {
 		return passengerType;
 	}
