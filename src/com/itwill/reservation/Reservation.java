@@ -13,4 +13,63 @@ public class Reservation implements Serializable{
 	private String passengerType;		//	½Â°´À¯Çü
 	
 	
+	public Reservation() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	
+	
+	
+	public String getStartPoint() {
+		return startPoint;
+	}
+	public void setStartPoint(String startPoint) {
+		this.startPoint = startPoint;
+	}
+	public String getFinishPoint() {
+		return finishPoint;
+	}
+	public void setFinishPoint(String finishPoint) {
+		this.finishPoint = finishPoint;
+	}
+	public int getPassengerNo() {
+		return passengerNo;
+	}
+	public void setPassengerNo(int passengerNo) {
+		this.passengerNo = passengerNo;
+	}
+	public String getSeatRating() {
+		return seatRating;
+	}
+	public void setSeatRating(String seatRating) {
+		this.seatRating = seatRating;
+	}
+	public Date getStartDate() {
+		return startDate;
+	}
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+	public Date getComingDate() {
+		return comingDate;
+	}
+	public void setComingDate(Date comingDate) {
+		this.comingDate = comingDate;
+	}
+	public String getPassengerType() {
+		return passengerType;
+	}
+	public void setPassengerType(String passengerType) {
+		this.passengerType = passengerType;
+	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
+	
+	
+	
 }
