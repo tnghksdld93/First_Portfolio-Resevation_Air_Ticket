@@ -10,8 +10,20 @@ public class Passenger implements Serializable {
 	private String phoneNo;
 	private String newPw;
 
+
 	public Passenger() {
 		// TODO Auto-generated constructor stub
+	}
+	
+	
+	public Passenger(String memberId, String memberPw, String memberName, String birthDate, String phoneNo) {
+		super();
+		this.memberId = memberId;
+		this.memberPw = memberPw;
+		this.memberName = memberName;
+		this.birthDate = birthDate;
+		this.phoneNo = phoneNo;
+		
 	}
 
 	public String getMemberId() {
