@@ -13,6 +13,8 @@ public class Reservation implements Serializable{
 	private Date startDate;				//	가는날
 	private Date comingDate;			//	오는날
 	private String passengerType;		//	승객유형
+	private String reservationNo;		//	예약번호 - 추가했음
+	
 	
 	
 	public Reservation() {
@@ -63,12 +65,25 @@ public class Reservation implements Serializable{
 		this.passengerType = passengerType;
 	}
 	
+	public String getReservationNo() {
+		return reservationNo;
+	}
 
+	public void setReservationNo(String reservationNo) {
+		this.reservationNo = reservationNo;
+	}
+	
+
+	
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
 		return super.toString();
 	}
+
+
+
+
 	
 	
 
