@@ -1,5 +1,6 @@
 package com.itwill.reservation;
 
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -126,5 +127,4 @@ public class ReservationDAO {
 		}
 		writeFile(reservationList);
 	}
-	
 }
