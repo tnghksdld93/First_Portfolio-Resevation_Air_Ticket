@@ -61,7 +61,7 @@ public class Reservation implements Serializable{
 	public String getSeatRating() {
 		return seatRating;
 	}
-
+  
 
 	public void setSeatRating(String seatRating) {
 		this.seatRating = seatRating;
