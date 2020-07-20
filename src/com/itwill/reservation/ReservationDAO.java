@@ -9,45 +9,123 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
+import com.itwill.passenger.Passenger;
+
+
 public class ReservationDAO {
-
-	private File reservesFile;
+	private File ReservationFile;
 	
-	public ReservationDAO() throws IOException {
-		reservesFile = new File("reserves.ser");
-		if (!reservesFile.exists()) {
-			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("reseves.ser"));
-			oos.writeObject(new ArrayList<Reservation>());
+	
+	public ReservationDAO() throws Exception{
+		ReservationFile = new File("reservation.ser");
+		if (!ReservationFile.exists()) {
+			System.out.println("파일생성[reservation.ser]");
+			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ReservationFile));
 		}
 	}
-
-	public static void delete(int passNo) throws Exception {
-
-		ArrayList<Reservation> reservList = readFile();
-		for (int i = 0; i < reservList.size(); i++) {
-			 if ( reservList.get(i).equals(passNo) ) {
-				reservList.remove(passNo); 
-			 }
-			 writeFile(reservList);
-
-		}
-
-	}
-
-	private static ArrayList<Reservation> readFile()throws Exception {
-		ObjectInputStream ois = new ObjectInputStream(new FileInputStream("reserves.ser"));
-		ArrayList<Reservation> reservList = (ArrayList<Reservation>)ois.readObject();
+	
+	
+	/**********************************************/
+	private ArrayList<Reservation> readFile() throws Exception{
+		ObjectInputStream ois = new ObjectInputStream(new FileInputStream(ReservationFile));
+		ArrayList<Reservation> reservationList = (ArrayList<Reservation>) ois.readObject();
 		ois.close();
-		return reservList;
+		return reservationList;
 	}
-
-
-	private static void writeFile(ArrayList<Reservation> reservList) throws Exception {
-		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("reservs.ser"));
-		oos.writeObject(reservList);
+	
+	private void writeFile(ArrayList<Reservation> reservationList) throws Exception{
+		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ReservationFile));
+		oos.writeObject(reservationList);
 		oos.close();
 	}
 	
 	
+	/*
+	 * Create		
+	 */
+	public boolean create(Reservation addReservation) throws Exception {
+		boolean isSuccess = false;
+		ArrayList<Reservation> reservationList = readFile();
+		if (isDuplicateReserveNo(addReservation.getReservationNo())) {
+			isSuccess = true;
+			return isSuccess;
+		}
+		isSuccess = true;
+		reservationList.add(addReservation);
+		writeFile(reservationList);
+		return isSuccess;
+	}
 	
+	public boolean isDuplicateReserveNo(String reservationNo) throws Exception{
+		boolean isDuplicate = false;
+		ArrayList<Reservation> reservationList = readFile();
+		for (Reservation reservation : reservationList) {
+			if (reservation.getReservationNo().equals(reservationNo)) {
+				isDuplicate = true;
+				break;
+			}
+		}
+		return isDuplicate;
+	}
+	
+	
+	/*
+	 * readAll
+	 */
+	public ArrayList<Reservation> readAll() throws Exception{
+		return readFile();
+	}
+	
+	
+	/*
+	 *  readOne
+	 */
+	public Reservation readOne(String reservationNo) throws Exception {
+		Reservation findReservation = null;
+		ArrayList<Reservation> reservationList = readFile();
+		for (Reservation reservation : reservationList) {
+			if (reservation.getReservationNo().equals(reservationNo)) {
+				findReservation = reservation;
+				break;
+			}
+		}
+		return findReservation;
+	}
+	
+	
+	/*
+	 *  update
+	 */
+	public void update(Reservation updateReservation) throws Exception{
+		ArrayList<Reservation> reservationList = this.readFile();
+		for (Reservation reservation : reservationList) {
+			if (reservation.getReservationNo().equals(updateReservation.getReservationNo())) {
+				reservation.setStartPoint(updateReservation.getStartPoint());
+				reservation.setFinishPoint(updateReservation.getFinishPoint());
+				reservation.setPassengerNo(updateReservation.getPassengerNo());
+				reservation.setStartDate(updateReservation.getStartDate());
+				reservation.setComingDate(updateReservation.getComingDate());
+				reservation.setPassengerType(updateReservation.getPassengerType());
+				reservation.setSeatRating(updateReservation.getSeatRating());
+				break;
+			}
+		}
+	}
+	
+	
+	/*
+	 *  delete
+	 */
+	public void delete(String reservationNo) throws Exception{
+		ArrayList<Reservation> reservationList = readFile();
+		for (Reservation reservation : reservationList) {
+			if (reservation.getReservationNo().equals(reservationNo)) {
+				reservationList.remove(reservation);
+				break;
+			}
+		}
+		writeFile(reservationList);
+	}
+	
+
 }
