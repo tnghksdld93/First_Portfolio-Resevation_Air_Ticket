@@ -1,6 +1,5 @@
 package com.itwill.reservation;
 
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -22,6 +21,7 @@ public class ReservationDAO {
 		if (!ReservationFile.exists()) {
 			System.out.println("파일생성[reservation.ser]");
 			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ReservationFile));
+			oos.writeObject(new ArrayList<Reservation>());
 		}
 	}
 	
@@ -127,4 +127,6 @@ public class ReservationDAO {
 		}
 		writeFile(reservationList);
 	}
+	
+
 }

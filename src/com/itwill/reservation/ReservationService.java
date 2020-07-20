@@ -2,6 +2,13 @@ package com.itwill.reservation;
 
 public class ReservationService {
 
+	/***** 예약취소  *****/
+	public void remove(String reservationNo) throws Exception {
+		reservationDAO.delete(reservationNo);
+	}
+	
+	
+	
 
 	private ReservationDAO reservationDAO;
 
@@ -26,6 +33,7 @@ public class ReservationService {
 		
 		
 	}
+
 
 
 }
