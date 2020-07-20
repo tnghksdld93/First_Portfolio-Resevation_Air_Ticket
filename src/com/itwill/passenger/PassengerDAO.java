@@ -96,6 +96,7 @@ public class PassengerDAO {
 				break;
 			}
 		}
+		writeFile(passengerList);
 		}
 	/*
 	 * delete

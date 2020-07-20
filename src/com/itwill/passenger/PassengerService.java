@@ -3,10 +3,17 @@ package com.itwill.passenger;
 public class PassengerService {
 
 	private PassengerDAO passengerDAO;
+	private String memberId;
+	private String memberPw;
+	private String memberName;
+	private String birthDate;
+	private String phoneNo;
 
 	public PassengerService() throws Exception {
 		passengerDAO = new PassengerDAO();
 	}
+
+	
 
 	/*
 	 * 회원가입
