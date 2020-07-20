@@ -3,6 +3,7 @@ package com.itwill.flight;
 import java.io.Serializable;
 
 public class Flight implements Serializable{
+	
 	private String flightName;
 	private String seatRating;
 	private String flightStartDate;

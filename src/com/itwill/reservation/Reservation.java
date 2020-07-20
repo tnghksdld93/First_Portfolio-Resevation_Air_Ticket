@@ -12,7 +12,8 @@ public class Reservation implements Serializable{
 	private String seatRating;			//	좌석등급
 	private Date startDate;				//	가는날
 	private Date comingDate;			//	오는날
-	private String passengerType;		//	승객유형
+	private String passengerType;	//	승객유형
+	private int count;						// 승객수 
 	
 	
 	public Reservation() {
@@ -63,15 +64,25 @@ public class Reservation implements Serializable{
 		this.passengerType = passengerType;
 	}
 	
+	public void setCount(int count) {
+		this.count = count;
+	}
+	
+	
+	public int getCount() {
+		return count;
+	}
+	
 
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
 		return super.toString();
 	}
-	
-	
 
 }
+
+
+
 
 
