@@ -21,10 +21,10 @@ public class PassengerServiceTestMain {
 			loginResult=passengerService.login("bbb","zzz");
 			System.out.println(loginResult);
 			System.out.println("----update--");
-			passengerService.memberUpdate(new Passenger("aaa", "aaa", "이수혁", "771021", "010-2224-9268"));
-			passengerService.memberUpdate(new Passenger("bbb", "bbb", "박지윤", "910512", "010-8256-2974"));
+			Passenger updatePassenger = new Passenger("xxx", "aaa", "이수혁", "771021", "010-2224-9268");
+			passengerService.memberUpdate(updatePassenger);
 			
-			passengerService.memberDelete("bbb");
+			passengerService.memberDelete("zzz");
 		
 	
 	}
