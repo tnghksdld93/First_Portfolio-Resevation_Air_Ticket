@@ -12,9 +12,11 @@ public class Reservation implements Serializable{
 	private String seatRating;			//	좌석등급
 	private Date startDate;				//	가는날
 	private Date comingDate;			//	오는날
+	private int count;					//  승객
 	private String passengerType;		//	승객유형
 	private String reservationNo;		//	예약번호 - 추가했음
 	
+
 	
 	
 	public Reservation() {
@@ -65,9 +67,20 @@ public class Reservation implements Serializable{
 		this.passengerType = passengerType;
 	}
 	
+
 	public String getReservationNo() {
 		return reservationNo;
 	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+	
+	
+	public int getCount() {
+		return count;
+	}
+	
 
 	public void setReservationNo(String reservationNo) {
 		this.reservationNo = reservationNo;
@@ -83,10 +96,12 @@ public class Reservation implements Serializable{
 
 
 
-
 	
 	
 
 }
+
+
+
 
 

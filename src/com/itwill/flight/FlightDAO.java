@@ -15,7 +15,7 @@ public class FlightDAO {
 		/***********************************[**********/
 		flightFile = new File("flights.ser");
 		if (!flightFile.exists()) {
-			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("fligths.ser"));
+			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(flightFile));
 			oos.writeObject(new ArrayList<Flight>());
 		}
 		
@@ -92,7 +92,6 @@ public class FlightDAO {
 			if (flight.getFlightName().equals(updateFlight.getFlightName())) {
 				flight.setFlightFinishDate(updateFlight.getFlightFinishDate());
 				flight.setFlightStartDate(updateFlight.getFlightStartDate());
-				flight.setSeatRating(updateFlight.getSeatRating());
 				 
 				break;
 			}

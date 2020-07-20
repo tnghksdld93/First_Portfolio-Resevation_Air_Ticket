@@ -3,8 +3,8 @@ package com.itwill.flight;
 import java.io.Serializable;
 
 public class Flight implements Serializable{
+	
 	private String flightName;
-	private String seatRating;
 	private String flightStartDate;
 	private String flightFinishDate;
 	
@@ -12,17 +12,18 @@ public class Flight implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 	
+	public Flight(String flightName, String flightStartDate, String flightFinishDate) {
+		super();
+		this.flightName = flightName;
+		this.flightStartDate = flightStartDate;
+		this.flightFinishDate = flightFinishDate;
+	}
+
 	public String getFlightName() {
 		return flightName;
 	}
 	public void setFlightName(String flightName) {
 		this.flightName = flightName;
-	}
-	public String getSeatRating() {
-		return seatRating;
-	}
-	public void setSeatRating(String seatRating) {
-		this.seatRating = seatRating;
 	}
 	public String getFlightStartDate() {
 		return flightStartDate;
