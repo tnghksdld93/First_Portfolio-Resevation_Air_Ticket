@@ -25,6 +25,15 @@ public class Passenger implements Serializable {
 		this.phoneNo = phoneNo;
 		
 	}
+	
+	public boolean matchPassword(String password) {
+		if (this.memberPw.equals(password)) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
 
 	public String getMemberId() {
 		return memberId;
