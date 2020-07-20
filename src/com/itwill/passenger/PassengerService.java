@@ -21,14 +21,14 @@ public class PassengerService {
 	/*
 	 * 로그인
 	 */
-	public int login(String id, String password) throws Exception {
+	public int login(String memberId, String memberPw) throws Exception {
 		int result = -99;
 		/*
 		 * 0 : 성공 1 : 아이디 존재안함 2 : 비번틀림
 		 */
-		if (passengerDAO.isDuplicateId(id)) {
-			Passenger findPassenger = passengerDAO.readOne(id);
-			if (findPassenger.matchPassword(password)) {
+		if (passengerDAO.isDuplicateId(memberId)) {
+			Passenger findPassenger = passengerDAO.readOne(memberId);
+			if (findPassenger.matchPassword(memberPw)) {
 				result = 0;
 			} else {
 				result = 2;
