@@ -5,6 +5,9 @@ import java.util.Date;
 
 public class Reservation implements Serializable{
 
+	/********************* 김용재 추가   *****************/
+	private int passNo;                 // 예약번호 추가
+	/*****************************************************/
 
 	private String startPoint;			//	출발지
 	private String finishPoint;			//	도착지
@@ -12,8 +15,8 @@ public class Reservation implements Serializable{
 	private String seatRating;			//	좌석등급
 	private Date startDate;				//	가는날
 	private Date comingDate;			//	오는날
-	private String passengerType;	//	승객유형
-	private int count;						// 승객수 
+	private String passengerType;	    //	승객유형
+	private int count;					//  승객수
 	
 	
 	public Reservation() {
@@ -80,6 +83,17 @@ public class Reservation implements Serializable{
 		return super.toString();
 	}
 
+
+	public int getPassNo() {
+		return passNo;
+	}
+
+
+	public void setPassNo(int passNo) {
+		this.passNo = passNo;
+	}
+
+	
 }
 
 
