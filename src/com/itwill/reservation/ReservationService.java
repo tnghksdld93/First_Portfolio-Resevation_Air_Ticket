@@ -21,7 +21,7 @@ public class ReservationService {
 
 	public void updateReservation(Reservation updateReservation) throws Exception {
 		reservationDAO.update(updateReservation);
-		
+		 
 	
  }
 	/*
