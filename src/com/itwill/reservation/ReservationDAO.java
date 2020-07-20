@@ -22,6 +22,7 @@ public class ReservationDAO {
 		if (!ReservationFile.exists()) {
 			System.out.println("파일생성[reservation.ser]");
 			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ReservationFile));
+			oos.writeObject(new ArrayList<Reservation>());
 		}
 	}
 	
