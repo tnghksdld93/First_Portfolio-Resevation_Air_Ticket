@@ -6,16 +6,19 @@ import java.util.Date;
 public class Reservation implements Serializable{
 
 
+
 	private String startPoint;			//	출발지
 	private String finishPoint;			//	도착지
 	private int passengerNo;			//	승객수
 	private String seatRating;			//	좌석등급
 	private Date startDate;				//	가는날
 	private Date comingDate;			//	오는날
+
 	private int count;					//  승객
 	private String passengerType;		//	승객유형
 	private String reservationNo;		//	예약번호 - 추가했음
 	
+
 
 	
 	
@@ -94,10 +97,6 @@ public class Reservation implements Serializable{
 		return super.toString();
 	}
 
-
-
-	
-	
 
 }
 
