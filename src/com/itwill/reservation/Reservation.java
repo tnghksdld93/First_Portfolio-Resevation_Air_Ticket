@@ -12,7 +12,6 @@ public class Reservation implements Serializable{
 	private String seatRating;			//	좌석등급
 	private String startDate;				//	가는날
 	private String comingDate;			//	오는날
-
 	private int count;					//  승객
 	private String passengerType;		//	승객유형
 	private String reservationNo;		//	예약번호 - 추가했음
@@ -24,9 +23,10 @@ public class Reservation implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 	
-	
-	public Reservation(String startPoint, String finishPoint, String seatRating,  String startDate, 
-					   String comingDate, int count, String passengerType, String reservationNo) {
+		
+	public Reservation(String startPoint, String finishPoint, String seatRating, String startDate,
+			String comingDate, int count, String passengerType, String reservationNo) {
+		super();
 		this.startPoint = startPoint;
 		this.finishPoint = finishPoint;
 		this.seatRating = seatRating;
@@ -35,14 +35,7 @@ public class Reservation implements Serializable{
 		this.count = count;
 		this.passengerType = passengerType;
 		this.reservationNo = reservationNo;
-	}
-	
-	
-	
-	
-	
-	
-	
+	}	
 
 	
 	public String getStartPoint() {
