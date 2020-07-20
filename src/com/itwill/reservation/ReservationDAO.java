@@ -13,14 +13,13 @@ import com.itwill.passenger.Passenger;
 
 
 public class ReservationDAO {
-	private File ReservationFile;
+	private File reservationFile;
 	
 	
 	public ReservationDAO() throws Exception{
-		ReservationFile = new File("reservation.ser");
-		if (!ReservationFile.exists()) {
-			System.out.println("파일생성[reservation.ser]");
-			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ReservationFile));
+		reservationFile = new File("reservation.ser");
+		if (!reservationFile.exists()) {
+			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(reservationFile));
 			oos.writeObject(new ArrayList<Reservation>());
 		}
 	}
@@ -28,14 +27,14 @@ public class ReservationDAO {
 	
 	/**********************************************/
 	private ArrayList<Reservation> readFile() throws Exception{
-		ObjectInputStream ois = new ObjectInputStream(new FileInputStream(ReservationFile));
+		ObjectInputStream ois = new ObjectInputStream(new FileInputStream(reservationFile));
 		ArrayList<Reservation> reservationList = (ArrayList<Reservation>) ois.readObject();
 		ois.close();
 		return reservationList;
 	}
 	
 	private void writeFile(ArrayList<Reservation> reservationList) throws Exception{
-		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ReservationFile));
+		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(reservationFile));
 		oos.writeObject(reservationList);
 		oos.close();
 	}
@@ -103,7 +102,6 @@ public class ReservationDAO {
 			if (reservation.getReservationNo().equals(updateReservation.getReservationNo())) {
 				reservation.setStartPoint(updateReservation.getStartPoint());
 				reservation.setFinishPoint(updateReservation.getFinishPoint());
-				reservation.setPassengerNo(updateReservation.getPassengerNo());
 				reservation.setStartDate(updateReservation.getStartDate());
 				reservation.setComingDate(updateReservation.getComingDate());
 				reservation.setPassengerType(updateReservation.getPassengerType());
@@ -111,6 +109,7 @@ public class ReservationDAO {
 				break;
 			}
 		}
+		writeFile(reservationList);
 	}
 	
 	
