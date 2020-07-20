@@ -103,7 +103,6 @@ public class ReservationDAO {
 			if (reservation.getReservationNo().equals(updateReservation.getReservationNo())) {
 				reservation.setStartPoint(updateReservation.getStartPoint());
 				reservation.setFinishPoint(updateReservation.getFinishPoint());
-				reservation.setPassengerNo(updateReservation.getPassengerNo());
 				reservation.setStartDate(updateReservation.getStartDate());
 				reservation.setComingDate(updateReservation.getComingDate());
 				reservation.setPassengerType(updateReservation.getPassengerType());
