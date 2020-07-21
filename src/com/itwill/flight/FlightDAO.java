@@ -90,8 +90,14 @@ public class FlightDAO {
 		ArrayList<Flight> flightList = readFile();
 		for (Flight flight : flightList) {
 			if (flight.getFlightName().equals(updateFlight.getFlightName())) {
-				flight.setFlightFinishDate(updateFlight.getFlightFinishDate());
-				flight.setFlightStartDate(updateFlight.getFlightStartDate());
+				flight.setFlightFinishTime(updateFlight.getFlightFinishTime());
+				flight.setFlightFinishYear(updateFlight.getFlightFinishYear());
+				flight.setFlightFinishMonth(updateFlight.getFlightFinishMonth());
+				flight.setFlightFinishDay(updateFlight.getFlightFinishDay());
+				flight.setFlightStartTime(updateFlight.getFlightStartTime());
+				flight.setFlightStartYear(updateFlight.getFlightStartYear());
+				flight.setFlightStartMonth(updateFlight.getFlightStartMonth());
+				flight.setFlightStartDay(updateFlight.getFlightStartDay());
 				 
 				break;
 			}

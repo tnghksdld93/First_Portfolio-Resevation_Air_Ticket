@@ -4,13 +4,13 @@ import com.itwill.flight.Flight;
 import com.itwill.flight.FlightDAO;
 
 public class FlightDAOTestMain {
-	public static void main(String[] args) throws Exception{
+	public static void main(String[] args, Object flight) throws Exception{
 		FlightDAO flightDAO = new FlightDAO();
 		
 		System.out.println("------------create----------------");
-		boolean isAdd = flightDAO.create(new Flight("id-1", "2020-07-20/07:30", "2020-07-20/12:00"));
+		boolean isAdd = flightDAO.create(new Flight("id-1", 2020, 07, 20, "07:30", 2020, 07, 20, "12:00"));
 		System.out.println(isAdd);
-		isAdd = flightDAO.create(new Flight("id-2", "2020-07-22/09:30", "2020-07-22/14:00"));
+		isAdd = flightDAO.create(new Flight("id-2", 2020, 07, 22, "09:30", 2020, 07, 22, "14:00"));
 		System.out.println(isAdd);
 		
 		
@@ -21,8 +21,21 @@ public class FlightDAOTestMain {
 		System.out.println("---------------------update------------------------");
 		
 		Flight updateFlight = flightDAO.readOne("id-1");
-		updateFlight.setFlightStartDate("2020-08-21/09:40");
-		updateFlight.setFlightFinishDate("2020-08-21/14:10");
+		
+		
+		updateFlight.setFlightFinishTime("19:30");
+		updateFlight.setFlightFinishYear(2021);
+		updateFlight.setFlightFinishMonth(05);
+		updateFlight.setFlightFinishDay(21);
+		updateFlight.setFlightStartTime("06:10");
+		updateFlight.setFlightStartYear(2019);
+		updateFlight.setFlightStartMonth(06);
+		updateFlight.setFlightStartDay(17);
+		
+		
+		updateFlight.setFlightStartTime("09:40");
+		updateFlight.setFlightFinishTime("14:10");
+		
 		flightDAO.update(updateFlight);
 		System.out.println(flightDAO.readOne("id-1"));
 		System.out.println("---------------------delete------------------------");
