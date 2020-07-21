@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class FlightDAO {
 
-	private File flightFile;
+	public File flightFile;
 	
 	public FlightDAO() throws Exception{
 		/***********************************[**********/
@@ -23,7 +23,7 @@ public class FlightDAO {
 		
 		/*********************************************/
 		
-	private ArrayList<Flight> readFile() throws Exception{
+	public ArrayList<Flight> readFile() throws Exception{
 		ObjectInputStream ois = new ObjectInputStream(new FileInputStream(flightFile));
 		ArrayList<Flight> flightList = (ArrayList<Flight>)ois.readObject();
 		ois.close();
@@ -66,11 +66,16 @@ public class FlightDAO {
 		}
 		return isDuplicate;
 	}
-	
+	/*
+	 * readAll
+	 */
 	
 	public ArrayList<Flight> readAll() throws Exception{
 		return this.readFile();
 	}
+	/*
+	 * readOne
+	 */
 	 
 	
 	public Flight readOne(String flightName) throws Exception{
@@ -85,6 +90,13 @@ public class FlightDAO {
 		return findFlight;
 	}
 	
+	
+	/*
+	 * readMultiple
+	 */
+	
+	
+
 	
 	public void update(Flight updateFlight) throws Exception {
 		ArrayList<Flight> flightList = readFile();

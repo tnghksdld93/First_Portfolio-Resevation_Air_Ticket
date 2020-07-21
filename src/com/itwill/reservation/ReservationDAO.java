@@ -7,6 +7,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
+import com.itwill.flight.Flight;
+
 
 public class ReservationDAO {
 	private File reservationFile;
@@ -121,6 +123,9 @@ public class ReservationDAO {
 		}
 		writeFile(reservationList);
 	}
+
+
+
 	
 
 }
