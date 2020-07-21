@@ -35,6 +35,14 @@ public class Passenger implements Serializable {
 	}
 	
 
+	
+	@Override
+	public String toString() {
+		return "Passenger [memberId=" + memberId + ", memberPw=" + memberPw + ", memberName=" + memberName
+				+ ", birthDate=" + birthDate + ", phoneNo=" + phoneNo + ", newPw=" + newPw + "]" +"\n";
+	}
+
+
 	public String getMemberId() {
 		return memberId;
 	}

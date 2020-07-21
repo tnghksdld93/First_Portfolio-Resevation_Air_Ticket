@@ -8,9 +8,9 @@ public class FlightDAOTestMain {
 		FlightDAO flightDAO = new FlightDAO();
 		
 		System.out.println("------------create----------------");
-		boolean isAdd = flightDAO.create(new Flight("id-1", 2020, 07, 20, "07:30", 2020, 07, 20, "12:00", "인천", "다낭"));
+		boolean isAdd = flightDAO.create(new Flight("id-1", 2020, 07, 20, "07:30", 2020, 07, 20, "12:00", "인천", "다낭", 2500000));
 		System.out.println(isAdd);
-		isAdd = flightDAO.create(new Flight("id-2", 2020, 07, 22, "09:30", 2020, 07, 22, "14:00", "인천", "하노이"));
+		isAdd = flightDAO.create(new Flight("id-2", 2020, 07, 22, "09:30", 2020, 07, 22, "14:00", "인천", "하노이", 2400000));
 		System.out.println(isAdd);
 		
 		

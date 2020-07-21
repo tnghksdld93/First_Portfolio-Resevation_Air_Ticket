@@ -15,6 +15,7 @@ public class Flight implements Serializable {
 	private String flightFinishTime; // 도착시간
 	private String startPoint;       // 출발지
 	private String finishPoint;      // 도착지
+	private int fee;	//기본요금
 
 
 	public Flight() {
@@ -24,7 +25,7 @@ public class Flight implements Serializable {
 
 	public Flight(String flightName, int flightStartYear, int flightStartMonth, int flightStartDay,
 			String flightStartTime, int flightFinishYear, int flightFinishMonth, int flightFinishDay,
-			String flightFinishTime, String startPoint, String finishPoint) {
+			String flightFinishTime, String startPoint, String finishPoint, int fee) {
 		super();
 		this.flightName = flightName;
 		this.flightStartYear = flightStartYear;
@@ -37,6 +38,28 @@ public class Flight implements Serializable {
 		this.flightFinishTime = flightFinishTime;
 		this.startPoint = startPoint;
 		this.finishPoint = finishPoint;
+		this.fee = fee;
+	}
+
+
+	
+	@Override
+	public String toString() {
+		return "Flight [flightName=" + flightName + ", flightStartYear=" + flightStartYear + ", flightStartMonth="
+				+ flightStartMonth + ", flightStartDay=" + flightStartDay + ", flightStartTime=" + flightStartTime
+				+ ", flightFinishYear=" + flightFinishYear + ", flightFinishMonth=" + flightFinishMonth
+				+ ", flightFinishDay=" + flightFinishDay + ", flightFinishTime=" + flightFinishTime + ", startPoint="
+				+ startPoint + ", finishPoint=" + finishPoint + ", fee=" + fee + "]" +"\n";
+	}
+
+
+	public int getFee() {
+		return fee;
+	}
+
+
+	public void setFee(int fee) {
+		this.fee = fee;
 	}
 
 
