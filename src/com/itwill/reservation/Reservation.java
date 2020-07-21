@@ -24,8 +24,6 @@ public class Reservation implements Serializable{
    }
 
 
-
-
    public Reservation(String seatRating, int adultCount, int childCount, Flight flight,
          Passenger passenger) {
       super();
@@ -38,14 +36,6 @@ public class Reservation implements Serializable{
       this.passenger = passenger;
    }
 
-
-   
-   
-  
-
-
-
-
 	@Override
 	public String toString() {
 		return "Reservation [reservationNo=" + reservationNo + ", seatRating=" + seatRating + ", adultCount=" + adultCount
@@ -54,13 +44,10 @@ public class Reservation implements Serializable{
 	}
 
 
-
-
 public int generateNo() {
       int reservationNo = inherenceReserveNo++;
       return reservationNo;
    }
-   
    
 
    public static int getInherenceReserveNo() {
@@ -68,12 +55,9 @@ public int generateNo() {
    }
 
 
-
-
    public static void setInherenceReserveNo(int inherenceReserveNo) {
       Reservation.inherenceReserveNo = inherenceReserveNo;
    }
-
 
 
    public String getSeatRating() {
@@ -81,13 +65,9 @@ public int generateNo() {
    }
 
 
-
-
    public void setSeatRating(String seatRating) {
       this.seatRating = seatRating;
    }
-
-
 
 
    public int getAdultCount() {
@@ -95,13 +75,9 @@ public int generateNo() {
    }
 
 
-
-
    public void setAdultCount(int adultCount) {
       this.adultCount = adultCount;
    }
-
-
 
 
    public int getChildCount() {
@@ -109,27 +85,19 @@ public int generateNo() {
    }
 
 
-
-
    public void setChildCount(int childCount) {
       this.childCount = childCount;
    }
-
-
 
 
    public int getCount() {
       return count;
    }
 
-
-
-
+   
    public void setCount(int count) {
       this.count = count;
    }
-
-
 
 
    public int getReservationNo() {
@@ -137,13 +105,9 @@ public int generateNo() {
    }
 
 
-
-
    public void setReservationNo(int reservationNo) {
       this.reservationNo = reservationNo;
    }
-
-
 
 
    public Flight getFlight() {
@@ -151,29 +115,18 @@ public int generateNo() {
    }
 
 
-
-
    public void setFlight(Flight flight) {
       this.flight = flight;
    }
-
-
 
 
    public Passenger getPassenger() {
       return passenger;
    }
 
-
-
-
    public void setPassenger(Passenger passenger) {
       this.passenger = passenger;
    }
-   
-   
-      
-   
 
 
 }
