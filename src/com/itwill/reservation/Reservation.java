@@ -7,142 +7,156 @@ import com.itwill.passenger.Passenger;
 
 public class Reservation implements Serializable{
 
-	private String seatRating;			//	좌석등급
-	private int adultCount;             // 성인 수
-	private int childCount;             // 유아 수
-	private int count;					// 승객
-	private int reservationNo;		    // 예약번호
-	private Flight flight;              //포함
-	private Passenger passenger;        //포함
-	
+   private String seatRating;         // 좌석등급
+   private int adultCount;            // 성인 수
+   private int childCount;            // 유아 수
+   private int count;                 // 승객
+   private int reservationNo;         // 예약번호 
+   private Flight flight;             //포함
+   private Passenger passenger;       //포함
+   private static int inherenceReserveNo = 1000;
+   
 
 
-	
-	public Reservation() {
-		// TODO Auto-generated constructor stub
-	}
-
-
-
-
-	public Reservation(String seatRating, int adultCount, int childCount, int reservationNo, Flight flight,
-			Passenger passenger) {
-		super();
-		this.seatRating = seatRating;
-		this.adultCount = adultCount;
-		this.childCount = childCount;
-		this.count = adultCount+childCount;
-		this.reservationNo = reservationNo;
-		this.flight = flight;
-		this.passenger = passenger;
-	}
+   
+   public Reservation() {
+      // TODO Auto-generated constructor stub
+   }
 
 
 
 
-	public String getSeatRating() {
-		return seatRating;
-	}
+   public Reservation(String seatRating, int adultCount, int childCount, int reservationNo, Flight flight,
+         Passenger passenger) {
+      super();
+      this.seatRating = seatRating;
+      this.adultCount = adultCount;
+      this.childCount = childCount;
+      this.count = adultCount+childCount;
+      this.reservationNo = generateNo();
+      this.flight = flight;
+      this.passenger = passenger;
+   }
+
+
+   public int generateNo() {
+      int reservationNo = inherenceReserveNo++;
+      return reservationNo;
+   }
+   
+   
+
+   public static int getInherenceReserveNo() {
+      return inherenceReserveNo;
+   }
 
 
 
 
-	public void setSeatRating(String seatRating) {
-		this.seatRating = seatRating;
-	}
+   public static void setInherenceReserveNo(int inherenceReserveNo) {
+      Reservation.inherenceReserveNo = inherenceReserveNo;
+   }
+
+
+
+   public String getSeatRating() {
+      return seatRating;
+   }
 
 
 
 
-	public int getAdultCount() {
-		return adultCount;
-	}
+   public void setSeatRating(String seatRating) {
+      this.seatRating = seatRating;
+   }
 
 
 
 
-	public void setAdultCount(int adultCount) {
-		this.adultCount = adultCount;
-	}
+   public int getAdultCount() {
+      return adultCount;
+   }
 
 
 
 
-	public int getChildCount() {
-		return childCount;
-	}
+   public void setAdultCount(int adultCount) {
+      this.adultCount = adultCount;
+   }
 
 
 
 
-	public void setChildCount(int childCount) {
-		this.childCount = childCount;
-	}
+   public int getChildCount() {
+      return childCount;
+   }
 
 
 
 
-	public int getCount() {
-		return count;
-	}
+   public void setChildCount(int childCount) {
+      this.childCount = childCount;
+   }
 
 
 
 
-	public void setCount(int count) {
-		this.count = count;
-	}
+   public int getCount() {
+      return count;
+   }
 
 
 
 
-	public int getReservationNo() {
-		return reservationNo;
-	}
+   public void setCount(int count) {
+      this.count = count;
+   }
 
 
 
 
-	public void setReservationNo(int reservationNo) {
-		this.reservationNo = reservationNo;
-	}
+   public int getReservationNo() {
+      return reservationNo;
+   }
 
 
 
 
-	public Flight getFlight() {
-		return flight;
-	}
+   public void setReservationNo(int reservationNo) {
+      this.reservationNo = reservationNo;
+   }
 
 
 
 
-	public void setFlight(Flight flight) {
-		this.flight = flight;
-	}
+   public Flight getFlight() {
+      return flight;
+   }
 
 
 
 
-	public Passenger getPassenger() {
-		return passenger;
-	}
+   public void setFlight(Flight flight) {
+      this.flight = flight;
+   }
 
 
 
 
-	public void setPassenger(Passenger passenger) {
-		this.passenger = passenger;
-	}
-	
-	
-		
-	
+   public Passenger getPassenger() {
+      return passenger;
+   }
+
+
+
+
+   public void setPassenger(Passenger passenger) {
+      this.passenger = passenger;
+   }
+   
+   
+      
+   
 
 
 }
-
-
-
-
-

@@ -12,7 +12,7 @@ public class ReservationServiceTestMain {
 		/*
 		 * 예약정보 Add
 		 */
-		reservationService.addReservation(new Reservation("인천","뉴욕","비즈니스","2020.07.30","2020.8.30",2,"성인","1111"));
+
 		reservationService.addReservation(new Reservation("인천","다낭","이코노미","2020.08.20","2020.9.10",1,"성인","2222"));
 		reservationService.addReservation(new Reservation("인천","파리","이코노미","2020.08.10","2020.12.25",4,"성인","3333"));
 		reservationService.addReservation(new Reservation("인천","몰타","비즈니스","2020.08.01","2020.8.10",3,"성인","4444"));
