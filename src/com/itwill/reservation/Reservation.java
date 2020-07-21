@@ -35,6 +35,25 @@ public class Reservation implements Serializable{
       this.flight = flight;
       this.passenger = passenger;
    }
+   
+   /*
+	 * 요금 계산
+	 */
+	public double calculateFee() throws Exception{
+		double calFee = 0;  //리턴값
+		//1. 성인요금
+		double adultFee = flight.getFee()*adultCount;
+		//1-2. 유아요금
+		double childFee = flight.getFee()*childCount*0.9;
+		//1.3 기본 합계 요금
+		calFee = adultFee+childFee;
+		if(seatRating.equals("business")) {
+			//2. 비즈니스 요금
+			calFee = (adultFee+childFee)*1.3;
+			}
+		return calFee;
+	}
+	
 
 	@Override
 	public String toString() {
