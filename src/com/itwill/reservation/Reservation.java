@@ -7,11 +7,11 @@ import com.itwill.passenger.Passenger;
 
 public class Reservation implements Serializable{
 
+	private int reservationNo;         // 예약번호 
    private String seatRating;         // 좌석등급
    private int adultCount;            // 성인 수
    private int childCount;            // 유아 수
    private int count;                 // 승객
-   private int reservationNo;         // 예약번호 
    private Flight flight;             //포함
    private Passenger passenger;       //포함
    private static int inherenceReserveNo = 1000;
@@ -26,7 +26,7 @@ public class Reservation implements Serializable{
 
 
 
-   public Reservation(String seatRating, int adultCount, int childCount, int reservationNo, Flight flight,
+   public Reservation(String seatRating, int adultCount, int childCount, Flight flight,
          Passenger passenger) {
       super();
       this.seatRating = seatRating;
@@ -39,7 +39,24 @@ public class Reservation implements Serializable{
    }
 
 
-   public int generateNo() {
+   
+   
+  
+
+
+
+
+	@Override
+	public String toString() {
+		return "Reservation [reservationNo=" + reservationNo + ", seatRating=" + seatRating + ", adultCount=" + adultCount
+				+ ", childCount=" + childCount + ", count=" + count + ", flight=" + flight + ", passenger=" + passenger
+				+ "]"+"\n";
+	}
+
+
+
+
+public int generateNo() {
       int reservationNo = inherenceReserveNo++;
       return reservationNo;
    }
