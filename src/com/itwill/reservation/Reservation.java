@@ -1,20 +1,19 @@
 package com.itwill.reservation;
 
 import java.io.Serializable;
-import java.util.Date;
+
+import com.itwill.flight.Flight;
+import com.itwill.passenger.Passenger;
 
 public class Reservation implements Serializable{
 
-
-
-	private String startPoint;			//	출발지
-	private String finishPoint;			//	도착지
 	private String seatRating;			//	좌석등급
-	private String startDate;				//	가는날
-	private String comingDate;			//	오는날
+	private int adultCount;             // 성인 수
+	private int childCount;          // 유아 수
 	private int count;					//  승객
-	private String passengerType;		//	승객유형
-	private String reservationNo;		//	예약번호 - 추가했음
+	private int reservationNo;		//	예약번호 - 추가했음
+	private Flight flight;     //포함
+	private Passenger passenger;  //포함
 	
 
 
@@ -22,70 +21,65 @@ public class Reservation implements Serializable{
 	public Reservation() {
 		// TODO Auto-generated constructor stub
 	}
-	
-		
-	public Reservation(String startPoint, String finishPoint, String seatRating, String startDate,
-			String comingDate, int count, String passengerType, String reservationNo) {
+
+
+
+
+	public Reservation(String seatRating, int adultCount, int childCount, int reservationNo, Flight flight,
+			Passenger passenger) {
 		super();
-		this.startPoint = startPoint;
-		this.finishPoint = finishPoint;
 		this.seatRating = seatRating;
-		this.startDate = startDate;
-		this.comingDate = comingDate;
-		this.count = count;
-		this.passengerType = passengerType;
+		this.adultCount = adultCount;
+		this.childCount = childCount;
+		this.count = adultCount+childCount;
 		this.reservationNo = reservationNo;
-	}	
-
-	
-	public String getStartPoint() {
-		return startPoint;
+		this.flight = flight;
+		this.passenger = passenger;
 	}
 
 
-	public void setStartPoint(String startPoint) {
-		this.startPoint = startPoint;
-	}
-
-
-	public String getFinishPoint() {
-		return finishPoint;
-	}
-
-
-	public void setFinishPoint(String finishPoint) {
-		this.finishPoint = finishPoint;
-	}
 
 
 	public String getSeatRating() {
 		return seatRating;
 	}
-  
+
+
+
 
 	public void setSeatRating(String seatRating) {
 		this.seatRating = seatRating;
 	}
 
 
-	public String getStartDate() {
-		return startDate;
+
+
+	public int getAdultCount() {
+		return adultCount;
 	}
 
 
-	public void setStartDate(String startDate) {
-		this.startDate = startDate;
+
+
+	public void setAdultCount(int adultCount) {
+		this.adultCount = adultCount;
 	}
 
 
-	public String getComingDate() {
-		return comingDate;
+
+
+	public int getChildCount() {
+		return childCount;
 	}
 
 
-	public void setComingDate(String comingDate) {
-		this.comingDate = comingDate;
+
+
+	public void setChildCount(int childCount) {
+		this.childCount = childCount;
 	}
+
+
 
 
 	public int getCount() {
@@ -93,36 +87,57 @@ public class Reservation implements Serializable{
 	}
 
 
+
+
 	public void setCount(int count) {
 		this.count = count;
 	}
 
 
-	public String getPassengerType() {
-		return passengerType;
-	}
 
 
-	public void setPassengerType(String passengerType) {
-		this.passengerType = passengerType;
-	}
-
-
-	public String getReservationNo() {
+	public int getReservationNo() {
 		return reservationNo;
 	}
 
 
-	public void setReservationNo(String reservationNo) {
+
+
+	public void setReservationNo(int reservationNo) {
 		this.reservationNo = reservationNo;
 	}
 
 
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+
+
+	public Flight getFlight() {
+		return flight;
 	}
+
+
+
+
+	public void setFlight(Flight flight) {
+		this.flight = flight;
+	}
+
+
+
+
+	public Passenger getPassenger() {
+		return passenger;
+	}
+
+
+
+
+	public void setPassenger(Passenger passenger) {
+		this.passenger = passenger;
+	}
+	
+	
+		
+	
 
 
 }
