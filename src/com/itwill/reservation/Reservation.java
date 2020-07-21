@@ -9,11 +9,11 @@ public class Reservation implements Serializable{
 
 	private String seatRating;			//	좌석등급
 	private int adultCount;             // 성인 수
-	private int childCount;          // 유아 수
-	private int count;					//  승객
-	private int reservationNo;		//	예약번호 - 추가했음
-	private Flight flight;     //포함
-	private Passenger passenger;  //포함
+	private int childCount;             // 유아 수
+	private int count;					// 승객
+	private int reservationNo;		    // 예약번호
+	private Flight flight;              //포함
+	private Passenger passenger;        //포함
 	
 
 
