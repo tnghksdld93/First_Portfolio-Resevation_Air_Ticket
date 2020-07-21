@@ -2,46 +2,42 @@ package com.itwill.flight;
 
 import java.io.Serializable;
 
-public class Flight implements Serializable{
-	
-	private String flightName;
-	private int flightStartYear;
-	private int flightStartMonth;
-	private int flightStartDay;
-	private String flightStartTime;
-	private int flightFinishYear;
-	private int flightFinishMonth;
-	private int flightFinishDay;
-	private String flightFinishTime;
-	
+public class Flight implements Serializable {
 
-	
-	
+	private String flightName;       // 비행편
+	private int flightStartYear;     // 출발 년도(Year)
+	private int flightStartMonth;    // 출발 월(Month)
+	private int flightStartDay;      // 출발 날(day)
+	private String flightStartTime;  // 출발 시간
+	private int flightFinishYear;    // 도착 년도(Year)
+	private int flightFinishMonth;   // 도착 월(Month)
+	private int flightFinishDay;     // 도착날(day)
+	private String flightFinishTime; // 도착시간
+	private String startPoint;       // 출발지
+	private String finishPoint;      // 도착지
+
 
 	public Flight() {
 		// TODO Auto-generated constructor stub
 	}
 
 
-
-
-
 	public Flight(String flightName, int flightStartYear, int flightStartMonth, int flightStartDay,
-			String flightStartTime, int flightFinishYear, int flightFinishMonth, int flightFinishDay, String flightFinishTime) {
+			String flightStartTime, int flightFinishYear, int flightFinishMonth, int flightFinishDay,
+			String flightFinishTime, String startPoint, String finishPoint) {
 		super();
 		this.flightName = flightName;
-		this.flightStartTime = flightStartTime;
 		this.flightStartYear = flightStartYear;
 		this.flightStartMonth = flightStartMonth;
 		this.flightStartDay = flightStartDay;
-		this.flightFinishTime = flightFinishTime;
+		this.flightStartTime = flightStartTime;
 		this.flightFinishYear = flightFinishYear;
 		this.flightFinishMonth = flightFinishMonth;
 		this.flightFinishDay = flightFinishDay;
+		this.flightFinishTime = flightFinishTime;
+		this.startPoint = startPoint;
+		this.finishPoint = finishPoint;
 	}
-
-
-
 
 
 	public String getFlightName() {
@@ -49,31 +45,9 @@ public class Flight implements Serializable{
 	}
 
 
-
-
-
 	public void setFlightName(String flightName) {
 		this.flightName = flightName;
 	}
-
-
-
-
-
-	public String getFlightStartTime() {
-		return flightStartTime;
-	}
-
-
-
-
-
-	public void setFlightStartTime(String flightStartTime) {
-		this.flightStartTime = flightStartTime;
-	}
-
-
-
 
 
 	public int getFlightStartYear() {
@@ -81,15 +55,9 @@ public class Flight implements Serializable{
 	}
 
 
-
-
-
 	public void setFlightStartYear(int flightStartYear) {
 		this.flightStartYear = flightStartYear;
 	}
-
-
-
 
 
 	public int getFlightStartMonth() {
@@ -97,15 +65,9 @@ public class Flight implements Serializable{
 	}
 
 
-
-
-
 	public void setFlightStartMonth(int flightStartMonth) {
 		this.flightStartMonth = flightStartMonth;
 	}
-
-
-
 
 
 	public int getFlightStartDay() {
@@ -113,31 +75,19 @@ public class Flight implements Serializable{
 	}
 
 
-
-
-
 	public void setFlightStartDay(int flightStartDay) {
 		this.flightStartDay = flightStartDay;
 	}
 
 
-
-
-
-	public String getFlightFinishTime() {
-		return flightFinishTime;
+	public String getFlightStartTime() {
+		return flightStartTime;
 	}
 
 
-
-
-
-	public void setFlightFinishTime(String flightFinishTime) {
-		this.flightFinishTime = flightFinishTime;
+	public void setFlightStartTime(String flightStartTime) {
+		this.flightStartTime = flightStartTime;
 	}
-
-
-
 
 
 	public int getFlightFinishYear() {
@@ -145,15 +95,9 @@ public class Flight implements Serializable{
 	}
 
 
-
-
-
 	public void setFlightFinishYear(int flightFinishYear) {
 		this.flightFinishYear = flightFinishYear;
 	}
-
-
-
 
 
 	public int getFlightFinishMonth() {
@@ -161,15 +105,9 @@ public class Flight implements Serializable{
 	}
 
 
-
-
-
 	public void setFlightFinishMonth(int flightFinishMonth) {
 		this.flightFinishMonth = flightFinishMonth;
 	}
-
-
-
 
 
 	public int getFlightFinishDay() {
@@ -177,12 +115,41 @@ public class Flight implements Serializable{
 	}
 
 
-
-
-
 	public void setFlightFinishDay(int flightFinishDay) {
 		this.flightFinishDay = flightFinishDay;
 	}
-	
+
+
+	public String getFlightFinishTime() {
+		return flightFinishTime;
+	}
+
+
+	public void setFlightFinishTime(String flightFinishTime) {
+		this.flightFinishTime = flightFinishTime;
+	}
+
+
+	public String getStartPoint() {
+		return startPoint;
+	}
+
+
+	public void setStartPoint(String startPoint) {
+		this.startPoint = startPoint;
+	}
+
+
+	public String getFinishPoint() {
+		return finishPoint;
+	}
+
+
+	public void setFinishPoint(String finishPoint) {
+		this.finishPoint = finishPoint;
+	}
+
+
+
 	
 }
