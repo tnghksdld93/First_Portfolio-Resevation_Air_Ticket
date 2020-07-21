@@ -38,12 +38,10 @@ public class Reservation implements Serializable{
       this.passenger = passenger;
    }
 
-
    public int generateNo() {
       int reservationNo = inherenceReserveNo++;
       return reservationNo;
    }
-   
    
 
    public static int getInherenceReserveNo() {
@@ -51,12 +49,9 @@ public class Reservation implements Serializable{
    }
 
 
-
-
    public static void setInherenceReserveNo(int inherenceReserveNo) {
       Reservation.inherenceReserveNo = inherenceReserveNo;
    }
-
 
 
    public String getSeatRating() {
@@ -71,20 +66,14 @@ public class Reservation implements Serializable{
    }
 
 
-
-
    public int getAdultCount() {
       return adultCount;
    }
 
 
-
-
    public void setAdultCount(int adultCount) {
       this.adultCount = adultCount;
    }
-
-
 
 
    public int getChildCount() {
@@ -99,27 +88,19 @@ public class Reservation implements Serializable{
    }
 
 
-
-
    public int getCount() {
       return count;
    }
 
-
-
-
+   
    public void setCount(int count) {
       this.count = count;
    }
 
 
-
-
    public int getReservationNo() {
       return reservationNo;
    }
-
-
 
 
    public void setReservationNo(int reservationNo) {
@@ -153,10 +134,6 @@ public class Reservation implements Serializable{
    public void setPassenger(Passenger passenger) {
       this.passenger = passenger;
    }
-   
-   
-      
-   
 
 
 }
