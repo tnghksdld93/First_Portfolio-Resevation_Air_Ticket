@@ -14,7 +14,7 @@ public class Reservation implements Serializable{
    private int reservationNo;         // 예약번호 
    private Flight flight;             //포함
    private Passenger passenger;       //포함
-   private static int inherenceReserveNo = 1000;
+   private static int inherenceReserveNo = 1000;   //예약번호 생성
    
 
 
