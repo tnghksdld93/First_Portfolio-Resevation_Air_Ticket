@@ -20,7 +20,7 @@ public class ReservationService {
 	/*
 	 * 예약취소
 	 */
-	public void remove(String reservationNo) throws Exception {
+	public void remove(int reservationNo) throws Exception {
 		reservationDAO.delete(reservationNo);
 	}
 	
