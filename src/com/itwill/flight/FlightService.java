@@ -42,7 +42,7 @@ public class FlightService {
 	/*
 	 * 삭제
 	 */
-	public void deleteFlight(String flightName) throws Exception {
+	public void deleteFlight(String flightName) throws Exception {    
 		flightDAO.delete(flightName);
 	}
 	
