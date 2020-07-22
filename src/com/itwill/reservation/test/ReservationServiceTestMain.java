@@ -31,6 +31,8 @@ public class ReservationServiceTestMain {
 
 	
 		System.out.println(reservationService.findByAll());
+		
+		System.out.println(reservationService.readOneWay("다낭", 8, 12));
 	
 	
 		
