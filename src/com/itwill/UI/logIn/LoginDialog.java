@@ -43,8 +43,9 @@ public class LoginDialog extends JDialog {
 
 	/**
 	 * Create the dialog.
+	 * @throws Exception 
 	 */
-	public LoginDialog() {
+	public LoginDialog() throws Exception {
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -81,6 +82,7 @@ public class LoginDialog extends JDialog {
 						psframe.loginUI(id);
 						JOptionPane.showMessageDialog(null, "로그인 성공");
 						dispose();
+						
 					}else if(result==1) {
 						//아이디 존재안함
 						JOptionPane.showMessageDialog(null, "아이디 존재안함");
@@ -107,6 +109,11 @@ public class LoginDialog extends JDialog {
 		contentPanel.add(loginBtn);
 		
 		JButton cancelBtn = new JButton("취소");
+		cancelBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose(); //닫기
+			}
+		});
 		cancelBtn.setBounds(239, 174, 97, 23);
 		contentPanel.add(cancelBtn);
 		
@@ -118,11 +125,10 @@ public class LoginDialog extends JDialog {
 		});
 		signupBtn.setBounds(168, 228, 97, 23);
 		contentPanel.add(signupBtn);
+		passengerService=new PassengerService();
 	}//end constructor
 	public void setFrame(PassengerServiceFrameMain passengerServiceFrameMain) {
 		this.psframe = passengerServiceFrameMain;
 	}
-	public static void main1(String[] args) throws Exception{
-		new PassengerService();
-	}
+
 }//End class

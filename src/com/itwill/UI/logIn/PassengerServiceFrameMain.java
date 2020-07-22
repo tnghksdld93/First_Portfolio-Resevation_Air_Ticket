@@ -55,7 +55,12 @@ public class PassengerServiceFrameMain extends JFrame {
 		JMenuItem loginMI = new JMenuItem("로그인");
 		loginMI.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				loginProcess();
+				try {
+					loginProcess();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		passengerM.add(loginMI);
@@ -93,7 +98,7 @@ public class PassengerServiceFrameMain extends JFrame {
 		//logoutUI();
 		//loginProcess();
 	}
-	protected void loginProcess() {
+	protected void loginProcess() throws Exception {
 		/*
 		 * 로그인다이알로그 띄우기
 		 */

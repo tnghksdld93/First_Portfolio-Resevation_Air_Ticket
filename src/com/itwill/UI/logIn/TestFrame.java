@@ -6,13 +6,19 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.itwill.UI.reservation.ReservationPanel;
+import com.itwill.reservation.ReservationService;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class TestFrame extends JFrame {
 
 	private JPanel contentPane;
+	private ReservationService frame;
 
 	/**
 	 * Launch the application.
@@ -48,9 +54,29 @@ public class TestFrame extends JFrame {
 			}
 		});
 		contentPane.add(btnNewButton, BorderLayout.SOUTH);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.PINK);
+		contentPane.add(panel, BorderLayout.NORTH);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(Color.ORANGE);
+		contentPane.add(panel_1, BorderLayout.WEST);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(Color.GREEN);
+		contentPane.add(panel_2, BorderLayout.EAST);
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBackground(Color.GRAY);
+		contentPane.add(panel_3, BorderLayout.CENTER);
 	}
-	public void showLoginDialog() {
+	public void showLoginDialog() throws Exception {
 		LoginDialog loginDialog = new LoginDialog();
 		loginDialog.setVisible(true);
 	}
+	public void setFrame(ReservationService reservationServiceFrameMain) {
+		this.frame = reservationServiceFrameMain;
+	}
+
 }
