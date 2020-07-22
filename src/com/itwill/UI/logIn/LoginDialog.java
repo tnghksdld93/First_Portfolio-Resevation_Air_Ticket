@@ -3,7 +3,6 @@ package com.itwill.UI.logIn;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
-import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -18,13 +17,17 @@ import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class LoginPanel extends JPanel {
+public class LoginDialog extends JDialog {
+
 	private PassengerService passengerService;
 	private PassengerServiceFrameMain psframe;
 	private final JPanel contentPanel = new JPanel();
 	private JTextField idTF;
 	private JPasswordField pwTF;
 	
+	
+	
+
 	/**
 	 * Launch the application.
 	 */
@@ -37,11 +40,11 @@ public class LoginPanel extends JPanel {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
-	 * Create the panel.
+	 * Create the dialog.
 	 */
-	public LoginPanel() {
+	public LoginDialog() {
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -49,11 +52,11 @@ public class LoginPanel extends JPanel {
 		contentPanel.setLayout(null);
 		
 		JLabel idLb = new JLabel("아이디");
-		idLb.setBounds(97, 71, 36, 15);
+		idLb.setBounds(97, 71, 68, 15);
 		contentPanel.add(idLb);
 		
 		JLabel pwLb = new JLabel("패스워드");
-		pwLb.setBounds(97, 115, 48, 15);
+		pwLb.setBounds(97, 115, 68, 15);
 		contentPanel.add(pwLb);
 		
 		idTF = new JTextField();
@@ -75,7 +78,8 @@ public class LoginPanel extends JPanel {
 					int result =  passengerService.login(id,pw);
 					if(result==0) {
 						//로그인 성공
-						//psframe.loginUI(id);
+						psframe.loginUI(id);
+						JOptionPane.showMessageDialog(null, "로그인 성공");
 						dispose();
 					}else if(result==1) {
 						//아이디 존재안함
@@ -107,19 +111,14 @@ public class LoginPanel extends JPanel {
 		contentPanel.add(cancelBtn);
 		
 		JButton signupBtn = new JButton("회원가입");
+		signupBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		signupBtn.setBounds(168, 228, 97, 23);
 		contentPanel.add(signupBtn);
 	}//end constructor
-	protected void dispose() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private AbstractButton getContentPane() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	public void setFrame(PassengerServiceFrameMain passengerServiceFrameMain) {
 		this.psframe = passengerServiceFrameMain;
 	}
