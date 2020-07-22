@@ -19,7 +19,10 @@ public class Reservation implements Serializable {
 	public Reservation() {
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	/*
+	 * Update용 생성자 -- 예약번호 인자
+	 */
 	public Reservation(int reservationNo, String seatRating, int adultCount, int childCount, Flight flight) {
 		super();
 		this.reservationNo = reservationNo;
