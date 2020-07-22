@@ -8,8 +8,13 @@ import com.itwill.reservation.ReservationDAO;
 public class ReservationDAOTestMain {
 	public static void main(String[] args) throws Exception {
 		ReservationDAO reservationDAO = new ReservationDAO();
+
+         /*
+		Flight flight1 = new Flight("비즈니스", 1, 2, );
+=======
 		
 		Flight flight1 = new Flight("id-1", 2020, 8, 20, "08:20", 2020, 8, 20, "13:30", "인천", "다낭", 2500000, "대한항공");
+>>>>>>> branch 'master' of https://github.com/2020-10-itwill-javapython/teamproject-flight.git
 		Passenger passenger1 = new Passenger("xxx", "xxx", "김구달", "470123", "010-3333-4444");
 		Flight flight2 = new Flight("if-1", 2020, 9, 23, "09:20", 2020, 9, 24, "08:30", "인천", "파리", 3000000, "아시아나");
 		Passenger passenger2 = new Passenger("yyy", "yyy", "왕준식", "860723", "010-5555-6666");
@@ -43,6 +48,7 @@ public class ReservationDAOTestMain {
 		reservationDAO.delete(1002);
 		System.out.println(reservationDAO.readAll());
 		
+		*/
 		
 		
 	}
