@@ -6,6 +6,9 @@ import com.itwill.passenger.PassengerService;
 public class PassengerServiceTestMain {
 	public static void main(String[] args) throws Exception {
 			PassengerService passengerService = new PassengerService();
+			/*
+			 * register
+			 */
 			System.out.println("----register----");
 			boolean isSuccess = passengerService.passengerRegister(new Passenger("xxx", "xxx", "이희수", "890123", "010-2030-4050"));
 			System.out.println(isSuccess);
@@ -13,6 +16,9 @@ public class PassengerServiceTestMain {
 			System.out.println(isSuccess);
 			isSuccess = passengerService.passengerRegister(new Passenger("zzz", "zzz", "최유정", "910317", "010-6327-0646"));
 			System.out.println(isSuccess);
+			/*
+			 * login
+			 */
 			System.out.println("----login----");
 			int loginResult=passengerService.login("xxx","xxx");
 			System.out.println(loginResult);
@@ -20,6 +26,9 @@ public class PassengerServiceTestMain {
 			System.out.println(loginResult);
 			loginResult=passengerService.login("bbb","zzz");
 			System.out.println(loginResult);
+			/*
+			 * update
+			 */
 			System.out.println("----update--");
 			Passenger updatePassenger = new Passenger("xxx", "aaa", "이수혁", "771021", "010-2224-9268");
 			passengerService.memberUpdate(updatePassenger);

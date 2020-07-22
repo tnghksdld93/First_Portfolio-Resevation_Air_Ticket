@@ -126,12 +126,8 @@ public class FlightDAO {
 	
 	
 	/*
-	 * readMultiple
-	 */
-	
-	
-
-	
+	 * update
+	 */	
 	public void update(Flight updateFlight) throws Exception {
 		ArrayList<Flight> flightList = readFile();
 		for (Flight flight : flightList) {
@@ -151,6 +147,9 @@ public class FlightDAO {
 		writeFile(flightList);
 	}
 	
+	/*
+	 * delete
+	 */	
 	public void delete(String flightName) throws Exception{
 		ArrayList<Flight> flightList = this.readFile();
 		for (Flight flight : flightList) {
