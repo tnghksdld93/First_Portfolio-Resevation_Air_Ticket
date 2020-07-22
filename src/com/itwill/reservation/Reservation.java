@@ -20,11 +20,12 @@ public class Reservation implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Reservation(int reservationNo, String seatRating, int count, Flight flight) {
+	public Reservation(int reservationNo, String seatRating, int adultCount, int childCount, Flight flight) {
 		super();
 		this.reservationNo = reservationNo;
 		this.seatRating = seatRating;
-		this.count = count;
+		this.adultCount = adultCount;
+		this.childCount = childCount;		
 		this.flight = flight;
 	}
 
