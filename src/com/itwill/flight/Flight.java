@@ -16,6 +16,7 @@ public class Flight implements Serializable {
 	private String startPoint;       // 출발지
 	private String finishPoint;      // 도착지
 	private int fee;	//기본요금
+	private String airlineName;		//항공회사 이름
 
 
 	public Flight() {
@@ -25,7 +26,7 @@ public class Flight implements Serializable {
 
 	public Flight(String flightName, int flightStartYear, int flightStartMonth, int flightStartDay,
 			String flightStartTime, int flightFinishYear, int flightFinishMonth, int flightFinishDay,
-			String flightFinishTime, String startPoint, String finishPoint, int fee) {
+			String flightFinishTime, String startPoint, String finishPoint, int fee, String airlineName) {
 		super();
 		this.flightName = flightName;
 		this.flightStartYear = flightStartYear;
@@ -39,6 +40,7 @@ public class Flight implements Serializable {
 		this.startPoint = startPoint;
 		this.finishPoint = finishPoint;
 		this.fee = fee;
+		this.airlineName = airlineName;
 	}
 
 
