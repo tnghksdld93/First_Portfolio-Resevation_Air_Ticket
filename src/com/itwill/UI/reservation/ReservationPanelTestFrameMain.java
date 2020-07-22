@@ -1,4 +1,4 @@
-package com.itwill.UI.종헌;
+package com.itwill.UI.reservation;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -6,12 +6,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.JSpinner;
-import java.awt.Font;
 
-public class PassengerType extends JFrame {
+public class ReservationPanelTestFrameMain extends JFrame {
 
 	private JPanel contentPane;
 
@@ -22,7 +18,7 @@ public class PassengerType extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PassengerType frame = new PassengerType();
+					ReservationPanelTestFrameMain frame = new ReservationPanelTestFrameMain();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -34,13 +30,16 @@ public class PassengerType extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PassengerType() {
+	public ReservationPanelTestFrameMain() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 190, 200);
+		setBounds(100, 100, 642, 477);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		
+		ReservationPanel reservationPanel = new ReservationPanel();
+		contentPane.add(reservationPanel, BorderLayout.CENTER);
 	}
 
 }

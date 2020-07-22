@@ -1,4 +1,4 @@
-package com.itwill.UI.종헌;
+package com.itwill.UI.reservation;
 
 import org.jdatepicker.JDatePanel;
 import org.jdatepicker.JDatePicker;
