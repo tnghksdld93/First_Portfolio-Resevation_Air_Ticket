@@ -3,8 +3,8 @@ package com.itwill.passenger;
 public class PassengerService {
 
 	private PassengerDAO passengerDAO;
-	private String memberId;
-	private String memberPw;
+	public String memberId;     //public 열어도 되나요
+	public String memberPw;
 	private String memberName;
 	private String birthDate;
 	private String phoneNo;

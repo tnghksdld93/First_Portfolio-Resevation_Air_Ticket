@@ -6,8 +6,6 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JTabbedPane;
-import java.awt.FlowLayout;
 
 public class JFrameTestMain extends JFrame {
 
@@ -40,7 +38,7 @@ public class JFrameTestMain extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
-		UpdatePassenger updatePassenger = new UpdatePassenger();
+		JPanelUpdatePassenger updatePassenger = new JPanelUpdatePassenger();
 		contentPane.add(updatePassenger, BorderLayout.CENTER);
 	}
 }
