@@ -22,9 +22,17 @@ public class Reservation implements Serializable{
    public Reservation() {
       // TODO Auto-generated constructor stub
    }
+   
+   public Reservation(int reservationNo, String seatRating, int count, Flight flight) {
+	super();
+	this.reservationNo = reservationNo;
+	this.seatRating = seatRating;
+	this.count = count;
+	this.flight = flight;
+}
 
 
-   public Reservation(String seatRating, int adultCount, int childCount, Flight flight,
+public Reservation(String seatRating, int adultCount, int childCount, Flight flight,
          Passenger passenger) {
       super();
       this.seatRating = seatRating;
