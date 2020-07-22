@@ -8,7 +8,7 @@ public class SignUpPanel extends JPanel {
 	 * Create the panel.
 	 */
 	public SignUpPanel() {
-
+		
 	}
 
 }

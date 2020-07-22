@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.itwill.UI.signUp.SignUpPanel;
 import com.itwill.passenger.PassengerService;
 
 import javax.swing.JTextField;
