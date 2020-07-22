@@ -1,4 +1,4 @@
-package com.itwill.UI.Main;
+package com.itwill.UI.main;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;

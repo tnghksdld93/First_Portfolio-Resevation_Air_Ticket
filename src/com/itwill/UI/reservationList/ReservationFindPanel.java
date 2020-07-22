@@ -1,4 +1,4 @@
-package com.itwill.UI.ReservationList;	//예매 이력 조회 및 예매 수정 취소
+package com.itwill.UI.reservationList;	//예매 이력 조회 및 예매 수정 취소
 
 import javax.swing.JPanel;
 

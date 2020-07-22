@@ -1,4 +1,4 @@
-package com.itwill.UI.혜원;
+package com.itwill.UI.updatePassenger;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;

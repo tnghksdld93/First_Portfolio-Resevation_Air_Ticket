@@ -1,4 +1,4 @@
-package com.itwill.UI.Main;
+package com.itwill.UI.main;
 
 import javax.swing.JPanel;
 
