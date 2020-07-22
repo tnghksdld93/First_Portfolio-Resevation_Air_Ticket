@@ -1,6 +1,8 @@
 package com.itwill.UI.reservationList;
 
 import javax.swing.JPanel;
+
+import java.awt.Checkbox;
 import java.awt.Color;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
@@ -16,8 +18,15 @@ import javax.swing.JTable;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
+
+import com.itwill.flight.FlightDAO;
+
 import java.awt.SystemColor;
 import javax.swing.JCheckBox;
+import javax.swing.JOptionPane;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ReservationFindPanel extends JPanel {
 	private JTable table;
@@ -39,6 +48,7 @@ public class ReservationFindPanel extends JPanel {
 		add(txtrMy);
 		
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("회원 정보");
+		rdbtnNewRadioButton.setSelected(true);
 		rdbtnNewRadioButton.setForeground(new Color(255, 255, 255));
 		rdbtnNewRadioButton.setBackground(new Color(102, 153, 255));
 		rdbtnNewRadioButton.setFont(new Font("맑은 고딕", Font.BOLD, 13));
@@ -47,6 +57,7 @@ public class ReservationFindPanel extends JPanel {
 		add(rdbtnNewRadioButton);
 		
 		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("항공권 정보");
+		rdbtnNewRadioButton_1.setSelected(true);
 		rdbtnNewRadioButton_1.setForeground(new Color(255, 255, 255));
 		rdbtnNewRadioButton_1.setBackground(new Color(102, 153, 255));
 		rdbtnNewRadioButton_1.setFont(new Font("맑은 고딕", Font.BOLD, 13));
@@ -55,6 +66,7 @@ public class ReservationFindPanel extends JPanel {
 		add(rdbtnNewRadioButton_1);
 		
 		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("탑승객 및 항공여행 정보");
+		rdbtnNewRadioButton_2.setSelected(true);
 		rdbtnNewRadioButton_2.setForeground(new Color(255, 255, 255));
 		rdbtnNewRadioButton_2.setBackground(new Color(102, 153, 255));
 		rdbtnNewRadioButton_2.setFont(new Font("맑은 고딕", Font.BOLD, 13));
@@ -102,21 +114,9 @@ public class ReservationFindPanel extends JPanel {
 		agreeCheckBox.setHorizontalAlignment(SwingConstants.CENTER);
 		agreeCheckBox.setFont(new Font("맑은 고딕", Font.BOLD | Font.ITALIC, 11));
 		agreeCheckBox.setBounds(191, 299, 240, 23);
+		agreeCheckBox.setSelected(false);
 		add(agreeCheckBox);
 		
-		JButton btnNewButton = new JButton("예매 변경");
-		btnNewButton.setBackground(new Color(0, 0, 0));
-		btnNewButton.setForeground(Color.BLACK);
-		btnNewButton.setFont(new Font("맑은 고딕", Font.BOLD, 12));
-		btnNewButton.setBounds(191, 339, 104, 39);
-		add(btnNewButton);
-		
-		JButton btnNewButton_1 = new JButton("예매 취소");
-		btnNewButton_1.setForeground(Color.BLACK);
-		btnNewButton_1.setBackground(Color.BLACK);
-		btnNewButton_1.setFont(new Font("맑은 고딕", Font.BOLD, 12));
-		btnNewButton_1.setBounds(327, 339, 104, 39);
-		add(btnNewButton_1);
 		
 		JScrollPane scrollPane_2 = new JScrollPane();
 		scrollPane_2.setBounds(30, 424, 598, 216);
@@ -144,6 +144,41 @@ public class ReservationFindPanel extends JPanel {
 		));
 		table_1.getColumnModel().getColumn(1).setPreferredWidth(79);
 		scrollPane_2.setViewportView(table_1);
+		
+		JButton changeBtn = new JButton("예매 변경");
+		changeBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (agreeCheckBox.isSelected() == false) {
+					JOptionPane.showMessageDialog(null, "상기내용 확인후 동의해 주세요 !");
+//					2번패널.setSelectedIndex(2번패널index);
+				}
+				
+			}
+		});
+		changeBtn.setFont(new Font("맑은 고딕", Font.BOLD, 13));
+		changeBtn.setBounds(195, 345, 108, 38);
+		add(changeBtn);
+		
+		JButton cancelBtn = new JButton("예매 취소");
+		cancelBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (agreeCheckBox.isSelected() == false) {
+					JOptionPane.showMessageDialog(null, "상기내용 확인후 동의 바랍니다~!!");
+				}else {
+					JOptionPane.showConfirmDialog(null, "예매내역을 삭제 하시겠습니까? 정말?", "예매내역 삭제", 
+													JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+				}
+			}
+		});
+		cancelBtn.setFont(new Font("맑은 고딕", Font.BOLD, 13));
+		cancelBtn.setBounds(331, 345, 108, 38);
+		add(cancelBtn);
 
+		
+		
+		
+		
 	}
+
+
 }
