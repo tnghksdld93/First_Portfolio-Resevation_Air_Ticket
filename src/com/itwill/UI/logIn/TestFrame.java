@@ -49,7 +49,7 @@ public class TestFrame extends JFrame {
 		});
 		contentPane.add(btnNewButton, BorderLayout.SOUTH);
 	}
-	public void showLoginDialog() {
+	public void showLoginDialog() throws Exception {
 		LoginDialog loginDialog = new LoginDialog();
 		loginDialog.setVisible(true);
 	}
