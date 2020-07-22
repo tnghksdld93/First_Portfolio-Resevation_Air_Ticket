@@ -1,4 +1,4 @@
-package com.itwill.UI.종헌;	//예매
+package com.itwill.UI.Reservation;	//예매
 
 import javax.swing.JPanel;
 

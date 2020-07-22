@@ -1,4 +1,4 @@
-package com.itwill.UI.윤호;
+package com.itwill.UI.Main;
 
 import javax.swing.JPanel;
 
