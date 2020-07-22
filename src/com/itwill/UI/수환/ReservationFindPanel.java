@@ -121,7 +121,7 @@ public class ReservationFindPanel extends JPanel {
 		JScrollPane scrollPane_2 = new JScrollPane();
 		scrollPane_2.setBounds(30, 424, 598, 216);
 		add(scrollPane_2);
-		
+		 
 		table_1 = new JTable();
 		table_1.setForeground(new Color(0, 0, 0));
 		table_1.setFont(new Font("맑은 고딕", Font.PLAIN, 13));
