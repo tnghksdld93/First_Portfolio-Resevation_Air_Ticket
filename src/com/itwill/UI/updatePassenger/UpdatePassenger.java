@@ -37,71 +37,71 @@ public class UpdatePassenger extends JPanel {
 		
 		JLabel lblNewLabel = new JLabel("아이디");
 		lblNewLabel.setFont(new Font("맑은 고딕", Font.BOLD, 15));
-		lblNewLabel.setBounds(144, 93, 84, 21);
+		lblNewLabel.setBounds(180, 150, 84, 21);
 		add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("비밀번호 재입력");
 		lblNewLabel_1.setFont(new Font("맑은 고딕", Font.BOLD, 15));
-		lblNewLabel_1.setBounds(82, 140, 131, 21);
+		lblNewLabel_1.setBounds(180, 210, 131, 21);
 		add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("새 비밀번호");
 		lblNewLabel_1_1.setFont(new Font("맑은 고딕", Font.BOLD, 15));
-		lblNewLabel_1_1.setBounds(109, 182, 84, 21);
+		lblNewLabel_1_1.setBounds(180, 270, 84, 21);
 		add(lblNewLabel_1_1);
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("이름");
 		lblNewLabel_1_1_1.setFont(new Font("맑은 고딕", Font.BOLD, 15));
-		lblNewLabel_1_1_1.setBounds(159, 225, 84, 21);
+		lblNewLabel_1_1_1.setBounds(180, 330, 84, 21);
 		add(lblNewLabel_1_1_1);
 		
 		JLabel lblNewLabel_1_1_1_1 = new JLabel("생년월일");
 		lblNewLabel_1_1_1_1.setFont(new Font("맑은 고딕", Font.BOLD, 15));
-		lblNewLabel_1_1_1_1.setBounds(129, 270, 84, 21);
+		lblNewLabel_1_1_1_1.setBounds(180, 390, 84, 21);
 		add(lblNewLabel_1_1_1_1);
 		
 		JLabel lblNewLabel_1_1_1_1_1 = new JLabel("휴대전화");
 		lblNewLabel_1_1_1_1_1.setFont(new Font("맑은 고딕", Font.BOLD, 15));
-		lblNewLabel_1_1_1_1_1.setBounds(129, 317, 84, 21);
+		lblNewLabel_1_1_1_1_1.setBounds(180, 450, 69, 21);
 		add(lblNewLabel_1_1_1_1_1);
 		
 		JLabel lblNewLabel_1_1_1_1_1_1 = new JLabel("문자수신여부");
 		lblNewLabel_1_1_1_1_1_1.setFont(new Font("맑은 고딕", Font.BOLD, 15));
-		lblNewLabel_1_1_1_1_1_1.setBounds(98, 363, 104, 21);
+		lblNewLabel_1_1_1_1_1_1.setBounds(180, 510, 90, 21);
 		add(lblNewLabel_1_1_1_1_1_1);
 		
 		idTF = new JTextField();
-		idTF.setBounds(257, 90, 131, 21);
+		idTF.setBounds(320, 150, 131, 21);
 		add(idTF);
 		idTF.setColumns(10);
 		
 		rePswTF = new JTextField();
 		rePswTF.setColumns(10);
-		rePswTF.setBounds(257, 139, 131, 21);
+		rePswTF.setBounds(320, 210, 131, 21);
 		add(rePswTF);
 		
 		newPswTF = new JTextField();
 		newPswTF.setColumns(10);
-		newPswTF.setBounds(257, 181, 131, 21);
+		newPswTF.setBounds(320, 270, 131, 21);
 		add(newPswTF);
 		
 		nameTF = new JTextField();
 		nameTF.setColumns(10);
-		nameTF.setBounds(257, 224, 131, 21);
+		nameTF.setBounds(320, 330, 131, 21);
 		add(nameTF);
 		
 		birthDateTF = new JTextField();
 		birthDateTF.setColumns(10);
-		birthDateTF.setBounds(257, 269, 131, 21);
+		birthDateTF.setBounds(320, 390, 131, 21);
 		add(birthDateTF);
 		
 		phoneNoTF = new JTextField();
 		phoneNoTF.setColumns(10);
-		phoneNoTF.setBounds(257, 316, 131, 21);
+		phoneNoTF.setBounds(320, 450, 131, 21);
 		add(phoneNoTF);
 		
 		JCheckBox messageRecevieCHK = new JCheckBox("");
-		messageRecevieCHK.setBounds(258, 361, 21, 23);
+		messageRecevieCHK.setBounds(320, 510, 21, 23);
 		add(messageRecevieCHK);
 		
 		JButton pswConfirmButton = new JButton("확인");
@@ -112,7 +112,7 @@ public class UpdatePassenger extends JPanel {
 			}
 		}); 
 		pswConfirmButton.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		pswConfirmButton.setBounds(413, 140, 57, 23);
+		pswConfirmButton.setBounds(463, 210, 57, 23);
 		add(pswConfirmButton);
 		
 		JButton deleteAccountButton = new JButton("회원탈퇴");
@@ -122,7 +122,7 @@ public class UpdatePassenger extends JPanel {
 			}
 		});
 		deleteAccountButton.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		deleteAccountButton.setBounds(477, 140, 84, 23);
+		deleteAccountButton.setBounds(532, 210, 84, 23);
 		add(deleteAccountButton);
 		
 		JButton editButton = new JButton("수정");
@@ -131,11 +131,11 @@ public class UpdatePassenger extends JPanel {
 				JOptionPane.showMessageDialog(null, "수정 되었습니다");
 			}
 		});
-		editButton.setBounds(219, 419, 97, 23);
+		editButton.setBounds(214, 573, 97, 23);
 		add(editButton);
 		
 		JButton cancelButton = new JButton("취소");
-		cancelButton.setBounds(365, 419, 97, 23);
+		cancelButton.setBounds(358, 573, 97, 23);
 		add(cancelButton);
 
 	}
