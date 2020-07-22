@@ -20,6 +20,9 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
 import com.itwill.flight.FlightDAO;
+import com.itwill.reservation.Reservation;
+import com.itwill.reservation.ReservationDAO;
+import com.itwill.reservation.ReservationService;
 
 import java.awt.SystemColor;
 import javax.swing.JCheckBox;
@@ -164,10 +167,14 @@ public class ReservationFindPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				if (agreeCheckBox.isSelected() == false) {
 					JOptionPane.showMessageDialog(null, "상기내용 확인후 동의 바랍니다~!!");
+					JOptionPane.showMessageDialog(null, "항공권을 선택해주세요 !");
 				}else {
 					JOptionPane.showConfirmDialog(null, "예매내역을 삭제 하시겠습니까? 정말?", "예매내역 삭제", 
 													JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 				}
+				
+//				deleteReservation();
+//				getReservationList();
 			}
 		});
 		cancelBtn.setFont(new Font("맑은 고딕", Font.BOLD, 13));
@@ -176,6 +183,14 @@ public class ReservationFindPanel extends JPanel {
 
 		
 		
+		
+		
+		
+		
+		
+	}
+
+	protected void deleteReservation(int reservationNo) {
 		
 		
 	}
