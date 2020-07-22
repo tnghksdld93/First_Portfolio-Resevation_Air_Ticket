@@ -11,6 +11,7 @@ public class ReservationService {
 	private FlightDAO flightDAO;
 	public ReservationService() throws Exception{
 		reservationDAO = new ReservationDAO();
+		flightDAO=new FlightDAO();
 	}
 	
 	/*
@@ -52,10 +53,10 @@ public class ReservationService {
 
 	public ArrayList<Flight> readOneWay(String finishPoint, int flightStartMonth, int flightStartday) throws Exception{     //????????test 필수
 		ArrayList<Flight> flightList = flightDAO.readFile();
-		ArrayList<Flight> temp = null;
+		ArrayList<Flight> temp = new ArrayList<Flight>();
 		for (Flight flight : flightList) {
 			if (flight.getFinishPoint().equals(finishPoint) && 
-					flight.getFlightStartMonth() == flightStartMonth && 
+					flight.getFlightStartMonth() >= flightStartMonth && 
 					flight.getFlightStartDay() >= flightStartday ) {
 					temp.add(flight);
 			}
@@ -68,11 +69,11 @@ public class ReservationService {
 	
 	public ArrayList<Flight> readRoundTrip(String startPoint, String finishPoint, int flightStartMonth, int flightStartDay) throws Exception{     //????????test 필수
 		ArrayList<Flight> flightList = flightDAO.readFile();
-		ArrayList<Flight> temp = null;
+		ArrayList<Flight> temp = new ArrayList<Flight>();
 		for (Flight flight : flightList) {
 			if (flight.getFinishPoint().equals("인천") && 
 					flight.getStartPoint().equals(startPoint) &&
-					flight.getFlightFinishMonth() == flightStartMonth && 
+					flight.getFlightFinishMonth() >= flightStartMonth && 
 					flight.getFlightFinishDay() >= flightStartDay ) {
 					temp.add(flight);
 			}
