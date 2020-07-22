@@ -135,7 +135,7 @@ public class MainFrame extends JFrame {
 		 * 로그인 다이얼로그
 		 */
 		LoginDialog loginDialog = new LoginDialog();
-		loginDialog.setFrame(this);
+		//loginDialog.setFrame(this);
 		loginDialog.setModal(true);
 		loginDialog.setVisible(true);
 	}
