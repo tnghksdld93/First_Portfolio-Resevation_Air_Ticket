@@ -8,22 +8,27 @@ import com.itwill.reservation.ReservationDAO;
 public class ReservationDAOTestMain {
 	public static void main(String[] args) throws Exception {
 		ReservationDAO reservationDAO = new ReservationDAO();
-		/*
-		Flight flight1 = new Flight("id-1", 2020, 8, 20, "08:20", 2020, 8, 20, "13:30", "인천", "다낭", 2500000);
+
+         /*
+		Flight flight1 = new Flight("비즈니스", 1, 2, );
+=======
+		
+		Flight flight1 = new Flight("id-1", 2020, 8, 20, "08:20", 2020, 8, 20, "13:30", "인천", "다낭", 2500000, "대한항공");
+>>>>>>> branch 'master' of https://github.com/2020-10-itwill-javapython/teamproject-flight.git
 		Passenger passenger1 = new Passenger("xxx", "xxx", "김구달", "470123", "010-3333-4444");
-		Flight flight2 = new Flight("if-1", 2020, 9, 23, "09:20", 2020, 9, 24, "08:30", "인천", "파리", 3000000);
+		Flight flight2 = new Flight("if-1", 2020, 9, 23, "09:20", 2020, 9, 24, "08:30", "인천", "파리", 3000000, "아시아나");
 		Passenger passenger2 = new Passenger("yyy", "yyy", "왕준식", "860723", "010-5555-6666");
-		Flight flight3 = new Flight("in-1", 2020, 9, 13, "13:20", 2020, 9, 14, "14:30", "인천", "뉴욕", 4000000);
+		Flight flight3 = new Flight("in-1", 2020, 9, 13, "13:20", 2020, 9, 14, "14:30", "인천", "뉴욕", 4000000, "홍콩에어");
 		Passenger passenger3 = new Passenger("zzz", "zzz", "박말자", "660223", "010-7777-8888");
-		*/
+		
 		
 		System.out.println("--------------------- create ------------------------");
-		//boolean isSuccess = reservationDAO.create(new Reservation("이코노미", 1, 1, flight1, passenger1));
-		//System.out.println(isSuccess);
-		//isSuccess = reservationDAO.create(new Reservation("비지니스", 4, 20, flight2, passenger2));
-		//System.out.println(isSuccess);
-		//isSuccess = reservationDAO.create(new Reservation("이코노미", 2, 0, flight3, passenger3));
-		//System.out.println(isSuccess);
+		boolean isSuccess = reservationDAO.create(new Reservation("이코노미", 1, 1, flight1, passenger1));
+		System.out.println(isSuccess);
+		isSuccess = reservationDAO.create(new Reservation("비지니스", 4, 20, flight2, passenger2));
+		System.out.println(isSuccess);
+		isSuccess = reservationDAO.create(new Reservation("이코노미", 2, 0, flight3, passenger3));
+		System.out.println(isSuccess);
 		
 		
 		System.out.println("--------------------- readAll ------------------------");
@@ -43,6 +48,7 @@ public class ReservationDAOTestMain {
 		reservationDAO.delete(1002);
 		System.out.println(reservationDAO.readAll());
 		
+		*/
 		
 		
 	}
