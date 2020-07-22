@@ -1,6 +1,7 @@
-package com.itwill.UI.윤호;
+package com.itwill.UI.main;
 
 import javax.swing.JPanel;
+import java.awt.Color;
 
 public class MainPanel extends JPanel {
 
@@ -8,6 +9,7 @@ public class MainPanel extends JPanel {
 	 * Create the panel.
 	 */
 	public MainPanel() {
+		setBackground(Color.ORANGE);
 
 	}
 

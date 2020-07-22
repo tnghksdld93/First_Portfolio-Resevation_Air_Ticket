@@ -1,4 +1,4 @@
-package com.itwill.UI.용재;	//회원가입
+package com.itwill.UI.signUp;	//회원가입
 
 import javax.swing.JPanel;
 
