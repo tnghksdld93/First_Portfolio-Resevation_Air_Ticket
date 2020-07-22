@@ -56,13 +56,15 @@ public class ReservationService {
 		ArrayList<Flight> temp = new ArrayList<Flight>();
 		for (Flight flight : flightList) {
 			if (flight.getFinishPoint().equals(finishPoint) && 
-					flight.getFlightStartMonth() >= flightStartMonth && 
-					flight.getFlightStartDay() >= flightStartday ) {
+					((flight.getFlightStartMonth() >= flightStartMonth && 
+					flight.getFlightStartDay() >= flightStartday)||flight.getFlightStartMonth()>flightStartMonth)) {
 					temp.add(flight);
 			}
 		}
 		return temp;
 	}
+	
+	
 	/*
 	 * 항공편 검색 (왕복)
 	 */
@@ -73,8 +75,8 @@ public class ReservationService {
 		for (Flight flight : flightList) {
 			if (flight.getFinishPoint().equals("인천") && 
 					flight.getStartPoint().equals(startPoint) &&
-					flight.getFlightFinishMonth() >= flightStartMonth && 
-					flight.getFlightFinishDay() >= flightStartDay ) {
+					((flight.getFlightFinishMonth() == flightStartMonth && 
+					flight.getFlightFinishDay() >= flightStartDay) || flight.getFlightFinishMonth() > flightStartMonth)) {
 					temp.add(flight);
 			}
 		}

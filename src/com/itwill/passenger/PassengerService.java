@@ -1,5 +1,9 @@
 package com.itwill.passenger;
 
+import java.util.ArrayList;
+
+import com.itwill.reservation.Reservation;
+
 public class PassengerService {
 
 	private PassengerDAO passengerDAO;
@@ -45,6 +49,15 @@ public class PassengerService {
 		}
 		return result;
 	}
+	
+	/*
+	 * 승객 전체 검색()
+	 */
+	public ArrayList<Passenger> findByAll() throws Exception {
+		ArrayList<Passenger> passengerList = passengerDAO.readAll();
+		return passengerList;
+	}
+	
 
 	// 승객 업데이트
 	public void memberUpdate(Passenger updatePassenger) throws Exception {

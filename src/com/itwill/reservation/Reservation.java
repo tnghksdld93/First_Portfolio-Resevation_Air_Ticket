@@ -15,6 +15,9 @@ public class Reservation implements Serializable {
 	private Flight flight; // 포함
 	private Passenger passenger; // 포함
 	private static int inherenceReserveNo = 1000; // 예약번호 생성
+	
+	private double fee;
+	
 
 	public Reservation() {
 		// TODO Auto-generated constructor stub
@@ -43,23 +46,6 @@ public class Reservation implements Serializable {
 		this.passenger = passenger;
 	}
 
-	/*
-	 * 요금 계산
-	 */
-	public double calculateFee() throws Exception {
-		double calFee = 0; // 리턴값
-		// 1. 성인요금
-		double adultFee = flight.getFee() * adultCount;
-		// 1-2. 유아요금
-		double childFee = flight.getFee() * childCount * 0.9;
-		// 1.3 기본 합계 요금
-		calFee = adultFee + childFee;
-		if (seatRating.equals("business")) {
-			// 2. 비즈니스 요금
-			calFee = (adultFee + childFee) * 1.3;
-		}
-		return calFee;
-	}
 
 	@Override
 	public String toString() {
@@ -135,6 +121,12 @@ public class Reservation implements Serializable {
 
 	public void setPassenger(Passenger passenger) {
 		this.passenger = passenger;
+	}
+	public double getFee() {
+		return fee;
+	}
+	public void setFee(int fee) {
+		this.fee = fee;
 	}
 
 }

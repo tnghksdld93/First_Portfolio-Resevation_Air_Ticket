@@ -17,6 +17,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
@@ -25,6 +26,7 @@ import javax.swing.SwingConstants;
 
 import org.jdatepicker.JDatePicker;
 
+import com.itwill.UI.main.MainFrame;
 import com.itwill.flight.Flight;
 import com.itwill.reservation.ReservationService;
 
@@ -45,7 +47,8 @@ public class ReservationPanel extends JPanel {
 	/************************************************************************/
 
 	ReservationService reservationService;
-
+	MainFrame mainFrame;
+	
 	/************************************************************************/
 
 	/**
@@ -202,51 +205,66 @@ public class ReservationPanel extends JPanel {
 		JButton searchB = new JButton("항공권 검색");
 		searchB.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				
+				
 				try {
-
-					int flightStartMonth = startDayDP.getModel().getMonth() + 1;
-					int flightStartday = startDayDP.getModel().getDay();
-
-					String finishPoint = (String) finishPointCB.getSelectedItem();
-					int adultCount = (int) adultCountSP.getValue();
-					int childCount = (int) childCountSP.getValue();
-					String seatRating = (String) seatRatingCB.getSelectedItem();
-
-					System.out.println(flightStartMonth);
-					System.out.println(flightStartday);
-					System.out.println(finishPoint);
-					System.out.println(adultCount);
-					System.out.println(childCount);
-					System.out.println(seatRating);
-					
-					
-					if (oneWayRB.isEnabled()) {
-
+					if (oneWayRB.isSelected() && 
+							(String) finishPointCB.getSelectedItem()!=""&&
+							(int) adultCountSP.getValue()+(int) childCountSP.getValue()!=0&&
+							(String) seatRatingCB.getSelectedItem()	!="") {
+						int flightStartMonth = startDayDP.getModel().getMonth() + 1;
+						int flightStartday = startDayDP.getModel().getDay();
+						String finishPoint = (String) finishPointCB.getSelectedItem();
+						int adultCount = (int) adultCountSP.getValue();
+						int childCount = (int) childCountSP.getValue();
+						String seatRating = (String) seatRatingCB.getSelectedItem();
+											
 						ArrayList<Flight> flightList = reservationService.readOneWay(finishPoint, flightStartMonth,
 								flightStartday);
-						System.out.println(flightList);
-						System.out.println("성인수"+adultCount);
-						ReservationSearchResultDialog dialog=new ReservationSearchResultDialog();
+						OnewayReservationSearchResultDialog dialog=new OnewayReservationSearchResultDialog();
 						dialog.setFlightList(flightList);
 						dialog.setAdultCount(adultCount);
 						dialog.setChildCount(childCount);
-												
+						dialog.setSeatRating(seatRating);			
 						dialog.setVisible(true);
 						
+					}else if (roundTripRB.isSelected()&&
+								(String) finishPointCB.getSelectedItem()!=""&&
+								(int) adultCountSP.getValue()+(int) childCountSP.getValue()!=0&&
+								(String) seatRatingCB.getSelectedItem()	!="") {
+						int flightStartMonth = startDayDP.getModel().getMonth() + 1;
+						int flightStartday = startDayDP.getModel().getDay();
 						
+						int flightComingMonth = comingDayDP.getModel().getMonth() + 1;
+						int flightComingDay = comingDayDP.getModel().getDay();	
 						
+						String finishPoint = (String) finishPointCB.getSelectedItem();
+						int adultCount = (int) adultCountSP.getValue();
+						int childCount = (int) childCountSP.getValue();
+						String seatRating = (String) seatRatingCB.getSelectedItem();
+												
+						ArrayList<Flight> flightList = reservationService.readOneWay(finishPoint, flightStartMonth,
+								flightStartday);
+						RoundTripGoingReservationSearchResultDialog dialog=new RoundTripGoingReservationSearchResultDialog();
+						dialog.setFlightList(flightList);
+						dialog.setAdultCount(adultCount);
+						dialog.setChildCount(childCount);
+						dialog.setSeatRating(seatRating);	
+						dialog.setFlightComingMonth(flightComingMonth);
+						dialog.setFlightComingDay(flightComingDay);
+						dialog.setFinishPoint(finishPoint);
+						dialog.setVisible(true);
+						
+					}else {
+						JOptionPane.showMessageDialog(null, "검색 조건을 입력하세요.");
 					}
-
-					if (roundTripRB.isEnabled()) {
-
-					}
-
+					
+				
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-
+				
 			}
 		});
 		searchB.setOpaque(false);
@@ -259,6 +277,17 @@ public class ReservationPanel extends JPanel {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		
+		
+		
+	}
+
+	public MainFrame getMainFrame() {
+		return mainFrame;
+	}
+	
+	public void setMainFrame(MainFrame mainFrame) {
+		this.mainFrame = mainFrame;
 	}
 
 }

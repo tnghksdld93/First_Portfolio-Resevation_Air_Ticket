@@ -46,6 +46,11 @@ public class MainFrame extends JFrame {
 		});
 	}
 
+	public String getLoginId() {
+		return loginId;
+	}
+
+	
 	/**
 	 * Create the frame.
 	 * @throws Exception 
