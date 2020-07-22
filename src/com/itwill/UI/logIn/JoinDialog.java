@@ -1,4 +1,4 @@
-package com.itwill.UI.주영;
+package com.itwill.UI.logIn;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;

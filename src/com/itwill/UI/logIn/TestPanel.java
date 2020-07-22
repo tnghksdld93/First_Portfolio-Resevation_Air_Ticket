@@ -1,4 +1,4 @@
-package com.itwill.UI.주영;
+package com.itwill.UI.logIn;
 
 import javax.swing.JPanel;
 
