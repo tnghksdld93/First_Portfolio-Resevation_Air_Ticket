@@ -49,7 +49,13 @@ public class PassengerService {
 		}
 		return result;
 	}
-	
+	/*
+	 * 승객 한 명 검색
+	 */
+	public Passenger findById(String memberId) throws Exception {
+		return passengerDAO.readOne(memberId);
+		
+	}
 	/*
 	 * 승객 전체 검색()
 	 */
