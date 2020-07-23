@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import com.itwill.UI.main.MainFrame;
+import com.itwill.UI.signUp.SignUpDialog;
 import com.itwill.passenger.PassengerService;
 
 import javax.swing.JTextField;
@@ -25,10 +26,6 @@ public class LoginDialog extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private JTextField idTF;
 	private JPasswordField pwTF;
-	
-	
-	
-
 	
 	/**
 	 * Create the dialog.
@@ -68,7 +65,7 @@ public class LoginDialog extends JDialog {
 					int result =  passengerService.login(id,pw);
 					if(result==0) {
 						//로그인 성공
-						frame.loginUI(id);
+						
 						JOptionPane.showMessageDialog(null, "로그인에 성공했습니다.");
 						dispose();
 						
@@ -109,10 +106,10 @@ public class LoginDialog extends JDialog {
 		JButton signupBtn = new JButton("회원가입");
 		signupBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JoinDialog joinDialog = new JoinDialog();
-				joinDialog.setVisible(true);
-				joinDialog.requestFocusInWindow();
-				joinDialog.setAlwaysOnTop(true);
+				SignUpDialog signUpDialog = new SignUpDialog();
+				signUpDialog.setVisible(true);
+				signUpDialog.requestFocusInWindow();
+				signUpDialog.setAlwaysOnTop(true);
 				
 				
 				
@@ -127,6 +124,7 @@ public class LoginDialog extends JDialog {
 		signupBtn.setBounds(168, 228, 97, 23);
 		contentPanel.add(signupBtn);
 		passengerService = new PassengerService();
+		
 	}//end constructor
 	
 	public void setFrame(MainFrame mainFrame) {
