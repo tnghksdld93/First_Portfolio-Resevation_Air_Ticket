@@ -26,7 +26,7 @@ import javax.swing.SwingConstants;
 
 import org.jdatepicker.JDatePicker;
 
-import com.itwill.UI.main.MainFrame;
+import com.itwill.UI.main.FlightReservationMainFrame;
 import com.itwill.flight.Flight;
 import com.itwill.reservation.ReservationService;
 
@@ -49,7 +49,7 @@ public class ReservationPanel extends JPanel {
 	/************************************************************************/
 
 	ReservationService reservationService;
-	MainFrame mainFrame;
+	FlightReservationMainFrame mainFrame;
 	
 	/************************************************************************/
 
@@ -284,7 +284,7 @@ public class ReservationPanel extends JPanel {
 		
 	}
 
-	public MainFrame getMainFrame() {
+	public FlightReservationMainFrame getMainFrame() {
 		return mainFrame;
 	}
 
@@ -300,7 +300,7 @@ public class ReservationPanel extends JPanel {
 	}
 
 	
-	public void setMainFrame(MainFrame mainFrame) {
+	public void setMainFrame(FlightReservationMainFrame mainFrame) {
 		this.mainFrame = mainFrame;
 	}
 <<<<<<< HEAD

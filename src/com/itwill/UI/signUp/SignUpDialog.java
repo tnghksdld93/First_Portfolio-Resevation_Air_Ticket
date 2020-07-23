@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import com.itwill.UI.logIn.LoginDialog;
-import com.itwill.UI.main.MainFrame;
+import com.itwill.UI.main.FlightReservationMainFrame;
 import com.itwill.passenger.Passenger;
 import com.itwill.passenger.PassengerDAO;
 import com.itwill.passenger.PassengerService;

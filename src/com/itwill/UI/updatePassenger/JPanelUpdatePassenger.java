@@ -31,6 +31,7 @@ public class JPanelUpdatePassenger extends JPanel {
 	private JButton deleteAccountButton;
 	private JCheckBox messageRecevieCHK;
 	
+	
 	/**
 	 * Create the panel.
 	 */
@@ -148,6 +149,12 @@ public class JPanelUpdatePassenger extends JPanel {
 		deleteAccountButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			JOptionPane.showMessageDialog(null, "탈퇴 되었습니다");
+			try {
+				passengerService.memberDelete(idTF.getText());
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			}
 		});
 		deleteAccountButton.setFont(new Font("맑은 고딕", Font.PLAIN, 12));

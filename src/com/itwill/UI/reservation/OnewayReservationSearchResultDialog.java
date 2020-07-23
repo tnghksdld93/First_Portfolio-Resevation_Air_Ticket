@@ -12,7 +12,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import com.itwill.UI.main.MainFrame;
+import com.itwill.UI.main.FlightReservationMainFrame;
 import com.itwill.flight.Flight;
 import com.itwill.flight.FlightDAO;
 import com.itwill.passenger.Passenger;
