@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import com.itwill.UI.main.FlightReservationMainFrame;
 import com.itwill.passenger.Passenger;
 import com.itwill.passenger.PassengerService;
 import javax.swing.JPasswordField;
@@ -20,7 +21,7 @@ import javax.swing.JPasswordField;
 public class UpdatePassengerPanel extends JPanel {
 	/************************************************/
 	PassengerService passengerService;
-	boolean isUpdate = false; //초기상태, true는 업뎃
+	FlightReservationMainFrame flightReservationMainFrame;
 	/************************************************/
 	private JTextField idTF;
 	private JTextField nameTF;
@@ -83,22 +84,25 @@ public class UpdatePassengerPanel extends JPanel {
 		
 		idTF = new JTextField();
 		idTF.setBounds(270, 158, 131, 21);
-		add(idTF);
+		idTF.setText(flightReservationMainFrame.loginPassenger.getMemberId());
 		idTF.setColumns(10);
 		
 		nameTF = new JTextField();
+		nameTF.setText(flightReservationMainFrame.loginPassenger.getMemberName());
 		nameTF.setEditable(false);
 		nameTF.setColumns(10);
 		nameTF.setBounds(270, 292, 131, 21);
 		add(nameTF);
 		
 		birthDateTF = new JTextField();
+		birthDateTF.setText(flightReservationMainFrame.loginPassenger.getBirthDate());
 		birthDateTF.setEditable(false);
 		birthDateTF.setColumns(10);
 		birthDateTF.setBounds(270, 337, 131, 21);
 		add(birthDateTF);
 		
 		phoneNoTF = new JTextField();
+		phoneNoTF.setText(flightReservationMainFrame.loginPassenger.getPhoneNo());
 		phoneNoTF.setEditable(false);
 		phoneNoTF.setColumns(10);
 		phoneNoTF.setBounds(270, 384, 131, 21);
@@ -196,7 +200,14 @@ public class UpdatePassengerPanel extends JPanel {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-
+		
+		// flight reservation main frame 생성자
+		try {
+			flightReservationMainFrame = new FlightReservationMainFrame();
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 
 	protected void updateMember() throws Exception {
