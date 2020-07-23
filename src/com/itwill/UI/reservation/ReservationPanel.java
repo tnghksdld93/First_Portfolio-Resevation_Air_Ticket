@@ -303,10 +303,6 @@ public class ReservationPanel extends JPanel {
 	public void setMainFrame(FlightReservationMainFrame mainFrame) {
 		this.mainFrame = mainFrame;
 	}
-<<<<<<< HEAD
-	
-	
-=======
->>>>>>> branch 'master' of https://github.com/2020-10-itwill-javapython/teamproject-flight.git
+
 
 }
