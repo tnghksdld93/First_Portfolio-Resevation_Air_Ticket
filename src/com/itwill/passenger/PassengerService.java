@@ -57,7 +57,19 @@ public class PassengerService {
 		ArrayList<Passenger> passengerList = passengerDAO.readAll();
 		return passengerList;
 	}
-	
+	/*
+	 * 승객 전체 검색()
+	 */
+	public Passenger findByName(String findMemberId) throws Exception{
+		ArrayList<Passenger> passengerList = passengerDAO.readAll();
+		Passenger findPassenger = new Passenger();
+		for (Passenger passenger : passengerList) {
+			if (passenger.getMemberId().equals(findMemberId)) {
+				findPassenger = passenger;
+			}
+		}
+		return findPassenger;
+	}
 
 	// 승객 업데이트
 	public void memberUpdate(Passenger updatePassenger) throws Exception {

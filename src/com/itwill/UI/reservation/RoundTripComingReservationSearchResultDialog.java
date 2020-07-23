@@ -70,7 +70,7 @@ public class RoundTripComingReservationSearchResultDialog extends JDialog {
 	 */
 	public RoundTripComingReservationSearchResultDialog() throws Exception {
 		setFont(new Font("맑은 고딕", Font.BOLD, 20));
-		setTitle("가는날 예약");
+		setTitle("오는날 예약");
 		setBounds(100, 100, 855, 423);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(Color.WHITE);
@@ -201,6 +201,44 @@ public class RoundTripComingReservationSearchResultDialog extends JDialog {
 								}
 							}
 							
+						try {
+							
+						Passenger addPassenger = passengerService.findByName("yyy");
+					
+						reservationService.addReservation(new Reservation(seatRating, adultCount, childCount, reserveFlight,addPassenger));
+						
+						} catch (Exception e2) {
+							// TODO: handle exception
+						}
+						
+						JOptionPane.showMessageDialog(null, "예약이 완료 되었습니다."+"\n"+"예매내역을 확인하세요");
+						dispose();
+					
+						}else {
+							JOptionPane.showMessageDialog(null, "원하시는 항공편을 선택하시고 약관에 동의 후 예약하세요");
+						
+						}
+						System.out.println(seatRating);
+						System.out.println(adultCount);
+						System.out.println(childCount);
+						try {
+							System.out.println(reservationService.findByAll());
+						} catch (Exception e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+						
+						
+						
+						/*
+						if (reserveCheck.isSelected() && reserveFlightName!=null) {
+							Flight reserveFlight = new Flight();
+							for (Flight flight : flightList) {
+								if (flight.getFlightName().equals(reserveFlightName)) {
+									reserveFlight = flight;
+								}
+							}
+							
 							ArrayList<Passenger> passengerList = new ArrayList<Passenger>();
 							try {
 								passengerList = passengerService.findByAll();
@@ -228,6 +266,11 @@ public class RoundTripComingReservationSearchResultDialog extends JDialog {
 						}else {
 							JOptionPane.showMessageDialog(null, "원하시는 항공편을 선택하시고 약관에 동의 후 예약하세요");
 						}
+						
+						 */
+						
+						
+						
 						
 					}
 				});
