@@ -86,6 +86,7 @@ public class FlightReservationMainFrame extends JFrame {
 		mnNewMenu.add(logoutMenu);
 		
 		updateMenu = new JMenuItem("회원정보 수정");
+		updateMenu.setEnabled(false);
 		updateMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				changePanel("updatePassengerP");
@@ -137,6 +138,7 @@ public class FlightReservationMainFrame extends JFrame {
 		
 		
 		this.setTitle("비행기 예매 프로그램");
+		mainPanel.setVisible(true);
 		loginDialogShow();
 		
 		
