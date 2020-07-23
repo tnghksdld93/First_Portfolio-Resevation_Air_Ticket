@@ -1,24 +1,24 @@
 package com.itwill.UI.main;
 
-import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import com.itwill.UI.logIn.LoginDialog;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import java.awt.Color;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import java.awt.Font;
-import java.awt.CardLayout;
-import com.itwill.UI.updatePassenger.UpdatePassenger;
+import com.itwill.UI.updatePassenger.JPanelUpdatePassenger;
+import com.itwill.UI.reservation.ReservationPanel;
 
 
 public class MainFrame extends JFrame {
@@ -46,6 +46,11 @@ public class MainFrame extends JFrame {
 		});
 	}
 
+	public String getLoginId() {
+		return loginId;
+	}
+
+	
 	/**
 	 * Create the frame.
 	 * @throws Exception 
@@ -119,9 +124,6 @@ public class MainFrame extends JFrame {
 		textField_1.setBounds(0, 123, 654, 108);
 		panel_2.add(textField_1);
 		textField_1.setColumns(10);
-		
-		UpdatePassenger updatePassenger = new UpdatePassenger();
-		contentPane.add(updatePassenger, "name_205005816021400");
 		this.setTitle("비행기 예매 프로그램");
 		setVisible(true);
 		loginProgress();

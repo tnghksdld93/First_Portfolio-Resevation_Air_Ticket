@@ -14,6 +14,15 @@ public class Flight implements Serializable {
 	private int flightFinishDay;     // 도착날(day)
 	private String flightFinishTime; // 도착시간
 	private String startPoint;       // 출발지
+	
+	
+
+
+	public void setAirlineName(String airlineName) {
+		this.airlineName = airlineName;
+	}
+
+
 	private String finishPoint;      // 도착지
 	private int fee;	//기본요금
 	private String airlineName;		//항공회사 이름
@@ -55,6 +64,10 @@ public class Flight implements Serializable {
 	}
 
 
+	public String getAirlineName() {
+		return airlineName;
+	}
+	
 	public int getFee() {
 		return fee;
 	}

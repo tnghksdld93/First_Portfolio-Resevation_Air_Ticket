@@ -20,6 +20,9 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
 import com.itwill.flight.FlightDAO;
+import com.itwill.reservation.Reservation;
+import com.itwill.reservation.ReservationDAO;
+import com.itwill.reservation.ReservationService;
 
 import java.awt.SystemColor;
 import javax.swing.JCheckBox;
@@ -39,13 +42,13 @@ public class ReservationFindPanel extends JPanel {
 		setBackground(new Color(102, 153, 255));
 		setLayout(null);
 		
-		JTextArea txtrMy = new JTextArea();
-		txtrMy.setForeground(new Color(255, 255, 255));
-		txtrMy.setBackground(new Color(102, 153, 255));
-		txtrMy.setFont(new Font("맑은 고딕", Font.BOLD, 18));
-		txtrMy.setText("MY 예약 내역");
-		txtrMy.setBounds(266, 10, 120, 32);
-		add(txtrMy);
+		JTextArea myReserve = new JTextArea();
+		myReserve.setForeground(new Color(255, 255, 255));
+		myReserve.setBackground(new Color(102, 153, 255));
+		myReserve.setFont(new Font("맑은 고딕", Font.BOLD, 18));
+		myReserve.setText("MY 예약 내역");
+		myReserve.setBounds(266, 10, 120, 32);
+		add(myReserve);
 		
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("회원 정보");
 		rdbtnNewRadioButton.setSelected(true);
@@ -74,13 +77,17 @@ public class ReservationFindPanel extends JPanel {
 		rdbtnNewRadioButton_2.setBounds(20, 395, 177, 23);
 		add(rdbtnNewRadioButton_2);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(30, 76, 598, 50);
-		add(scrollPane);
+		JScrollPane customInfoScrollP = new JScrollPane();
+		customInfoScrollP.setBounds(30, 76, 598, 50);
+		add(customInfoScrollP);
 		
-		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(30, 177, 598, 116);
-		add(scrollPane_1);
+		JTextArea customInfoText = new JTextArea();
+		customInfoText.setFont(new Font("맑은 고딕", Font.PLAIN, 13));
+		customInfoScrollP.setViewportView(customInfoText);
+		
+		JScrollPane airlineTicketInfoScrollP = new JScrollPane();
+		airlineTicketInfoScrollP.setBounds(30, 177, 598, 116);
+		add(airlineTicketInfoScrollP);
 		
 		table = new JTable();
 		table.setForeground(Color.BLACK);
@@ -103,11 +110,7 @@ public class ReservationFindPanel extends JPanel {
 				"", "\uC5EC\uC815", "\uD56D\uACF5\uD3B8", "\uCD9C\uBC1C\uC77C\uC2DC", "\uB3C4\uCC29\uC77C\uC2DC", "\uC88C\uC11D\uAD6C\uBD84", "\uC608\uC57D\uC0C1\uD0DC"
 			}
 		));
-		scrollPane_1.setViewportView(table);
-		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(30, 76, 596, 30);
-		add(textArea);
+		airlineTicketInfoScrollP.setViewportView(table);
 		
 		JCheckBox agreeCheckBox = new JCheckBox("  상기 내용을 확인하고 동의합니다.");
 		agreeCheckBox.setBackground(new Color(230, 230, 250));
@@ -118,9 +121,9 @@ public class ReservationFindPanel extends JPanel {
 		add(agreeCheckBox);
 		
 		
-		JScrollPane scrollPane_2 = new JScrollPane();
-		scrollPane_2.setBounds(30, 424, 598, 216);
-		add(scrollPane_2);
+		JScrollPane travelInfoScrollP = new JScrollPane();
+		travelInfoScrollP.setBounds(30, 424, 598, 216);
+		add(travelInfoScrollP);
 		
 		table_1 = new JTable();
 		table_1.setForeground(new Color(0, 0, 0));
@@ -143,7 +146,7 @@ public class ReservationFindPanel extends JPanel {
 			}
 		));
 		table_1.getColumnModel().getColumn(1).setPreferredWidth(79);
-		scrollPane_2.setViewportView(table_1);
+		travelInfoScrollP.setViewportView(table_1);
 		
 		JButton changeBtn = new JButton("예매 변경");
 		changeBtn.addActionListener(new ActionListener() {
@@ -164,10 +167,14 @@ public class ReservationFindPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				if (agreeCheckBox.isSelected() == false) {
 					JOptionPane.showMessageDialog(null, "상기내용 확인후 동의 바랍니다~!!");
+					JOptionPane.showMessageDialog(null, "항공권을 선택해주세요 !");
 				}else {
 					JOptionPane.showConfirmDialog(null, "예매내역을 삭제 하시겠습니까? 정말?", "예매내역 삭제", 
 													JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 				}
+				
+//				deleteReservation();
+//				getReservationList();
 			}
 		});
 		cancelBtn.setFont(new Font("맑은 고딕", Font.BOLD, 13));
@@ -178,7 +185,13 @@ public class ReservationFindPanel extends JPanel {
 		
 		
 		
+		
+		
+		
 	}
 
-
+	protected void deleteReservation(int reservationNo) {
+		
+		
+	}
 }
