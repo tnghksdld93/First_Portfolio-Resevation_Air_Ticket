@@ -101,6 +101,7 @@ public class RoundTripGoingReservationSearchResultDialog extends JDialog {
 							if (flight.getFlightName().equals(selectId)) {
 								try {
 									feeTF.setText(calculateFee(flight.getFee())+"원");
+									setFee(calculateFee(flight.getFee()));
 									reserveFlightName = selectId;
 								} catch (Exception e1) {
 									// TODO Auto-generated catch block
@@ -209,12 +210,10 @@ public class RoundTripGoingReservationSearchResultDialog extends JDialog {
 						
 						Passenger addPassenger = passengerService.findByName("yyy");
 					
-						reservationService.addReservation(new Reservation(seatRating, adultCount, childCount, reserveFlight,addPassenger));
-						
-					
+						reservationService.addReservation(new Reservation(seatRating, adultCount, childCount, reserveFlight,addPassenger,fee));
 						
 						JOptionPane.showMessageDialog(null, "오시는 날 예약화면으로 넘어갑니다.");
-						dispose();
+						
 						ArrayList<Flight> flightList = reservationService.readRoundTrip(finishPoint,"인천", flightComingMonth, flightComingDay);
 						RoundTripComingReservationSearchResultDialog dialog=new RoundTripComingReservationSearchResultDialog();
 						dialog.setFlightList(flightList);
@@ -241,56 +240,6 @@ public class RoundTripGoingReservationSearchResultDialog extends JDialog {
 							e1.printStackTrace();
 						}
 						
-						
-						/*
-						try {
-
-							if (reserveCheck.isSelected() && reserveFlightName!=null) {
-								Flight reserveFlight = new Flight();
-								for (Flight flight : flightList) {
-									if (flight.getFlightName().equals(reserveFlightName)) {
-										reserveFlight = flight;
-									}
-								}
-								
-								ArrayList<Passenger> passengerList = new ArrayList<Passenger>();
-								try {
-									passengerList = passengerService.findByAll();
-								} catch (Exception e1) {
-									// TODO Auto-generated catch block
-									e1.printStackTrace();
-								}
-								
-								Passenger reservePassenger = new Passenger();
-								for (Passenger passenger : passengerList) {
-									if (memberId.equals(passenger.getMemberId())) {
-										reservePassenger = passenger;
-									}
-								}
-								
-								reservationService.addReservation(new Reservation(seatRating, adultCount, childCount, reserveFlight,reservePassenger));
-								JOptionPane.showMessageDialog(null, "오시는 날 예약화면으로 넘어갑니다.");
-								
-								
-								
-								ArrayList<Flight> flightList = reservationService.readRoundTrip(finishPoint,"인천", flightComingMonth, flightComingDay);
-								RoundTripComingReservationSearchResultDialog dialog=new RoundTripComingReservationSearchResultDialog();
-								dialog.setFlightList(flightList);
-								dialog.setAdultCount(adultCount);
-								dialog.setChildCount(childCount);
-								dialog.setSeatRating(seatRating);			
-								dialog.setVisible(true);
-								dispose();
-								//dialog.setVisible(true);
-								
-							}else {
-								JOptionPane.showMessageDialog(null, "원하시는 항공편을 선택하시고 약관에 동의 후 예약하세요");
-							}
-						
-						} catch (Exception e2) {
-							e2.printStackTrace();
-						}
-						*/
 					}
 				});
 				reserveB.setFont(new Font("맑은 고딕", Font.BOLD, 20));
@@ -313,6 +262,7 @@ public class RoundTripGoingReservationSearchResultDialog extends JDialog {
 		
 		reservationPanel = new ReservationPanel();
 		reservationService = new ReservationService();
+		passengerService=new PassengerService();
 		
 	}
 /************************************************************************************************/

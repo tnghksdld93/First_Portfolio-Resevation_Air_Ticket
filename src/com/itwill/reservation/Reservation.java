@@ -45,7 +45,17 @@ public class Reservation implements Serializable {
 		this.flight = flight;
 		this.passenger = passenger;
 	}
-
+	public Reservation(String seatRating, int adultCount, int childCount, Flight flight, Passenger passenger, double fee) {
+		super();
+		this.seatRating = seatRating;
+		this.adultCount = adultCount;
+		this.childCount = childCount;
+		this.count = adultCount + childCount;
+		this.reservationNo = generateNo();
+		this.flight = flight;
+		this.passenger = passenger;
+		this.fee = fee;
+	}
 
 	@Override
 	public String toString() {

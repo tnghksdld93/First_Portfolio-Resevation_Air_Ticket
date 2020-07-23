@@ -97,6 +97,7 @@ public class OnewayReservationSearchResultDialog extends JDialog {
 							if (flight.getFlightName().equals(selectId)) {
 								try {
 									feeTF.setText(calculateFee(flight.getFee())+"원");
+									setFee(calculateFee(flight.getFee()));
 									reserveFlightName = selectId;
 								} catch (Exception e1) {
 									// TODO Auto-generated catch block
@@ -205,18 +206,18 @@ public class OnewayReservationSearchResultDialog extends JDialog {
 							try {
 								
 							
-							
 							Passenger addPassenger = passengerService.findByName("yyy");
 							
-						
-							reservationService.addReservation(new Reservation(seatRating, adultCount, childCount, reserveFlight,addPassenger));
 							
+							//Passenger passenger1 = new Passenger("xxx", "xxx", "김구달", "470123", "010-3333-4444");
+							//Flight flight1 = new Flight("OZ101", 2020, 7, 25, "8:00", 2020, 7, 25, "13:30", "인천", "다낭", 5000000, "아시아나");
+							//reservationService.addReservation(new Reservation(seatRating, adultCount, childCount, reserveFlight,addPassenger,fee));
 							
-							} catch (Exception e2) {
-								// TODO: handle exception
-							}
-							
+							reservationService.addReservation(new Reservation(seatRating, adultCount, childCount, reserveFlight, addPassenger,fee));
 							JOptionPane.showMessageDialog(null, "예약이 완료 되었습니다."+"\n"+"예매내역을 확인하세요");
+							} catch (Exception e2) {
+								e2.printStackTrace();
+							}
 							dispose();
 						
 							}else {
@@ -255,6 +256,7 @@ public class OnewayReservationSearchResultDialog extends JDialog {
 		
 		reservationPanel = new ReservationPanel();
 		reservationService = new ReservationService();
+		passengerService=new PassengerService();
 		
 	}
 /************************************************************************************************/
