@@ -195,6 +195,54 @@ public class RoundTripGoingReservationSearchResultDialog extends JDialog {
 				JButton reserveB = new JButton("예약");
 				reserveB.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						
+						if (reserveCheck.isSelected() && reserveFlightName!=null) {
+							Flight reserveFlight = new Flight();
+							for (Flight flight : flightList) {
+								if (flight.getFlightName().equals(reserveFlightName)) {
+									reserveFlight = flight;
+								}
+							}
+							
+							
+						try {
+						
+						Passenger addPassenger = passengerService.findByName("yyy");
+					
+						reservationService.addReservation(new Reservation(seatRating, adultCount, childCount, reserveFlight,addPassenger));
+						
+					
+						
+						JOptionPane.showMessageDialog(null, "오시는 날 예약화면으로 넘어갑니다.");
+						dispose();
+						ArrayList<Flight> flightList = reservationService.readRoundTrip(finishPoint,"인천", flightComingMonth, flightComingDay);
+						RoundTripComingReservationSearchResultDialog dialog=new RoundTripComingReservationSearchResultDialog();
+						dialog.setFlightList(flightList);
+						dialog.setAdultCount(adultCount);
+						dialog.setChildCount(childCount);
+						dialog.setSeatRating(seatRating);			
+						dialog.setVisible(true);
+						dispose();
+						} catch (Exception e2) {
+							// TODO: handle exception
+						}
+					
+						}else {
+							JOptionPane.showMessageDialog(null, "원하시는 항공편을 선택하시고 약관에 동의 후 예약하세요");
+						
+						}
+						System.out.println(seatRating);
+						System.out.println(adultCount);
+						System.out.println(childCount);
+						try {
+							System.out.println(reservationService.findByAll());
+						} catch (Exception e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+						
+						
+						/*
 						try {
 
 							if (reserveCheck.isSelected() && reserveFlightName!=null) {
@@ -242,7 +290,7 @@ public class RoundTripGoingReservationSearchResultDialog extends JDialog {
 						} catch (Exception e2) {
 							e2.printStackTrace();
 						}
-						
+						*/
 					}
 				});
 				reserveB.setFont(new Font("맑은 고딕", Font.BOLD, 20));
