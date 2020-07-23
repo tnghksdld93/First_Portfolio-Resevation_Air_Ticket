@@ -86,23 +86,24 @@ public class UpdatePassengerPanel extends JPanel {
 		idTF.setBounds(270, 158, 131, 21);
 		idTF.setText(flightReservationMainFrame.loginPassenger.getMemberId());
 		idTF.setColumns(10);
+		add(idTF);
 		
 		nameTF = new JTextField();
-		nameTF.setText(flightReservationMainFrame.loginPassenger.getMemberName());
+		//nameTF.setText(flightReservationMainFrame.loginPassenger.getMemberName());
 		nameTF.setEditable(false);
 		nameTF.setColumns(10);
 		nameTF.setBounds(270, 292, 131, 21);
 		add(nameTF);
 		
 		birthDateTF = new JTextField();
-		birthDateTF.setText(flightReservationMainFrame.loginPassenger.getBirthDate());
+		//birthDateTF.setText(flightReservationMainFrame.loginPassenger.getBirthDate());
 		birthDateTF.setEditable(false);
 		birthDateTF.setColumns(10);
 		birthDateTF.setBounds(270, 337, 131, 21);
 		add(birthDateTF);
 		
 		phoneNoTF = new JTextField();
-		phoneNoTF.setText(flightReservationMainFrame.loginPassenger.getPhoneNo());
+		//phoneNoTF.setText(flightReservationMainFrame.loginPassenger.getPhoneNo());
 		phoneNoTF.setEditable(false);
 		phoneNoTF.setColumns(10);
 		phoneNoTF.setBounds(270, 384, 131, 21);
