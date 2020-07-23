@@ -18,21 +18,20 @@ import com.itwill.UI.main.MainFrame;
 import com.itwill.UI.main.FlightReservationMainFrame;
 
 import com.itwill.UI.signUp.SignUpDialog;
-
+import com.itwill.passenger.Passenger;
 import com.itwill.passenger.PassengerService;
 
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import com.itwill.UI.reservationList.ReservationFindPanel;
 
 public class LoginDialog extends JDialog {
 
 	private PassengerService passengerService;
 
-	private PassengerServiceFrameMain psframe;
-
-	private FlightReservationMainFrame frframe;
+	FlightReservationMainFrame flightReservationMainFrame;
 
 	private final JPanel contentPanel = new JPanel();
 	private JTextField idTF;
@@ -76,8 +75,9 @@ public class LoginDialog extends JDialog {
 					int result =  passengerService.login(id,pw);
 					if(result==0) {
 						//로그인 성공
-						
 						JOptionPane.showMessageDialog(null, "로그인에 성공했습니다.");
+						Passenger p=passengerService.findById(id);
+						flightReservationMainFrame.loginSuccess(id,p);
 						dispose();
 						
 					}else if(result==1) {
@@ -111,7 +111,6 @@ public class LoginDialog extends JDialog {
 
 				dispose(); //닫기
 
-				dispose();
 
 			}
 		});
@@ -132,25 +131,11 @@ public class LoginDialog extends JDialog {
 		});
 		signupBtn.setBounds(168, 228, 97, 23);
 		contentPanel.add(signupBtn);
-
-		passengerService=new PassengerService();
-
 		passengerService = new PassengerService();
 
 	}//end constructor
-	
 
-	public void setFrame(PassengerServiceFrameMain passengerServiceFrameMain) {
-		psframe = passengerServiceFrameMain;
+	public void setFlightReservationMainFrame(FlightReservationMainFrame flightReservationMainFrame) {
+		this.flightReservationMainFrame = flightReservationMainFrame;
 	}
-
-	public void setFrame(FlightReservationMainFrame mainFrame) {
-		frframe = mainFrame;
-
-	}
-
-
-
-	
-
 }//End class
