@@ -16,7 +16,7 @@ public class Reservation implements Serializable {
 	private Passenger passenger; // 포함
 	private static int inherenceReserveNo = 1000; // 예약번호 생성
 	
-	private double reservationFee;
+	private double fee;
 	
 
 	public Reservation() {
@@ -133,10 +133,10 @@ public class Reservation implements Serializable {
 		this.passenger = passenger;
 	}
 	public double getReservationFee() {
-		return reservationFee;
+		return fee;
 	}
 	public void setReservationFee(int fee) {
-		this.reservationFee = fee;
+		this.fee = fee;
 	}
 
 }
