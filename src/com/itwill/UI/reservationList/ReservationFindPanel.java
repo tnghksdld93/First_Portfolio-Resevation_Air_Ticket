@@ -100,7 +100,7 @@ public class ReservationFindPanel extends JPanel {
 		rdbtnNewRadioButton_1.setBackground(new Color(102, 153, 255));
 		rdbtnNewRadioButton_1.setFont(new Font("맑은 고딕", Font.BOLD, 13));
 		rdbtnNewRadioButton_1.setHorizontalAlignment(SwingConstants.CENTER);
-		rdbtnNewRadioButton_1.setBounds(20, 171, 95, 23);
+		rdbtnNewRadioButton_1.setBounds(20, 155, 95, 23);
 		add(rdbtnNewRadioButton_1);
 
 		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("탑승객 및 항공여행 정보");
@@ -113,7 +113,7 @@ public class ReservationFindPanel extends JPanel {
 		add(rdbtnNewRadioButton_2);
 
 		JScrollPane airlineTicketInfoScrollP = new JScrollPane();
-		airlineTicketInfoScrollP.setBounds(20, 200, 638, 116);
+		airlineTicketInfoScrollP.setBounds(20, 184, 600, 116);
 		add(airlineTicketInfoScrollP);
 
 		airTicketTable = new JTable();
@@ -148,7 +148,7 @@ public class ReservationFindPanel extends JPanel {
 		agreeCheckBox.setBackground(new Color(230, 230, 250));
 		agreeCheckBox.setHorizontalAlignment(SwingConstants.CENTER);
 		agreeCheckBox.setFont(new Font("맑은 고딕", Font.BOLD | Font.ITALIC, 11));
-		agreeCheckBox.setBounds(70, 330, 240, 23);
+		agreeCheckBox.setBounds(71, 324, 240, 23);
 		agreeCheckBox.setSelected(false);
 		add(agreeCheckBox);
 
@@ -162,7 +162,7 @@ public class ReservationFindPanel extends JPanel {
 			}
 		});
 		changeBtn.setFont(new Font("맑은 고딕", Font.BOLD, 13));
-		changeBtn.setBounds(70, 376, 108, 38);
+		changeBtn.setBounds(71, 353, 108, 38);
 		add(changeBtn);
 
 		JButton cancelBtn = new JButton("예매 취소");
@@ -188,11 +188,11 @@ public class ReservationFindPanel extends JPanel {
 			}
 		});
 		cancelBtn.setFont(new Font("맑은 고딕", Font.BOLD, 13));
-		cancelBtn.setBounds(203, 376, 108, 38);
+		cancelBtn.setBounds(203, 353, 108, 38);
 		add(cancelBtn);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(30, 459, 638, 107);
+		scrollPane.setBounds(30, 459, 590, 107);
 		add(scrollPane);
 
 		travelInfoTable = new JTable();
@@ -237,13 +237,13 @@ public class ReservationFindPanel extends JPanel {
 		phoneNoTF.setColumns(10);
 
 		reserveNoTF = new JTextField();
-		reserveNoTF.setBounds(522, 326, 136, 21);
+		reserveNoTF.setBounds(457, 326, 163, 21);
 		add(reserveNoTF);
 		reserveNoTF.setColumns(10);
 
 		JLabel lblNewLabel_3 = new JLabel("예약번호 : ");
 		lblNewLabel_3.setFont(new Font("맑은 고딕", Font.BOLD, 13));
-		lblNewLabel_3.setBounds(440, 326, 80, 24);
+		lblNewLabel_3.setBounds(379, 322, 80, 24);
 		add(lblNewLabel_3);
 
 		reservationService = new ReservationService();
