@@ -8,7 +8,7 @@ public class Passenger implements Serializable {
 	private String memberName;
 	private String birthDate;
 	private String phoneNo;
-	private String newPw;
+
 
 
 	public Passenger() {
@@ -26,6 +26,8 @@ public class Passenger implements Serializable {
 		
 	}
 	
+
+	
 	
 	public boolean matchPassword(String password) {
 		if (this.memberPw.equals(password)) {
@@ -37,10 +39,12 @@ public class Passenger implements Serializable {
 	
 
 	
+	
+
 	@Override
 	public String toString() {
 		return "Passenger [memberId=" + memberId + ", memberPw=" + memberPw + ", memberName=" + memberName
-				+ ", birthDate=" + birthDate + ", phoneNo=" + phoneNo + ", newPw=" + newPw + "]" +"\n";
+				+ ", birthDate=" + birthDate + ", phoneNo=" + phoneNo + "]";
 	}
 
 
@@ -84,12 +88,5 @@ public class Passenger implements Serializable {
 		this.phoneNo = phoneNo;
 	}
 
-	public String getNewPw() {
-		return newPw;
-	}
-
-	public void setNewPw(String newPw) {
-		this.newPw = newPw;
-	}
 
 }

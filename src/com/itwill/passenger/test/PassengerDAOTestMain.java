@@ -20,7 +20,7 @@ public class PassengerDAOTestMain {
 		System.out.println("---------------------update------------------------");
 		Passenger updatePassenger = passengerDAO.readOne("haewoni");
 		updatePassenger.setMemberName("김혜원");
-		updatePassenger.setNewPw("0000");
+		
 		updatePassenger.setBirthDate("1990.03.05");
 		updatePassenger.setPhoneNo("010-1234-1234");
 		System.out.println(passengerDAO.readOne("haewoni"));
