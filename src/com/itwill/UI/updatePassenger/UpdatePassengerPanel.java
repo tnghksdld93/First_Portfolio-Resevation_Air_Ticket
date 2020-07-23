@@ -17,7 +17,7 @@ import com.itwill.passenger.Passenger;
 import com.itwill.passenger.PassengerService;
 import javax.swing.JPasswordField;
 
-public class JPanelUpdatePassenger extends JPanel {
+public class UpdatePassengerPanel extends JPanel {
 	/************************************************/
 	PassengerService passengerService;
 	boolean isUpdate = false; //초기상태, true는 업뎃
@@ -36,7 +36,7 @@ public class JPanelUpdatePassenger extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public JPanelUpdatePassenger() {
+	public UpdatePassengerPanel() {
 		setBackground(SystemColor.inactiveCaption);
 		setLayout(null);
 		

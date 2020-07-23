@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class JFrameTestMain extends JFrame {
+public class UpdatePassengerTestMain extends JFrame {
 
 	private JPanel contentPane;
 
@@ -18,7 +18,7 @@ public class JFrameTestMain extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					JFrameTestMain frame = new JFrameTestMain();
+					UpdatePassengerTestMain frame = new UpdatePassengerTestMain();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -30,7 +30,7 @@ public class JFrameTestMain extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public JFrameTestMain() {
+	public UpdatePassengerTestMain() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 680, 680);
 		contentPane = new JPanel();
@@ -38,7 +38,7 @@ public class JFrameTestMain extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
-		JPanelUpdatePassenger updatePassenger = new JPanelUpdatePassenger();
+		UpdatePassengerPanel updatePassenger = new UpdatePassengerPanel();
 		contentPane.add(updatePassenger, BorderLayout.CENTER);
 	}
 }

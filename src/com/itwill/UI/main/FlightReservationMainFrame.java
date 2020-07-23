@@ -16,7 +16,7 @@ import javax.swing.border.EmptyBorder;
 
 import com.itwill.UI.logIn.LoginDialog;
 import com.itwill.UI.reservationList.ReservationFindPanel;
-import com.itwill.UI.updatePassenger.JPanelUpdatePassenger;
+import com.itwill.UI.updatePassenger.UpdatePassengerPanel;
 import com.itwill.passenger.Passenger;
 import com.itwill.UI.reservation.ReservationPanel;
 
@@ -37,9 +37,9 @@ public class FlightReservationMainFrame extends JFrame {
 	private JMenuItem shutdownMenu;
 	
 	private MainPanel mainPanel;
-	private ReservationFindPanel reservationFindPanel;
-	private JPanelUpdatePassenger panelUpdatePassenger;
 	private ReservationPanel reservationPanel;
+	private ReservationFindPanel reservationFindPanel;
+	private UpdatePassengerPanel updatePassengerPanel;
 
 	/**
 	 * Launch the application.
@@ -119,17 +119,15 @@ public class FlightReservationMainFrame extends JFrame {
 
 		mainPanel = new MainPanel();
 		parentPanel.add(mainPanel, "mainP");
-
-		reservationFindPanel = new ReservationFindPanel();
-		parentPanel.add(reservationFindPanel, "reservationFindP");
-
-		panelUpdatePassenger = new JPanelUpdatePassenger();
-		parentPanel.add(panelUpdatePassenger, "updatePassengerP");
 		
 		reservationPanel = new ReservationPanel();
-		reservationPanel.setMainFrame(this);
+		parentPanel.add(reservationPanel, "name_275561471209700");
 		
-		parentPanel.add(reservationPanel, "reservationP");
+		reservationFindPanel = new ReservationFindPanel();
+		parentPanel.add(reservationFindPanel, "name_275565490750600");
+		
+		updatePassengerPanel = new UpdatePassengerPanel();
+		parentPanel.add(updatePassengerPanel, "name_275635644081700");
 		this.setTitle("비행기 예매 프로그램");
 		setVisible(true);
 		loginDialogShow();
