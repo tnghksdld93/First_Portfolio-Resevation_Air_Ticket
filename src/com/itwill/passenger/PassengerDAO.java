@@ -88,7 +88,7 @@ public class PassengerDAO {
 		for (Passenger passenger : passengerList) {
 			if(passenger.getMemberId().equals(updatePassenger.getMemberId())) {
 				passenger.setMemberName(updatePassenger.getMemberName());
-				passenger.setNewPw(updatePassenger.getMemberPw());
+				passenger.setMemberPw(updatePassenger.getMemberPw());
 				passenger.setBirthDate(updatePassenger.getBirthDate());
 				passenger.setPhoneNo(updatePassenger.getPhoneNo());
 			
