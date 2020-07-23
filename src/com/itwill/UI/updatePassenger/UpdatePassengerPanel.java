@@ -167,6 +167,7 @@ public class UpdatePassengerPanel extends JPanel {
 		deleteAccountButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			JOptionPane.showMessageDialog(null, "탈퇴 되었습니다");
+			flightReservationMainFrame.logout();
 			try {
 				passengerService.memberDelete(idTF.getText());
 			} catch (Exception e1) {
