@@ -1,31 +1,22 @@
 package com.itwill.UI.logIn;
 
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-
-
-import com.itwill.UI.signUp.SignUpPanel;
-
-import com.itwill.UI.main.MainFrame;
-
 import com.itwill.UI.main.FlightReservationMainFrame;
-
 import com.itwill.UI.signUp.SignUpDialog;
 import com.itwill.passenger.Passenger;
 import com.itwill.passenger.PassengerService;
-
-import javax.swing.JTextField;
-import javax.swing.JPasswordField;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import com.itwill.UI.reservationList.ReservationFindPanel;
 
 public class LoginDialog extends JDialog {
 

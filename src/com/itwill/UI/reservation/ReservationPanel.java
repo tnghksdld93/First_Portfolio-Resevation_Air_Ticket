@@ -30,7 +30,7 @@ import com.itwill.UI.main.FlightReservationMainFrame;
 import com.itwill.flight.Flight;
 import com.itwill.reservation.ReservationService;
 
-import com.itwill.UI.logIn.TestFrame;
+import com.itwill.UI.logIn.LoginDialogTestFrameMain;
 
 public class ReservationPanel extends JPanel {
 	private JComboBox finishPointCB;
@@ -284,9 +284,6 @@ public class ReservationPanel extends JPanel {
 		
 	}
 
-	public FlightReservationMainFrame getMainFrame() {
-		return mainFrame;
-	}
 
 
 	public void setModal(boolean b) {
@@ -294,10 +291,7 @@ public class ReservationPanel extends JPanel {
 		
 	}
 
-	public void setframe(TestFrame testFrame) {
-		
-		
-	}
+
 
 	
 	public void setMainFrame(FlightReservationMainFrame mainFrame) {

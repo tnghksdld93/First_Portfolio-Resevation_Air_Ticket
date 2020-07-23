@@ -1,37 +1,33 @@
 package com.itwill.UI.main;
 
+import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import com.itwill.UI.logIn.LoginDialog;
+import com.itwill.UI.reservationList.ReservationFindPanel;
 import com.itwill.UI.updatePassenger.JPanelUpdatePassenger;
 import com.itwill.passenger.Passenger;
 import com.itwill.UI.reservation.ReservationPanel;
-import com.itwill.UI.reservationList.ReservationFindPanel;
-import java.awt.BorderLayout;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
 
 public class FlightReservationMainFrame extends JFrame {
 
 	private JPanel contentPane;
+	/************************************/
 	public String loginId = "";
 	public Passenger loginPassenger;
-	CardLayout cl_parentPanel;
+	private CardLayout mainCardLayout;
+	/**********************************/
 	private JPanel parentPanel;
 	private JMenuItem loginMenu;
 	private JMenuItem logoutMenu;
@@ -39,6 +35,11 @@ public class FlightReservationMainFrame extends JFrame {
 	private JMenuItem reservationMenu;
 	private JMenuItem reservationInfoMenu;
 	private JMenuItem shutdownMenu;
+	
+	private MainPanel mainPanel;
+	private ReservationFindPanel reservationFindPanel;
+	private JPanelUpdatePassenger panelUpdatePassenger;
+	private ReservationPanel reservationPanel;
 
 	/**
 	 * Launch the application.
@@ -116,20 +117,25 @@ public class FlightReservationMainFrame extends JFrame {
 		contentPane.add(parentPanel);
 		parentPanel.setLayout(new CardLayout(0, 0));
 
-		MainPanel mainPanel = new MainPanel();
-		parentPanel.add(mainPanel, "name_259986977080600");
+		mainPanel = new MainPanel();
+		parentPanel.add(mainPanel, "mainP");
 
-		ReservationFindPanel reservationFindPanel = new ReservationFindPanel();
-		parentPanel.add(reservationFindPanel, "name_260024961090700");
+		reservationFindPanel = new ReservationFindPanel();
+		parentPanel.add(reservationFindPanel, "reservationFindP");
 
-		JPanelUpdatePassenger panelUpdatePassenger = new JPanelUpdatePassenger();
-		parentPanel.add(panelUpdatePassenger, "name_260042892476500");
+		panelUpdatePassenger = new JPanelUpdatePassenger();
+		parentPanel.add(panelUpdatePassenger, "updatePassengerP");
+		
+		reservationPanel = new ReservationPanel();
+		reservationPanel.setMainFrame(this);
+		
+		parentPanel.add(reservationPanel, "reservationP");
 		this.setTitle("비행기 예매 프로그램");
 		setVisible(true);
-		loginProgress();
+		loginDialogShow();
 	}
 
-	public void loginProgress() throws Exception {
+	public void loginDialogShow() throws Exception {
 		/*
 		 * 로그인 다이얼로그
 		 */
@@ -139,11 +145,17 @@ public class FlightReservationMainFrame extends JFrame {
 		loginDialog.setVisible(true);
 	}
 
-
+	
 
 	public void loginSuccess(String id, Passenger p) {
 		loginId = id;
 		setTitle(id + "님 로그인");
 		loginPassenger=p;
+		
+		
+	}
+	
+	public void changePanel(String panelName) {
+		mainCardLayout.show(parentPanel, panelName);
 	}
 }
