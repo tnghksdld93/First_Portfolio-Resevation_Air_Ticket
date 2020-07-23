@@ -52,7 +52,7 @@ public class FlightReservationMainFrame extends JFrame {
 			public void run() {
 				try {
 					FlightReservationMainFrame frame = new FlightReservationMainFrame();
-					frame.setVisible(true);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -166,9 +166,11 @@ public class FlightReservationMainFrame extends JFrame {
 		parentPanel.add(mainPanel, "mainP");
 		
 		reservationPanel = new ReservationPanel();
+		
 		parentPanel.add(reservationPanel, "reservationP");
 		
 		reservationFindPanel = new ReservationFindPanel();
+		reservationFindPanel.setMainFrame(this);
 		parentPanel.add(reservationFindPanel, "reservationFindP");
 		
 		UpdatePassengerPanel updatePassengerPanel = new UpdatePassengerPanel();
@@ -179,6 +181,7 @@ public class FlightReservationMainFrame extends JFrame {
 		this.setTitle("비행기 예매 프로그램");
 		
 		mainPanel.setVisible(true);
+		setVisible(true);
 		loginDialogShow();
 		
 	}

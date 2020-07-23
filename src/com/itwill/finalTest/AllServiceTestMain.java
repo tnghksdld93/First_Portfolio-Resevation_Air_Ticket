@@ -1,4 +1,4 @@
-package com.itwill.UI;
+package com.itwill.finalTest;
 
 import com.itwill.flight.Flight;
 import com.itwill.flight.FlightService;

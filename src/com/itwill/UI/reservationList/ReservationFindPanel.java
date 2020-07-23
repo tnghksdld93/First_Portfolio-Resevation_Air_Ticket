@@ -19,6 +19,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
+import com.itwill.UI.main.FlightReservationMainFrame;
 import com.itwill.flight.Flight;
 import com.itwill.flight.FlightDAO;
 import com.itwill.passenger.Passenger;
@@ -49,19 +50,21 @@ public class ReservationFindPanel extends JPanel {
 	ReservationService reservationService;
 	PassengerService passengerService;
 	private ArrayList<Reservation> reservationList;
-	String loginId="aaa";
+	String loginId = "aaa";
 	private JTable travelInfoTable;
 	private JTextField nameTF;
 	private JTextField birthTF;
 	private JTextField phoneNoTF;
 	private JTextField reserveNoTF;
 	private JCheckBox agreeCheckBox;
+	FlightReservationMainFrame flightReservationMainFrame;
+
 	/*****************************************************************/
-	
-	
+
 	/**
 	 * Create the panel.
-	 * @throws Exception 
+	 * 
+	 * @throws Exception
 	 */
 	public ReservationFindPanel() throws Exception {
 		addFocusListener(new FocusAdapter() {
@@ -70,10 +73,10 @@ public class ReservationFindPanel extends JPanel {
 				System.out.println("focus");
 			}
 		});
-	
+
 		setBackground(new Color(102, 153, 255));
 		setLayout(null);
-		
+
 		JTextArea myReserve = new JTextArea();
 		myReserve.setForeground(new Color(255, 255, 255));
 		myReserve.setBackground(new Color(102, 153, 255));
@@ -81,7 +84,7 @@ public class ReservationFindPanel extends JPanel {
 		myReserve.setText("MY 예약 내역");
 		myReserve.setBounds(266, 10, 120, 32);
 		add(myReserve);
-		
+
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("회원 정보");
 		rdbtnNewRadioButton.setSelected(true);
 		rdbtnNewRadioButton.setForeground(new Color(255, 255, 255));
@@ -90,7 +93,7 @@ public class ReservationFindPanel extends JPanel {
 		rdbtnNewRadioButton.setHorizontalAlignment(SwingConstants.CENTER);
 		rdbtnNewRadioButton.setBounds(20, 47, 90, 23);
 		add(rdbtnNewRadioButton);
-		
+
 		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("항공권 정보");
 		rdbtnNewRadioButton_1.setSelected(true);
 		rdbtnNewRadioButton_1.setForeground(new Color(255, 255, 255));
@@ -99,7 +102,7 @@ public class ReservationFindPanel extends JPanel {
 		rdbtnNewRadioButton_1.setHorizontalAlignment(SwingConstants.CENTER);
 		rdbtnNewRadioButton_1.setBounds(20, 171, 95, 23);
 		add(rdbtnNewRadioButton_1);
-		
+
 		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("탑승객 및 항공여행 정보");
 		rdbtnNewRadioButton_2.setSelected(true);
 		rdbtnNewRadioButton_2.setForeground(new Color(255, 255, 255));
@@ -108,49 +111,39 @@ public class ReservationFindPanel extends JPanel {
 		rdbtnNewRadioButton_2.setHorizontalAlignment(SwingConstants.CENTER);
 		rdbtnNewRadioButton_2.setBounds(20, 430, 177, 23);
 		add(rdbtnNewRadioButton_2);
-		
+
 		JScrollPane airlineTicketInfoScrollP = new JScrollPane();
 		airlineTicketInfoScrollP.setBounds(20, 200, 638, 116);
 		add(airlineTicketInfoScrollP);
-		
+
 		airTicketTable = new JTable();
 		airTicketTable.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+
 				int selectRow = airTicketTable.getSelectedRow();
 				if (selectRow == -1) {
 					return;
 				}
-				int selectReserveNo = (Integer)airTicketTable.getModel().getValueAt(selectRow, 0);
-				reserveNoTF.setText(selectReserveNo+"");
-				
-				
-				
+				int selectReserveNo = (Integer) airTicketTable.getModel().getValueAt(selectRow, 0);
+				reserveNoTF.setText(selectReserveNo + "");
+
 			}
 		});
 		airTicketTable.setForeground(Color.BLACK);
 		airTicketTable.setBackground(Color.WHITE);
 		airTicketTable.setFont(new Font("맑은 고딕", Font.PLAIN, 13));
 		airTicketTable.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-			},
-			new String[] {
-				"", "\uC5EC\uC815", "\uD56D\uACF5\uD3B8", "\uCD9C\uBC1C\uC77C\uC2DC", "\uB3C4\uCC29\uC77C\uC2DC", "\uC88C\uC11D\uAD6C\uBD84", "\uC608\uC57D\uC0C1\uD0DC"
-			}
-		));
+				new Object[][] { { null, null, null, null, null, null, null },
+						{ null, null, null, null, null, null, null }, { null, null, null, null, null, null, null },
+						{ null, null, null, null, null, null, null }, { null, null, null, null, null, null, null },
+						{ null, null, null, null, null, null, null }, { null, null, null, null, null, null, null },
+						{ null, null, null, null, null, null, null }, { null, null, null, null, null, null, null },
+						{ null, null, null, null, null, null, null }, },
+				new String[] { "", "\uC5EC\uC815", "\uD56D\uACF5\uD3B8", "\uCD9C\uBC1C\uC77C\uC2DC",
+						"\uB3C4\uCC29\uC77C\uC2DC", "\uC88C\uC11D\uAD6C\uBD84", "\uC608\uC57D\uC0C1\uD0DC" }));
 		airlineTicketInfoScrollP.setViewportView(airTicketTable);
-		
+
 		agreeCheckBox = new JCheckBox("  상기 내용을 확인하고 동의합니다.");
 		agreeCheckBox.setBackground(new Color(230, 230, 250));
 		agreeCheckBox.setHorizontalAlignment(SwingConstants.CENTER);
@@ -158,184 +151,171 @@ public class ReservationFindPanel extends JPanel {
 		agreeCheckBox.setBounds(70, 330, 240, 23);
 		agreeCheckBox.setSelected(false);
 		add(agreeCheckBox);
-		
-		JButton changeBtn = new JButton("예매 변경");	//	변경버튼 누르면 검색화면으로 이동해야 합니다 ~
+
+		JButton changeBtn = new JButton("예매 변경"); // 변경버튼 누르면 검색화면으로 이동해야 합니다 ~
 		changeBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (agreeCheckBox.isSelected() == false) {
 					JOptionPane.showMessageDialog(null, "상기내용 확인후 동의해 주세요 !");
 				}
-				
+
 			}
 		});
 		changeBtn.setFont(new Font("맑은 고딕", Font.BOLD, 13));
 		changeBtn.setBounds(70, 376, 108, 38);
 		add(changeBtn);
-		
+
 		JButton cancelBtn = new JButton("예매 취소");
 		cancelBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				if (agreeCheckBox.isSelected() == false && reserveNoTF!=null) {
-						JOptionPane.showMessageDialog(null, "상기내용 확인후 동의 바랍니다~!!");
-					}else if(reserveNoTF.getText().equals("")) {
-						JOptionPane.showMessageDialog(null, "여정을 선택해 주세요");
-					}else  if(JOptionPane.showConfirmDialog(null, "예매내역을 삭제 하시겠습니까? 정말?", "예매내역 삭제", 
-							JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
-						deleteReservation();
-					}
-						
-				
-			
-				
-				
+
+				if (agreeCheckBox.isSelected() == false && reserveNoTF != null) {
+					JOptionPane.showMessageDialog(null, "상기내용 확인후 동의 바랍니다~!!");
+				} else if (reserveNoTF.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "여정을 선택해 주세요");
+				} else if (JOptionPane.showConfirmDialog(null, "예매내역을 삭제 하시겠습니까? 정말?", "예매내역 삭제",
+						JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+					deleteReservation();
+				}
+
 				try {
 					getMemberList();
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
-				
-				
+
 			}
 		});
 		cancelBtn.setFont(new Font("맑은 고딕", Font.BOLD, 13));
 		cancelBtn.setBounds(203, 376, 108, 38);
 		add(cancelBtn);
-		
+
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(30, 459, 638, 107);
 		add(scrollPane);
-		
+
 		travelInfoTable = new JTable();
 		travelInfoTable.setFont(new Font("맑은 고딕", Font.PLAIN, 13));
 		travelInfoTable.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-			},
-			new String[] {
-				"\uD0D1\uC2B9\uAC1D", "\uD2F0\uCF13 \uBC88\uD638", "\uD56D\uACF5 \uC694\uAE08"
-			}
-		));
+				new Object[][] { { null, null, null }, { null, null, null }, { null, null, null }, { null, null, null },
+						{ null, null, null }, },
+				new String[] { "\uD0D1\uC2B9\uAC1D", "\uD2F0\uCF13 \uBC88\uD638", "\uD56D\uACF5 \uC694\uAE08" }));
 		scrollPane.setViewportView(travelInfoTable);
-		
+
 		JLabel lblNewLabel = new JLabel("성명 : ");
 		lblNewLabel.setFont(new Font("맑은 고딕", Font.BOLD, 13));
 		lblNewLabel.setBounds(70, 76, 50, 15);
 		add(lblNewLabel);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("생년월일 : ");
 		lblNewLabel_1.setFont(new Font("맑은 고딕", Font.BOLD, 13));
 		lblNewLabel_1.setBounds(57, 114, 80, 15);
 		add(lblNewLabel_1);
-		
+
 		JLabel lblNewLabel_2 = new JLabel("연락처 : ");
 		lblNewLabel_2.setFont(new Font("맑은 고딕", Font.BOLD, 13));
 		lblNewLabel_2.setBounds(344, 76, 67, 15);
 		add(lblNewLabel_2);
-		
+
 		nameTF = new JTextField();
 		nameTF.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		nameTF.setBounds(168, 75, 96, 21);
 		add(nameTF);
 		nameTF.setColumns(10);
-		
+
 		birthTF = new JTextField();
 		birthTF.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		birthTF.setBounds(168, 113, 96, 21);
 		add(birthTF);
 		birthTF.setColumns(10);
-		
+
 		phoneNoTF = new JTextField();
 		phoneNoTF.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		phoneNoTF.setBounds(438, 73, 163, 38);
 		add(phoneNoTF);
 		phoneNoTF.setColumns(10);
-		
+
 		reserveNoTF = new JTextField();
 		reserveNoTF.setBounds(522, 326, 136, 21);
 		add(reserveNoTF);
 		reserveNoTF.setColumns(10);
-		
+
 		JLabel lblNewLabel_3 = new JLabel("예약번호 : ");
 		lblNewLabel_3.setFont(new Font("맑은 고딕", Font.BOLD, 13));
 		lblNewLabel_3.setBounds(440, 326, 80, 24);
 		add(lblNewLabel_3);
-		
+
 		reservationService = new ReservationService();
 		passengerService = new PassengerService();
-		
-		
+
 		getMemberList();
 		tripInfo();
-		
+
 	}
 
-	
 	protected void deleteReservation() {
 		try {
 			Integer deleteNo = Integer.parseInt(reserveNoTF.getText());
-			if (deleteNo == null || agreeCheckBox.isSelected() == false) return;
-			
-			if (JOptionPane.YES_OPTION == 0 ) {
+			if (deleteNo == null || agreeCheckBox.isSelected() == false)
+				return;
+
+			if (JOptionPane.YES_OPTION == 0) {
 				reservationService.remove(deleteNo);
 				reserveNoTF.setText("");
-				JOptionPane.showMessageDialog(null, "예매가 성공적으로 삭제되었습니다 !"); 
+				JOptionPane.showMessageDialog(null, "예매가 성공적으로 삭제되었습니다 !");
 			}
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		{
-			
+
 		}
-		
+
 	}
-
-
 
 	protected void getMemberList() throws Exception {
 		ArrayList<Reservation> reservationList = reservationService.findById(loginId);
-		
-		//DefaultListModel listModel = new DefaultListModel();
-		
-		//DefaultComboBoxModel comboBoxModel = new DefaultComboBoxModel();
-		
+
+		// DefaultListModel listModel = new DefaultListModel();
+
+		// DefaultComboBoxModel comboBoxModel = new DefaultComboBoxModel();
+
 		DefaultTableModel tableModel1 = new DefaultTableModel();
 		Vector columnVector1 = new Vector();
-		
+
 		columnVector1.add("티켓번호");
 		columnVector1.add("여정");
 		columnVector1.add("항공편");
 		columnVector1.add("출발일시");
 		columnVector1.add("도착일시");
 		columnVector1.add("좌석구분");
-		
-		
+
 		tableModel1.setColumnIdentifiers(columnVector1);
-		
+
 		for (Reservation reservation : reservationList) {
-			//listModel.addElement(flight.getFlightName());
-			//comboBoxModel.addElement(flight.getFlightName());			
-			
+			// listModel.addElement(flight.getFlightName());
+			// comboBoxModel.addElement(flight.getFlightName());
+
 			Vector rowVector1 = new Vector();
-			
+
 			rowVector1.add(reservation.getReservationNo());
 			rowVector1.add(reservation.getFlight().getStartPoint() + " -> " + reservation.getFlight().getFinishPoint());
 			rowVector1.add(reservation.getFlight().getFlightName());
-			rowVector1.add(reservation.getFlight().getFlightStartYear() +"/"+ reservation.getFlight().getFlightStartMonth() +"/"+ reservation.getFlight().getFlightStartDay() +"-"+ reservation.getFlight().getFlightStartTime());
-			rowVector1.add(reservation.getFlight().getFlightFinishYear() +"/"+ reservation.getFlight().getFlightFinishMonth() +"/"+ reservation.getFlight().getFlightFinishDay() +"-"+ reservation.getFlight().getFlightFinishTime());
+			rowVector1.add(reservation.getFlight().getFlightStartYear() + "/"
+					+ reservation.getFlight().getFlightStartMonth() + "/" + reservation.getFlight().getFlightStartDay()
+					+ "-" + reservation.getFlight().getFlightStartTime());
+			rowVector1.add(
+					reservation.getFlight().getFlightFinishYear() + "/" + reservation.getFlight().getFlightFinishMonth()
+							+ "/" + reservation.getFlight().getFlightFinishDay() + "-"
+							+ reservation.getFlight().getFlightFinishTime());
 			rowVector1.add(reservation.getSeatRating());
-			
+
 			tableModel1.addRow(rowVector1);
-			
+
 		}
-		
+
 		airTicketTable.setModel(tableModel1);
 		String tempName = "";
 		String tempPhoneNo = "";
@@ -351,51 +331,47 @@ public class ReservationFindPanel extends JPanel {
 		nameTF.setText(tempName);
 		phoneNoTF.setText(tempPhoneNo);
 		birthTF.setText(tempBirth);
-		
-		//System.out.println(adultCount);
-		//System.out.println(this.seatRating);
+
+		// System.out.println(adultCount);
+		// System.out.println(this.seatRating);
 	}
 
-	
-	
 	protected void tripInfo() throws Exception {
 		ArrayList<Reservation> reservationList = reservationService.findById(loginId);
-		
-		//DefaultListModel listModel = new DefaultListModel();
-		
-		//DefaultComboBoxModel comboBoxModel = new DefaultComboBoxModel();
-		
+
+		// DefaultListModel listModel = new DefaultListModel();
+
+		// DefaultComboBoxModel comboBoxModel = new DefaultComboBoxModel();
+
 		DefaultTableModel tableModel2 = new DefaultTableModel();
 		Vector columnVector2 = new Vector();
-		
+
 		columnVector2.add("탑승객");
 		columnVector2.add("항공요금");
 		columnVector2.add("예약상태");
-		
-		
+
 		tableModel2.setColumnIdentifiers(columnVector2);
-		
+
 		for (Reservation reservation : reservationList) {
-			//listModel.addElement(flight.getFlightName());
-			//comboBoxModel.addElement(flight.getFlightName());			
-			
+			// listModel.addElement(flight.getFlightName());
+			// comboBoxModel.addElement(flight.getFlightName());
+
 			Vector rowVector2 = new Vector();
-			
+
 			rowVector2.add(reservation.getCount());
 			rowVector2.add(reservation.getFlight().getFee());
 			rowVector2.add(true);
-			
-			
+
 			tableModel2.addRow(rowVector2);
-			
-			
-			
+
 		}
-		
-			
+
 		travelInfoTable.setModel(tableModel2);
-		//System.out.println(adultCount);
-		//System.out.println(this.seatRating);
-	}
+		// System.out.println(adultCount);
+		// System.out.println(this.seatRating);
 	}
 
+	public void setMainFrame(FlightReservationMainFrame flightReservationMainFrame) {
+		this.flightReservationMainFrame=flightReservationMainFrame;
+	}
+}
