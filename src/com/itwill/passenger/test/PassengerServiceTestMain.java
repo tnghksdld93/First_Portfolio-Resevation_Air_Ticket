@@ -33,9 +33,13 @@ public class PassengerServiceTestMain {
 			Passenger updatePassenger = new Passenger("vvv", "fff", "이수혁", "771021", "010-2224-9268");
 			passengerService.memberUpdate(updatePassenger);
 			
-			//passengerService.memberDelete("zzz");
+			/*
+			 * delete
+			 */
+			passengerService.memberDelete("zzz");
 			
-			System.out.println(passengerService.findById("vvv"));
+			System.out.println(passengerService.findByAll());
+			
 		
 	
 	}

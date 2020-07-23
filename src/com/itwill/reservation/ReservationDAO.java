@@ -8,6 +8,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import com.itwill.flight.Flight;
+import com.itwill.passenger.Passenger;
 
 
 public class ReservationDAO {
@@ -24,7 +25,7 @@ public class ReservationDAO {
 	
 	
 	/**********************************************/
-	private ArrayList<Reservation> readFile() throws Exception{
+	public ArrayList<Reservation> readFile() throws Exception{
 		ObjectInputStream ois = new ObjectInputStream(new FileInputStream(reservationFile));
 		ArrayList<Reservation> reservationList = (ArrayList<Reservation>) ois.readObject();
 		ois.close();
@@ -106,6 +107,10 @@ public class ReservationDAO {
 		}
 		writeFile(reservationList);
 	}
+	
+
+	
+	
 	
 	
 	

@@ -132,10 +132,10 @@ public class Reservation implements Serializable {
 	public void setPassenger(Passenger passenger) {
 		this.passenger = passenger;
 	}
-	public double getFee() {
+	public double getReservationFee() {
 		return fee;
 	}
-	public void setFee(int fee) {
+	public void setReservationFee(int fee) {
 		this.fee = fee;
 	}
 

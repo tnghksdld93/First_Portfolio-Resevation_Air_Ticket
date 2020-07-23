@@ -84,7 +84,7 @@ public class PassengerService {
 
 	// 승객 삭제
 	public void memberDelete(String memberId) throws Exception {
-		passengerDAO.delete("memberId");
+		passengerDAO.delete(memberId);
 
 	}
 }

@@ -4,14 +4,16 @@ import java.util.ArrayList;
 
 import com.itwill.flight.Flight;
 import com.itwill.flight.FlightDAO;
+import com.itwill.passenger.Passenger;
 
 public class ReservationService {
 
 	private ReservationDAO reservationDAO;
 	private FlightDAO flightDAO;
+	
 	public ReservationService() throws Exception{
 		reservationDAO = new ReservationDAO();
-		flightDAO=new FlightDAO();
+		flightDAO = new FlightDAO();
 	}
 	
 	/*
@@ -19,6 +21,7 @@ public class ReservationService {
 	 */
 	
 	public void addReservation(Reservation addReservation) throws Exception {
+		
 		reservationDAO.create(addReservation);		
 	}
 	
@@ -81,6 +84,17 @@ public class ReservationService {
 			}
 		}
 		return temp;
+	}
+
+	public ArrayList<Reservation> findById(String memberId) throws Exception {
+		ArrayList<Reservation> reservationList = reservationDAO.readFile();
+		ArrayList<Reservation> findReservationList = new ArrayList<Reservation>();
+		for (Reservation reservation : reservationList) {
+			if (reservation.getPassenger().getMemberId().equals(memberId)) {
+				findReservationList.add(reservation);
+			}
+		}
+		return findReservationList;
 	}
 	
 	
