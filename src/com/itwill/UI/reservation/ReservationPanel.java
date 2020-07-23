@@ -48,7 +48,7 @@ public class ReservationPanel extends JPanel {
 	/************************************************************************/
 
 	ReservationService reservationService;
-	FlightReservationMainFrame mainFrame;
+	FlightReservationMainFrame flightReservationMainFrame;
 	
 	/************************************************************************/
 
@@ -293,8 +293,8 @@ public class ReservationPanel extends JPanel {
 
 
 	
-	public void setMainFrame(FlightReservationMainFrame mainFrame) {
-		this.mainFrame = mainFrame;
+	public void setMainFrame(FlightReservationMainFrame flightReservationMainFrame) {
+		this.flightReservationMainFrame = flightReservationMainFrame;
 	}
 
 

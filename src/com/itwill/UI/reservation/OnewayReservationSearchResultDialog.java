@@ -216,7 +216,8 @@ public class OnewayReservationSearchResultDialog extends JDialog {
 							
 							reservationService.addReservation(new Reservation(seatRating, adultCount, childCount, reserveFlight, addPassenger,fee));
 							JOptionPane.showMessageDialog(null, "예약이 완료 되었습니다."+"\n"+"예매내역을 확인하세요");
-							
+							setMainFrame(flightReservationMainFrame);
+							flightReservationMainFrame.changePanel("reservationFindP");
 							} catch (Exception e2) {
 								e2.printStackTrace();
 							}
@@ -261,7 +262,7 @@ public class OnewayReservationSearchResultDialog extends JDialog {
 		reservationPanel = new ReservationPanel();
 		reservationService = new ReservationService();
 		passengerService=new PassengerService();
-		flightReservationMainFrame = new FlightReservationMainFrame();
+		
 		
 	}
 /************************************************************************************************/
@@ -372,6 +373,9 @@ public class OnewayReservationSearchResultDialog extends JDialog {
 		searchResultT.setModel(tableModel);
 		//System.out.println(adultCount);
 		//System.out.println(this.seatRating);
+	}
+	public void setMainFrame(FlightReservationMainFrame flightReservationMainFrame) {
+		this.flightReservationMainFrame = flightReservationMainFrame;
 	}
 }
 	
