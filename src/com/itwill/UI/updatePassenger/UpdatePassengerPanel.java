@@ -96,8 +96,6 @@ public class UpdatePassengerPanel extends JPanel {
 		add(lblNewLabel_1_1_1_1_1_1);
 		
 		idTF = new JTextField();
-		idTF.setEditable(false);
-		idTF.setEnabled(false);
 		idTF.setBounds(270, 158, 131, 21);
 
 		idTF.setColumns(10);

@@ -102,11 +102,10 @@ public class PassengerDAO {
 	 * delete
 	 */
 	public void delete(String memberId) throws Exception {
-		ArrayList<Passenger> passengerList = readFile();
+		ArrayList<Passenger> passengerList = this.readFile();
 		for (Passenger passenger : passengerList) {
 			if (passenger.getMemberId().equals(memberId)) {
 				passengerList.remove(passenger);
-				
 				break;
 			}
 		}
