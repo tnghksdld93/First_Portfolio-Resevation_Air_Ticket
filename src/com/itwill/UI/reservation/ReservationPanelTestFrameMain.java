@@ -32,7 +32,7 @@ public class ReservationPanelTestFrameMain extends JFrame {
 	 */
 	public ReservationPanelTestFrameMain() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 642, 477);
+		setBounds(100, 100, 660, 545);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));

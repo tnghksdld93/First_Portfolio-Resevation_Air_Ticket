@@ -14,7 +14,11 @@ import javax.swing.border.EmptyBorder;
 import com.itwill.UI.signUp.SignUpPanel;
 
 import com.itwill.UI.main.MainFrame;
+<<<<<<< HEAD
 
+=======
+import com.itwill.UI.signUp.SignUpDialog;
+>>>>>>> branch 'master' of https://github.com/2020-10-itwill-javapython/teamproject-flight.git
 import com.itwill.passenger.PassengerService;
 
 import javax.swing.JTextField;
@@ -29,10 +33,6 @@ public class LoginDialog extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private JTextField idTF;
 	private JPasswordField pwTF;
-	
-	
-	
-
 	
 	/**
 	 * Create the dialog.
@@ -72,7 +72,7 @@ public class LoginDialog extends JDialog {
 					int result =  passengerService.login(id,pw);
 					if(result==0) {
 						//로그인 성공
-						frame.loginUI(id);
+						
 						JOptionPane.showMessageDialog(null, "로그인에 성공했습니다.");
 						dispose();
 						
@@ -117,10 +117,10 @@ public class LoginDialog extends JDialog {
 		JButton signupBtn = new JButton("회원가입");
 		signupBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JoinDialog joinDialog = new JoinDialog();
-				joinDialog.setVisible(true);
-				joinDialog.requestFocusInWindow();
-				joinDialog.setAlwaysOnTop(true);
+				SignUpDialog signUpDialog = new SignUpDialog();
+				signUpDialog.setVisible(true);
+				signUpDialog.requestFocusInWindow();
+				signUpDialog.setAlwaysOnTop(true);
 				
 				
 				
@@ -138,7 +138,11 @@ public class LoginDialog extends JDialog {
 		passengerService=new PassengerService();
 
 		passengerService = new PassengerService();
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> branch 'master' of https://github.com/2020-10-itwill-javapython/teamproject-flight.git
 	}//end constructor
 	
 	public void setFrame(PassengerServiceFrameMain passengerServiceFrameMain) {
