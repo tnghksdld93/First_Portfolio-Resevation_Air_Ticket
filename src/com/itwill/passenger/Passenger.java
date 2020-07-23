@@ -26,6 +26,7 @@ public class Passenger implements Serializable {
 		
 	}
 	
+	
 	public boolean matchPassword(String password) {
 		if (this.memberPw.equals(password)) {
 			return true;

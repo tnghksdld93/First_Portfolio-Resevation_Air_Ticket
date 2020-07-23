@@ -119,6 +119,7 @@ public class JPanelUpdatePassenger extends JPanel {
 						JOptionPane.showMessageDialog(null, "확인 되었습니다");
 						rePswTF.setEditable(true);
 						newPswTF.setEditable(true);
+						newPswTF.enable(true);
 						nameTF.setEditable(true);
 						birthDateTF.setEditable(true);
 						phoneNoTF.setEditable(true);
@@ -161,13 +162,19 @@ public class JPanelUpdatePassenger extends JPanel {
 		JButton editButton = new JButton("수정");
 		editButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			    updateMember();     
-				JOptionPane.showMessageDialog(null, "수정 되었습니다");
+			    try {
+					updateMember();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}     
 			}
 		});
 		editButton.setBounds(218, 529, 97, 23);
 		add(editButton);
-		
+		/*
+		 * 취소 누르면 검색화면으로 다시 이동 --JFrame
+		 */
 		JButton cancelButton = new JButton("취소");
 		cancelButton.setBounds(364, 529, 97, 23);
 		add(cancelButton);
@@ -192,20 +199,30 @@ public class JPanelUpdatePassenger extends JPanel {
 
 	}
 
-	protected void updateMember() {
+	protected void updateMember() throws Exception {
 		/*
 		 * 수정완료시 TF 비활성화
 		 */
+		JOptionPane.showMessageDialog(null, "수정 되었습니다");
 		newPswTF.setEditable(false);
 		nameTF.setEditable(false);
 		birthDateTF.setEditable(false);
 		phoneNoTF.setEditable(false);
 		messageRecevieCHK.setEnabled(false);
 		deleteAccountButton.setEnabled(false);
+		rePswTF.requestFocus();
 		/*
 		 * 회원정보 ArrayList에 수정사항 반영
 		 */
-		//passengerService.memberUpdate(new Passenger());
+		String id = idTF.getText();
+		String pw = rePswTF.getText();
+		String newPw = newPswTF.getText(); 
+		String name = nameTF.getText();
+		String birthDate = birthDateTF.getText();
+		String phoneNo = phoneNoTF.getText();
+		
+		passengerService.memberUpdate(new Passenger(id, newPw, name, birthDate, phoneNo));
+		passengerService.memberUpdate(new Passenger(id, pw, name, birthDate, phoneNo));   //비밀번호 변경 안할 시
 		
 		
 	
