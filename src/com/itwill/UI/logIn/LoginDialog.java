@@ -1,7 +1,6 @@
 package com.itwill.UI.logIn;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -10,7 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import com.itwill.UI.main.MainFrame;
+import com.itwill.UI.main.FlightReservationMainFrame;
 import com.itwill.UI.signUp.SignUpDialog;
 import com.itwill.passenger.PassengerService;
 
@@ -22,7 +21,7 @@ import java.awt.event.ActionEvent;
 public class LoginDialog extends JDialog {
 
 	private PassengerService passengerService;
-	private MainFrame frame;
+	private FlightReservationMainFrame frame;
 	private final JPanel contentPanel = new JPanel();
 	private JTextField idTF;
 	private JPasswordField pwTF;
@@ -112,12 +111,6 @@ public class LoginDialog extends JDialog {
 				signUpDialog.setAlwaysOnTop(true);
 				
 				
-				
-				
-				
-				
-				
-				
 				dispose();
 			}
 		});
@@ -127,7 +120,7 @@ public class LoginDialog extends JDialog {
 		
 	}//end constructor
 	
-	public void setFrame(MainFrame mainFrame) {
+	public void setFrame(FlightReservationMainFrame mainFrame) {
 		frame = mainFrame;
 	}
 	
