@@ -216,11 +216,13 @@ public class OnewayReservationSearchResultDialog extends JDialog {
 							
 							reservationService.addReservation(new Reservation(seatRating, adultCount, childCount, reserveFlight, addPassenger,fee));
 							JOptionPane.showMessageDialog(null, "예약이 완료 되었습니다."+"\n"+"예매내역을 확인하세요");
-							flightReservationMainFrame.changePanel("reservationFindP");
+							
 							} catch (Exception e2) {
 								e2.printStackTrace();
 							}
+							flightReservationMainFrame.changePanel("reservationFindP");
 							dispose();
+							
 						
 							}else {
 								JOptionPane.showMessageDialog(null, "원하시는 항공편을 선택하시고 약관에 동의 후 예약하세요");
@@ -259,6 +261,7 @@ public class OnewayReservationSearchResultDialog extends JDialog {
 		reservationPanel = new ReservationPanel();
 		reservationService = new ReservationService();
 		passengerService=new PassengerService();
+		flightReservationMainFrame = new FlightReservationMainFrame();
 		
 	}
 /************************************************************************************************/

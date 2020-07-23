@@ -30,7 +30,6 @@ import com.itwill.UI.main.FlightReservationMainFrame;
 import com.itwill.flight.Flight;
 import com.itwill.reservation.ReservationService;
 
-import com.itwill.UI.logIn.LoginDialogTestFrameMain;
 
 public class ReservationPanel extends JPanel {
 	private JComboBox finishPointCB;
