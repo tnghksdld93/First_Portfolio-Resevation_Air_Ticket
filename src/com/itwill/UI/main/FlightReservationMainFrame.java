@@ -39,7 +39,7 @@ public class FlightReservationMainFrame extends JFrame {
 	private MainPanel mainPanel;
 	private ReservationPanel reservationPanel;
 	private ReservationFindPanel reservationFindPanel;
-	private UpdatePassengerPanel updatePassengerPanel;
+	//private UpdatePassengerPanel updatePassengerPanel;
 
 	/**
 	 * Launch the application.
@@ -49,7 +49,7 @@ public class FlightReservationMainFrame extends JFrame {
 			public void run() {
 				try {
 					FlightReservationMainFrame frame = new FlightReservationMainFrame();
-
+					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -86,7 +86,11 @@ public class FlightReservationMainFrame extends JFrame {
 		mnNewMenu.add(logoutMenu);
 		
 		updateMenu = new JMenuItem("회원정보 수정");
-		updateMenu.setEnabled(false);
+		updateMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				changePanel("updatePassengerP");
+			}
+		});
 		mnNewMenu.add(updateMenu);
 		
 		shutdownMenu = new JMenuItem("종료");
@@ -115,22 +119,27 @@ public class FlightReservationMainFrame extends JFrame {
 
 		parentPanel = new JPanel();
 		contentPane.add(parentPanel);
-		parentPanel.setLayout(new CardLayout(0, 0));
+		mainCardLayout = new CardLayout(0, 0);
+		parentPanel.setLayout(mainCardLayout);
 
 		mainPanel = new MainPanel();
 		parentPanel.add(mainPanel, "mainP");
 		
 		reservationPanel = new ReservationPanel();
-		parentPanel.add(reservationPanel, "name_275561471209700");
+		parentPanel.add(reservationPanel, "reservationP");
 		
 		reservationFindPanel = new ReservationFindPanel();
-		parentPanel.add(reservationFindPanel, "name_275565490750600");
+		parentPanel.add(reservationFindPanel, "reservationFindP");
 		
-		updatePassengerPanel = new UpdatePassengerPanel();
-		parentPanel.add(updatePassengerPanel, "name_275635644081700");
+		UpdatePassengerPanel updatePassengerPanel = new UpdatePassengerPanel();
+		updatePassengerPanel.setMainFrame(this);
+		parentPanel.add(updatePassengerPanel, "updatePassengerP");
+		
+		
 		this.setTitle("비행기 예매 프로그램");
-		setVisible(true);
 		loginDialogShow();
+		
+		
 	}
 
 	public void loginDialogShow() throws Exception {
@@ -138,7 +147,10 @@ public class FlightReservationMainFrame extends JFrame {
 		 * 로그인 다이얼로그
 		 */
 		LoginDialog loginDialog = new LoginDialog();
-		loginDialog.setFlightReservationMainFrame(this);
+		loginDialog.setMainFrame(this);
+		
+		
+		
 		loginDialog.setModal(true);
 		loginDialog.setVisible(true);
 	}
@@ -149,7 +161,7 @@ public class FlightReservationMainFrame extends JFrame {
 		loginId = id;
 		setTitle(id + "님 로그인");
 		loginPassenger=p;
-		
+		changePanel("reservationP");
 		
 	}
 	

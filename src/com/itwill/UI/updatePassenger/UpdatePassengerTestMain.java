@@ -37,7 +37,6 @@ public class UpdatePassengerTestMain extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
-		
 		UpdatePassengerPanel updatePassenger = new UpdatePassengerPanel();
 		contentPane.add(updatePassenger, BorderLayout.CENTER);
 	}
