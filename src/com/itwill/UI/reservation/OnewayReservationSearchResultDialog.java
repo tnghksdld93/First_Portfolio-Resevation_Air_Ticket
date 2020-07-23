@@ -45,6 +45,7 @@ public class OnewayReservationSearchResultDialog extends JDialog {
 	PassengerService passengerService;
 	ReservationService reservationService;
 	FlightReservationMainFrame flightReservationMainFrame;
+	
 	/***************************************************************/
 	
 	private final JPanel contentPanel = new JPanel();
@@ -207,7 +208,7 @@ public class OnewayReservationSearchResultDialog extends JDialog {
 							try {
 								
 							
-							Passenger addPassenger = passengerService.findByName("yyy");
+							Passenger addPassenger = passengerService.findByName(flightReservationMainFrame.loginPassenger.getMemberId());
 							
 							
 							//Passenger passenger1 = new Passenger("xxx", "xxx", "김구달", "470123", "010-3333-4444");
@@ -216,12 +217,11 @@ public class OnewayReservationSearchResultDialog extends JDialog {
 							
 							reservationService.addReservation(new Reservation(seatRating, adultCount, childCount, reserveFlight, addPassenger,fee));
 							JOptionPane.showMessageDialog(null, "예약이 완료 되었습니다."+"\n"+"예매내역을 확인하세요");
-							setMainFrame(flightReservationMainFrame);
+							
 							flightReservationMainFrame.changePanel("reservationFindP");
 							} catch (Exception e2) {
 								e2.printStackTrace();
 							}
-							flightReservationMainFrame.changePanel("reservationFindP");
 							dispose();
 							
 						

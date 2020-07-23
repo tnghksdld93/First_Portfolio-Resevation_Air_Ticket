@@ -50,7 +50,7 @@ public class ReservationFindPanel extends JPanel {
 	ReservationService reservationService;
 	PassengerService passengerService;
 	private ArrayList<Reservation> reservationList;
-	String loginId = "aaa";
+	String loginId = "";
 	private JTable travelInfoTable;
 	private JTextField nameTF;
 	private JTextField birthTF;
@@ -58,6 +58,9 @@ public class ReservationFindPanel extends JPanel {
 	private JTextField reserveNoTF;
 	private JCheckBox agreeCheckBox;
 	FlightReservationMainFrame flightReservationMainFrame;
+	private JLabel lblNewLabel;
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_2;
 
 	/*****************************************************************/
 
@@ -70,6 +73,9 @@ public class ReservationFindPanel extends JPanel {
 		addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
+				nameTF.setText(flightReservationMainFrame.loginPassenger.getMemberName());
+				birthTF.setText(flightReservationMainFrame.loginPassenger.getBirthDate());
+				phoneNoTF.setText(flightReservationMainFrame.loginPassenger.getPhoneNo());
 				System.out.println("focus");
 			}
 		});
@@ -203,17 +209,17 @@ public class ReservationFindPanel extends JPanel {
 				new String[] { "\uD0D1\uC2B9\uAC1D", "\uD2F0\uCF13 \uBC88\uD638", "\uD56D\uACF5 \uC694\uAE08" }));
 		scrollPane.setViewportView(travelInfoTable);
 
-		JLabel lblNewLabel = new JLabel("성명 : ");
+		lblNewLabel = new JLabel("성명 : ");
 		lblNewLabel.setFont(new Font("맑은 고딕", Font.BOLD, 13));
 		lblNewLabel.setBounds(70, 76, 50, 15);
 		add(lblNewLabel);
 
-		JLabel lblNewLabel_1 = new JLabel("생년월일 : ");
+		lblNewLabel_1 = new JLabel("생년월일 : ");
 		lblNewLabel_1.setFont(new Font("맑은 고딕", Font.BOLD, 13));
 		lblNewLabel_1.setBounds(57, 114, 80, 15);
 		add(lblNewLabel_1);
 
-		JLabel lblNewLabel_2 = new JLabel("연락처 : ");
+		lblNewLabel_2 = new JLabel("연락처 : ");
 		lblNewLabel_2.setFont(new Font("맑은 고딕", Font.BOLD, 13));
 		lblNewLabel_2.setBounds(344, 76, 67, 15);
 		add(lblNewLabel_2);
