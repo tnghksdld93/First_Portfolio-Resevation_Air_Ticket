@@ -6,8 +6,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
-public class ReservationFindPanelTestMain extends JFrame {
+public class ReservationFindPanelTestFrameMain extends JFrame {
 
 	private JPanel contentPane;
 
@@ -18,7 +20,7 @@ public class ReservationFindPanelTestMain extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ReservationFindPanelTestMain frame = new ReservationFindPanelTestMain();
+					ReservationFindPanelTestFrameMain frame = new ReservationFindPanelTestFrameMain();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -29,8 +31,9 @@ public class ReservationFindPanelTestMain extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws Exception 
 	 */
-	public ReservationFindPanelTestMain() {
+	public ReservationFindPanelTestFrameMain() throws Exception {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 837, 693);
 		contentPane = new JPanel();
@@ -39,6 +42,7 @@ public class ReservationFindPanelTestMain extends JFrame {
 		setContentPane(contentPane);
 		
 		ReservationFindPanel reservationFindPanel = new ReservationFindPanel();
+		
 		contentPane.add(reservationFindPanel, BorderLayout.CENTER);
 	}
 
