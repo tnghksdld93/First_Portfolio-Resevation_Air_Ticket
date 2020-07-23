@@ -29,7 +29,7 @@ import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 
 public class SignUpDialog extends JDialog {
-
+	FlightReservationMainFrame flightReservationMainFrame;
 	private PassengerService passengerService;
 	private PassengerDAO passengerDAO;
 	
@@ -206,6 +206,7 @@ public class SignUpDialog extends JDialog {
 						memberIdTF.requestFocus();
 						dispose();
 						LoginDialog loginDialog = new LoginDialog();
+						loginDialog.setMainFrame(flightReservationMainFrame);
 						loginDialog.setVisible(true);
 					}else {
 						JOptionPane.showMessageDialog(null, "가입에 실패했습니다. 다시 시도하세요.");
@@ -253,6 +254,11 @@ public class SignUpDialog extends JDialog {
 		passwordFd = new JPasswordField();
 		passwordFd.setBounds(269, 128, 119, 21);
 		panel.add(passwordFd);
+		
+	}
+
+	public void setMainFrame(FlightReservationMainFrame flightReservationMainFrame) {
+		this.flightReservationMainFrame=flightReservationMainFrame;
 		
 	}
 }
