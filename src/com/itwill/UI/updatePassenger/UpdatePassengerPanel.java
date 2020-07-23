@@ -83,8 +83,10 @@ public class UpdatePassengerPanel extends JPanel {
 		add(lblNewLabel_1_1_1_1_1_1);
 		
 		idTF = new JTextField();
+		idTF.setEditable(false);
+		idTF.setEnabled(false);
 		idTF.setBounds(270, 158, 131, 21);
-		idTF.setText(flightReservationMainFrame.loginPassenger.getMemberId());
+		//idTF.setText(flightReservationMainFrame.loginPassenger.getMemberId());
 		idTF.setColumns(10);
 		add(idTF);
 		
@@ -202,13 +204,13 @@ public class UpdatePassengerPanel extends JPanel {
 			e1.printStackTrace();
 		}
 		
-		// flight reservation main frame 생성자
-		try {
-			flightReservationMainFrame = new FlightReservationMainFrame();
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+//		// flight reservation main frame 생성자
+//		try {
+//			flightReservationMainFrame = new FlightReservationMainFrame();
+//		} catch (Exception e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
 	}
 
 	protected void updateMember() throws Exception {
@@ -227,13 +229,12 @@ public class UpdatePassengerPanel extends JPanel {
 		 * 회원정보 ArrayList에 수정사항 반영
 		 */
 		String id = idTF.getText();
-		String pw = rePswTF.getText();
-		String newPw = newPswTF.getText(); 
+		String pw = newPswTF.getText();
 		String name = nameTF.getText();
 		String birthDate = birthDateTF.getText();
 		String phoneNo = phoneNoTF.getText();
 		
-		passengerService.memberUpdate(new Passenger(id, newPw, name, birthDate, phoneNo));
+	
 		passengerService.memberUpdate(new Passenger(id, pw, name, birthDate, phoneNo));   //비밀번호 변경 안할 시
 		
 		
