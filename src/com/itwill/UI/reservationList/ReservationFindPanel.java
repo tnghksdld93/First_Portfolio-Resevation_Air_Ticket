@@ -50,7 +50,7 @@ public class ReservationFindPanel extends JPanel {
 	ReservationService reservationService;
 	PassengerService passengerService;
 	private ArrayList<Reservation> reservationList;
-	String loginId = "";
+	String loginId = "zzz";
 	private JTable travelInfoTable;
 	private JTextField nameTF;
 	private JTextField birthTF;
@@ -163,10 +163,16 @@ public class ReservationFindPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				if (agreeCheckBox.isSelected() == false) {
 					JOptionPane.showMessageDialog(null, "상기내용 확인후 동의해 주세요 !");
+				} else if (reserveNoTF.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "여정을 선택해 주세요");
+				}else {
+					JOptionPane.showMessageDialog(null, "선택여정 삭제 후 변경화면으로 넘어갑니닷, 이용해주셔서 감사합니다 !!");
+					deleteReservation();
+					flightReservationMainFrame.changePanel("reservationP");
 				}
-
-			}
-		});
+			 }
+		 }
+		);
 		changeBtn.setFont(new Font("맑은 고딕", Font.BOLD, 13));
 		changeBtn.setBounds(71, 353, 108, 38);
 		add(changeBtn);
@@ -176,10 +182,10 @@ public class ReservationFindPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 
 				if (agreeCheckBox.isSelected() == false && reserveNoTF != null) {
-					JOptionPane.showMessageDialog(null, "상기내용 확인후 동의 바랍니다~!!");
+					JOptionPane.showMessageDialog(null, "상기내용 확인후 동의 해주세요 ~!!");
 				} else if (reserveNoTF.getText().equals("")) {
-					JOptionPane.showMessageDialog(null, "여정을 선택해 주세요");
-				} else if (JOptionPane.showConfirmDialog(null, "예매내역을 삭제 하시겠습니까? 정말?", "예매내역 삭제",
+					JOptionPane.showMessageDialog(null, "여정을 선택해 주세요 !!!!!!!");
+				} else if (JOptionPane.showConfirmDialog(null, "예매내역을 삭제 하시겠습니까????? 정말????", "예매내역 삭제",
 						JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 					deleteReservation();
 				}
@@ -269,7 +275,7 @@ public class ReservationFindPanel extends JPanel {
 			if (JOptionPane.YES_OPTION == 0) {
 				reservationService.remove(deleteNo);
 				reserveNoTF.setText("");
-				JOptionPane.showMessageDialog(null, "예매가 성공적으로 삭제되었습니다 !");
+				JOptionPane.showMessageDialog(null, "여정 예매가 성공적으로 삭제되었습니다 ! 이용해주셔서 감사합니다 -!!");
 			}
 
 		} catch (Exception e) {
