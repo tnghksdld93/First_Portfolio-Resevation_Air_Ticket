@@ -1,17 +1,22 @@
 package com.itwill.UI.main;
 
-import javax.swing.JPanel;
 import java.awt.Color;
-import javax.swing.JLabel;
+import java.io.UnsupportedEncodingException;
+import java.net.URL;
+import java.net.URLDecoder;
+
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class MainPanel extends JPanel {
 	
 	FlightReservationMainFrame flightReservationMainFrame;
 	/**
 	 * Create the panel.
+	 * @throws UnsupportedEncodingException 
 	 */
-	public MainPanel() {
+	public MainPanel() throws UnsupportedEncodingException {
 		setBackground(Color.GRAY);
 		setLayout(null);
 		
@@ -21,7 +26,9 @@ public class MainPanel extends JPanel {
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\stu01\\git\\teamproject-flight\\src\\시카고.jpg"));
+		URL imageUrl=getClass().getClassLoader().getResource("image/chicago.jpg");
+		System.out.println(imageUrl.getPath());
+		lblNewLabel.setIcon(new ImageIcon(imageUrl.getPath()));
 		lblNewLabel.setBounds(0, 0, 680, 680);
 		panel.add(lblNewLabel);
 
