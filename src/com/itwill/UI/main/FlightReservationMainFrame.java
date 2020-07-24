@@ -163,10 +163,11 @@ public class FlightReservationMainFrame extends JFrame {
 		parentPanel.setLayout(mainCardLayout);
 
 		mainPanel = new MainPanel();
+		mainPanel.setMainFrame(this);
 		parentPanel.add(mainPanel, "mainP");
 		
 		reservationPanel = new ReservationPanel();
-		
+		reservationPanel.setMainFrame(this);
 		parentPanel.add(reservationPanel, "reservationP");
 		
 		reservationFindPanel = new ReservationFindPanel();

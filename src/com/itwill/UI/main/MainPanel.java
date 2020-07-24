@@ -6,7 +6,8 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 
 public class MainPanel extends JPanel {
-
+	
+	FlightReservationMainFrame flightReservationMainFrame;
 	/**
 	 * Create the panel.
 	 */
@@ -24,5 +25,9 @@ public class MainPanel extends JPanel {
 		lblNewLabel.setBounds(79, 0, 601, 400);
 		panel.add(lblNewLabel);
 
+	}
+
+	public void setMainFrame(FlightReservationMainFrame flightReservationMainFrame) {
+		this.flightReservationMainFrame = flightReservationMainFrame;
 	}
 }

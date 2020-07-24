@@ -50,7 +50,7 @@ public class ReservationFindPanel extends JPanel {
 	ReservationService reservationService;
 	PassengerService passengerService;
 	private ArrayList<Reservation> reservationList;
-	String loginId = "aaa";
+	String loginId = "zzz";
 	private JTable travelInfoTable;
 	private JTextField nameTF;
 	private JTextField birthTF;
@@ -58,6 +58,9 @@ public class ReservationFindPanel extends JPanel {
 	private JTextField reserveNoTF;
 	private JCheckBox agreeCheckBox;
 	FlightReservationMainFrame flightReservationMainFrame;
+	private JLabel lblNewLabel;
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_2;
 
 	/*****************************************************************/
 
@@ -67,9 +70,13 @@ public class ReservationFindPanel extends JPanel {
 	 * @throws Exception
 	 */
 	public ReservationFindPanel() throws Exception {
-		addFocusListener(new FocusAdapter() {
+		addComponentListener(new ComponentAdapter()   {
 			@Override
-			public void focusGained(FocusEvent e) {
+			public void componentShown(ComponentEvent e) {
+				nameTF.setText(flightReservationMainFrame.loginPassenger.getMemberName());
+				birthTF.setText(flightReservationMainFrame.loginPassenger.getBirthDate());
+				phoneNoTF.setText(flightReservationMainFrame.loginPassenger.getPhoneNo());
+				
 				System.out.println("focus");
 			}
 		});
@@ -100,7 +107,7 @@ public class ReservationFindPanel extends JPanel {
 		rdbtnNewRadioButton_1.setBackground(new Color(102, 153, 255));
 		rdbtnNewRadioButton_1.setFont(new Font("맑은 고딕", Font.BOLD, 13));
 		rdbtnNewRadioButton_1.setHorizontalAlignment(SwingConstants.CENTER);
-		rdbtnNewRadioButton_1.setBounds(20, 171, 95, 23);
+		rdbtnNewRadioButton_1.setBounds(20, 155, 95, 23);
 		add(rdbtnNewRadioButton_1);
 
 		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("탑승객 및 항공여행 정보");
@@ -113,7 +120,7 @@ public class ReservationFindPanel extends JPanel {
 		add(rdbtnNewRadioButton_2);
 
 		JScrollPane airlineTicketInfoScrollP = new JScrollPane();
-		airlineTicketInfoScrollP.setBounds(20, 200, 638, 116);
+		airlineTicketInfoScrollP.setBounds(20, 184, 600, 116);
 		add(airlineTicketInfoScrollP);
 
 		airTicketTable = new JTable();
@@ -148,7 +155,7 @@ public class ReservationFindPanel extends JPanel {
 		agreeCheckBox.setBackground(new Color(230, 230, 250));
 		agreeCheckBox.setHorizontalAlignment(SwingConstants.CENTER);
 		agreeCheckBox.setFont(new Font("맑은 고딕", Font.BOLD | Font.ITALIC, 11));
-		agreeCheckBox.setBounds(70, 330, 240, 23);
+		agreeCheckBox.setBounds(71, 324, 240, 23);
 		agreeCheckBox.setSelected(false);
 		add(agreeCheckBox);
 
@@ -157,12 +164,18 @@ public class ReservationFindPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				if (agreeCheckBox.isSelected() == false) {
 					JOptionPane.showMessageDialog(null, "상기내용 확인후 동의해 주세요 !");
+				} else if (reserveNoTF.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "여정을 선택해 주세요");
+				}else {
+					JOptionPane.showMessageDialog(null, "선택여정 삭제 후 변경화면으로 넘어갑니닷, 이용해주셔서 감사합니다 !!");
+					deleteReservation();
+					flightReservationMainFrame.changePanel("reservationP");
 				}
-
-			}
-		});
+			 }
+		 }
+		);
 		changeBtn.setFont(new Font("맑은 고딕", Font.BOLD, 13));
-		changeBtn.setBounds(70, 376, 108, 38);
+		changeBtn.setBounds(71, 353, 108, 38);
 		add(changeBtn);
 
 		JButton cancelBtn = new JButton("예매 취소");
@@ -170,10 +183,10 @@ public class ReservationFindPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 
 				if (agreeCheckBox.isSelected() == false && reserveNoTF != null) {
-					JOptionPane.showMessageDialog(null, "상기내용 확인후 동의 바랍니다~!!");
+					JOptionPane.showMessageDialog(null, "상기내용 확인후 동의 해주세요 ~!!");
 				} else if (reserveNoTF.getText().equals("")) {
-					JOptionPane.showMessageDialog(null, "여정을 선택해 주세요");
-				} else if (JOptionPane.showConfirmDialog(null, "예매내역을 삭제 하시겠습니까? 정말?", "예매내역 삭제",
+					JOptionPane.showMessageDialog(null, "여정을 선택해 주세요 !!!!!!!");
+				} else if (JOptionPane.showConfirmDialog(null, "예매내역을 삭제 하시겠습니까????? 정말????", "예매내역 삭제",
 						JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 					deleteReservation();
 				}
@@ -188,11 +201,11 @@ public class ReservationFindPanel extends JPanel {
 			}
 		});
 		cancelBtn.setFont(new Font("맑은 고딕", Font.BOLD, 13));
-		cancelBtn.setBounds(203, 376, 108, 38);
+		cancelBtn.setBounds(203, 353, 108, 38);
 		add(cancelBtn);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(30, 459, 638, 107);
+		scrollPane.setBounds(30, 459, 590, 107);
 		add(scrollPane);
 
 		travelInfoTable = new JTable();
@@ -203,47 +216,50 @@ public class ReservationFindPanel extends JPanel {
 				new String[] { "\uD0D1\uC2B9\uAC1D", "\uD2F0\uCF13 \uBC88\uD638", "\uD56D\uACF5 \uC694\uAE08" }));
 		scrollPane.setViewportView(travelInfoTable);
 
-		JLabel lblNewLabel = new JLabel("성명 : ");
+		lblNewLabel = new JLabel("성명 : ");
 		lblNewLabel.setFont(new Font("맑은 고딕", Font.BOLD, 13));
 		lblNewLabel.setBounds(70, 76, 50, 15);
 		add(lblNewLabel);
 
-		JLabel lblNewLabel_1 = new JLabel("생년월일 : ");
+		lblNewLabel_1 = new JLabel("생년월일 : ");
 		lblNewLabel_1.setFont(new Font("맑은 고딕", Font.BOLD, 13));
 		lblNewLabel_1.setBounds(57, 114, 80, 15);
 		add(lblNewLabel_1);
 
-		JLabel lblNewLabel_2 = new JLabel("연락처 : ");
+		lblNewLabel_2 = new JLabel("연락처 : ");
 		lblNewLabel_2.setFont(new Font("맑은 고딕", Font.BOLD, 13));
 		lblNewLabel_2.setBounds(344, 76, 67, 15);
 		add(lblNewLabel_2);
 
 		nameTF = new JTextField();
+		nameTF.setEditable(false);
 		nameTF.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		nameTF.setBounds(168, 75, 96, 21);
 		add(nameTF);
 		nameTF.setColumns(10);
 
 		birthTF = new JTextField();
+		birthTF.setEditable(false);
 		birthTF.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		birthTF.setBounds(168, 113, 96, 21);
 		add(birthTF);
 		birthTF.setColumns(10);
 
 		phoneNoTF = new JTextField();
+		phoneNoTF.setEditable(false);
 		phoneNoTF.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		phoneNoTF.setBounds(438, 73, 163, 38);
 		add(phoneNoTF);
 		phoneNoTF.setColumns(10);
 
 		reserveNoTF = new JTextField();
-		reserveNoTF.setBounds(522, 326, 136, 21);
+		reserveNoTF.setBounds(457, 326, 163, 21);
 		add(reserveNoTF);
 		reserveNoTF.setColumns(10);
 
 		JLabel lblNewLabel_3 = new JLabel("예약번호 : ");
 		lblNewLabel_3.setFont(new Font("맑은 고딕", Font.BOLD, 13));
-		lblNewLabel_3.setBounds(440, 326, 80, 24);
+		lblNewLabel_3.setBounds(379, 322, 80, 24);
 		add(lblNewLabel_3);
 
 		reservationService = new ReservationService();
@@ -263,7 +279,7 @@ public class ReservationFindPanel extends JPanel {
 			if (JOptionPane.YES_OPTION == 0) {
 				reservationService.remove(deleteNo);
 				reserveNoTF.setText("");
-				JOptionPane.showMessageDialog(null, "예매가 성공적으로 삭제되었습니다 !");
+				JOptionPane.showMessageDialog(null, "여정 예매가 성공적으로 삭제되었습니다 ! 이용해주셔서 감사합니다 -!!");
 			}
 
 		} catch (Exception e) {
