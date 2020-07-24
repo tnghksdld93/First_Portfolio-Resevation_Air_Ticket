@@ -42,7 +42,8 @@ public class FlightReservationMainFrame extends JFrame {
 	private ReservationPanel reservationPanel;
 	private ReservationFindPanel reservationFindPanel;
 	private JMenuItem homepageMenu;
-	//private UpdatePassengerPanel updatePassengerPanel;
+	private UpdatePassengerPanel updatePassengerPanel;
+
 
 	/**
 	 * Launch the application.
@@ -174,7 +175,7 @@ public class FlightReservationMainFrame extends JFrame {
 		reservationFindPanel.setMainFrame(this);
 		parentPanel.add(reservationFindPanel, "reservationFindP");
 		
-		UpdatePassengerPanel updatePassengerPanel = new UpdatePassengerPanel();
+		updatePassengerPanel = new UpdatePassengerPanel();
 		updatePassengerPanel.setMainFrame(this);
 		parentPanel.add(updatePassengerPanel, "updatePassengerP");
 		
@@ -227,6 +228,10 @@ public class FlightReservationMainFrame extends JFrame {
 	}
 	
 	public void changePanel(String panelName) {
+		reservationFindPanel.setMainFrame(this);
+		reservationPanel.setMainFrame(this);
+		updatePassengerPanel.setMainFrame(this);
 		mainCardLayout.show(parentPanel, panelName);
+		
 	}
 }
