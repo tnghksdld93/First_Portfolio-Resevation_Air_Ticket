@@ -119,8 +119,9 @@ public class LoginDialog extends JDialog {
          public void actionPerformed(ActionEvent e) {
             SignUpDialog signUpDialog = new SignUpDialog();
             signUpDialog.setVisible(true);
+            signUpDialog.setAlwaysOnTop(true);
             signUpDialog.requestFocusInWindow();
-            //signUpDialog.setAlwaysOnTop(true);
+            
             signUpDialog.setMainFrame(flightReservationMainFrame);
             
             dispose();

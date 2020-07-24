@@ -406,8 +406,8 @@ public class ReservationFindPanel extends JPanel {
 			Vector rowVector2 = new Vector();
 
 			//flightReservationMainFrame.loginPassenger.getMemberId()
-			rowVector2.add(reservation.getPassenger().getMemberName());
-			rowVector2.add(reservation.getFlight().getFee());
+			rowVector2.add("성인 : "+reservation.getAdultCount()+"명 / 소아 : "+reservation.getChildCount()+"명");
+			rowVector2.add(reservation.getReservationFee()+"원");
 			rowVector2.add(reservation.getSeatRating());
 			rowVector2.add(true);
 
