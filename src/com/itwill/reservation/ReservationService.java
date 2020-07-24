@@ -48,7 +48,19 @@ public class ReservationService {
 		ArrayList<Reservation> reservationList = reservationDAO.readAll();
 		return reservationList;
 	}
-	
+	/*
+	 * 예약번호로 찾기
+	 */
+	public Reservation findByNo(int no) throws Exception{
+		ArrayList<Reservation> reservationList = reservationDAO.readAll();
+		Reservation findReservation = new Reservation();
+		for (Reservation reservation : reservationList) {
+			if (reservation.getReservationNo()==no) {
+				findReservation = reservation;
+			}
+		}
+		return findReservation;
+	}
 	
 	/*
 	 * 항공편 검색 (편도)

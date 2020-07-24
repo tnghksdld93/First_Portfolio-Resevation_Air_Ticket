@@ -61,6 +61,7 @@ public class ReservationFindPanel extends JPanel {
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
+	private JButton searchBtn;
 
 	/*****************************************************************/
 
@@ -73,9 +74,12 @@ public class ReservationFindPanel extends JPanel {
 		addComponentListener(new ComponentAdapter()   {
 			@Override
 			public void componentShown(ComponentEvent e) {
-				nameTF.setText(flightReservationMainFrame.loginPassenger.getMemberName());
-				birthTF.setText(flightReservationMainFrame.loginPassenger.getBirthDate());
-				phoneNoTF.setText(flightReservationMainFrame.loginPassenger.getPhoneNo());
+				try {
+					getMemberList();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				
 				System.out.println("focus");
 			}
@@ -134,7 +138,8 @@ public class ReservationFindPanel extends JPanel {
 				}
 				int selectReserveNo = (Integer) airTicketTable.getModel().getValueAt(selectRow, 0);
 				reserveNoTF.setText(selectReserveNo + "");
-
+				
+				
 			}
 		});
 		airTicketTable.setForeground(Color.BLACK);
@@ -261,12 +266,26 @@ public class ReservationFindPanel extends JPanel {
 		lblNewLabel_3.setFont(new Font("맑은 고딕", Font.BOLD, 13));
 		lblNewLabel_3.setBounds(379, 322, 80, 24);
 		add(lblNewLabel_3);
+		
+		searchBtn = new JButton("예약번호로 조회하기");
+		searchBtn.setFont(new Font("맑은 고딕", Font.BOLD, 12));
+		searchBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					tripInfo();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		searchBtn.setBounds(438, 431, 182, 23);
+		add(searchBtn);
 
 		reservationService = new ReservationService();
 		passengerService = new PassengerService();
-
 		getMemberList();
-		tripInfo();
+		
 
 	}
 
@@ -292,6 +311,7 @@ public class ReservationFindPanel extends JPanel {
 	}
 
 	protected void getMemberList() throws Exception {
+		System.out.println(">>>>>>>>>>>>>>>>>"+loginId);
 		ArrayList<Reservation> reservationList = reservationService.findById(loginId);
 
 		// DefaultListModel listModel = new DefaultListModel();
@@ -353,8 +373,15 @@ public class ReservationFindPanel extends JPanel {
 		// System.out.println(this.seatRating);
 	}
 
+	
+
+	public void setMainFrame(FlightReservationMainFrame flightReservationMainFrame) {
+		this.flightReservationMainFrame=flightReservationMainFrame;
+		loginId=flightReservationMainFrame.loginId;
+	}
+	
 	protected void tripInfo() throws Exception {
-		ArrayList<Reservation> reservationList = reservationService.findById(loginId);
+		Reservation reservation = reservationService.findByNo(Integer.parseInt(reserveNoTF.getText()));
 
 		// DefaultListModel listModel = new DefaultListModel();
 
@@ -370,27 +397,24 @@ public class ReservationFindPanel extends JPanel {
 
 		tableModel2.setColumnIdentifiers(columnVector2);
 
-		for (Reservation reservation : reservationList) {
+		
 			// listModel.addElement(flight.getFlightName());
 			// comboBoxModel.addElement(flight.getFlightName());
 
 			Vector rowVector2 = new Vector();
 
-			rowVector2.add(reservation.getCount());
+			//flightReservationMainFrame.loginPassenger.getMemberId()
+			rowVector2.add(reservation.getPassenger().getMemberName());
 			rowVector2.add(reservation.getFlight().getFee());
 			rowVector2.add(reservation.getSeatRating());
 			rowVector2.add(true);
 
 			tableModel2.addRow(rowVector2);
 
-		}
+		
 
 		travelInfoTable.setModel(tableModel2);
 		// System.out.println(adultCount);
 		// System.out.println(this.seatRating);
-	}
-
-	public void setMainFrame(FlightReservationMainFrame flightReservationMainFrame) {
-		this.flightReservationMainFrame=flightReservationMainFrame;
 	}
 }

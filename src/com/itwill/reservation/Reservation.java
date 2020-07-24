@@ -2,6 +2,7 @@ package com.itwill.reservation;
 
 import java.io.Serializable;
 
+
 import com.itwill.flight.Flight;
 import com.itwill.passenger.Passenger;
 
@@ -22,7 +23,9 @@ public class Reservation implements Serializable {
 	public Reservation() {
 		// TODO Auto-generated constructor stub
 	}
-	
+	public void findReservationData() {
+		
+	}
 	/*
 	 * Update용 생성자 -- 예약번호 인자
 	 */
