@@ -43,6 +43,7 @@ import java.awt.event.FocusEvent;
 import javax.swing.JLabel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ListSelectionModel;
 
 public class ReservationFindPanel extends JPanel {
 	private JTable airTicketTable;
@@ -128,6 +129,7 @@ public class ReservationFindPanel extends JPanel {
 		add(airlineTicketInfoScrollP);
 
 		airTicketTable = new JTable();
+		airTicketTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		airTicketTable.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
