@@ -86,8 +86,8 @@ public class ReservationService {
 		ArrayList<Flight> temp = new ArrayList<Flight>();
 		for (Flight flight : flightList) {
 			if (flight.getFinishPoint().equals(finishPoint) && 
-				((flight.getFlightStartMonth() >= flightStartMonth && 
-				flight.getFlightStartDay() >= flightStartDay)) &&
+				((flight.getFlightStartMonth() == flightStartMonth && 
+				flight.getFlightStartDay() >= flightStartDay || flight.getFlightStartMonth()>flightStartMonth)) &&
 				flight.getFlightStartMonth() <= flightComingMonth &&
 				flight.getFlightStartDay() < flightComingDay) {
 				temp.add(flight);
