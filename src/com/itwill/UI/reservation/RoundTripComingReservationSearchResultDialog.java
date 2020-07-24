@@ -44,6 +44,7 @@ public class RoundTripComingReservationSearchResultDialog extends JDialog {
 	ReservationPanel reservationPanel;
 	PassengerService passengerService;
 	ReservationService reservationService;
+	FlightReservationMainFrame flightReservationMainFrame;
 	/***************************************************************/
 	
 	private final JPanel contentPanel = new JPanel();
@@ -204,11 +205,12 @@ public class RoundTripComingReservationSearchResultDialog extends JDialog {
 							
 						try {
 							
-						Passenger addPassenger = passengerService.findByName("yyy");
+						Passenger addPassenger = passengerService.findByName(flightReservationMainFrame.loginPassenger.getMemberId());
 					
 						reservationService.addReservation(new Reservation(seatRating, adultCount, childCount, reserveFlight,addPassenger,fee));
 						JOptionPane.showMessageDialog(null, "예약이 완료 되었습니다."+"\n"+"예매내역을 확인하세요");
 						
+						flightReservationMainFrame.changePanel("reservationFindP");
 						} catch (Exception e2) {
 							e2.printStackTrace();
 						}
@@ -364,6 +366,9 @@ public class RoundTripComingReservationSearchResultDialog extends JDialog {
 		searchResultT.setModel(tableModel);
 		//System.out.println(adultCount);
 		//System.out.println(this.seatRating);
+	}
+	public void setMainFrame(FlightReservationMainFrame flightReservationMainFrame) {
+		this.flightReservationMainFrame = flightReservationMainFrame;
 	}
 	
 }

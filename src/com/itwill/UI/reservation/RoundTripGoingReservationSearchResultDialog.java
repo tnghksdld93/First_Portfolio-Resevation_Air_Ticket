@@ -44,6 +44,7 @@ public class RoundTripGoingReservationSearchResultDialog extends JDialog {
 	ReservationPanel reservationPanel;
 	PassengerService passengerService;
 	ReservationService reservationService;
+	FlightReservationMainFrame flightReservationMainFrame;
 	/***************************************************************/
 	
 	private final JPanel contentPanel = new JPanel();
@@ -208,7 +209,7 @@ public class RoundTripGoingReservationSearchResultDialog extends JDialog {
 							
 						try {
 						
-						Passenger addPassenger = passengerService.findByName("yyy");
+						Passenger addPassenger = passengerService.findByName(flightReservationMainFrame.loginPassenger.getMemberId());
 					
 						reservationService.addReservation(new Reservation(seatRating, adultCount, childCount, reserveFlight,addPassenger,fee));
 						
@@ -216,6 +217,7 @@ public class RoundTripGoingReservationSearchResultDialog extends JDialog {
 						
 						ArrayList<Flight> flightList = reservationService.readRoundTrip(finishPoint,"인천", flightComingMonth, flightComingDay);
 						RoundTripComingReservationSearchResultDialog dialog=new RoundTripComingReservationSearchResultDialog();
+						dialog.setMainFrame(flightReservationMainFrame);
 						dialog.setFlightList(flightList);
 						dialog.setAdultCount(adultCount);
 						dialog.setChildCount(childCount);
@@ -390,6 +392,10 @@ public class RoundTripGoingReservationSearchResultDialog extends JDialog {
 		searchResultT.setModel(tableModel);
 		//System.out.println(adultCount);
 		//System.out.println(this.seatRating);
+	}
+	public void setMainFrame(FlightReservationMainFrame flightReservationMainFrame) {
+		this.flightReservationMainFrame = flightReservationMainFrame;
+		
 	}
 	
 }

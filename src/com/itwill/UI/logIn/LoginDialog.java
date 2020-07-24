@@ -133,8 +133,8 @@ public class LoginDialog extends JDialog {
    }//end constructor
  
    
-   public void setMainFrame(FlightReservationMainFrame mainFrame) {
-	   System.out.println(mainFrame);
-      this.flightReservationMainFrame = mainFrame;
+   public void setMainFrame(FlightReservationMainFrame flightReservationMainFrame) {
+	   System.out.println(flightReservationMainFrame);
+      this.flightReservationMainFrame = flightReservationMainFrame;
    }
 }//End class

@@ -7,6 +7,8 @@ import java.awt.Image;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
@@ -30,13 +32,13 @@ import com.itwill.UI.main.FlightReservationMainFrame;
 import com.itwill.flight.Flight;
 import com.itwill.reservation.ReservationService;
 
-import com.itwill.UI.logIn.LoginDialogTestFrameMain;
 
 public class ReservationPanel extends JPanel {
 	private JComboBox finishPointCB;
 	private JDatePicker startDayDP;
 	private JDatePicker comingDayDP;
 	private JComboBox seatRatingCB;
+	String loginId = "";
 	/**
 	 * @wbp.nonvisual location=28,134
 	 */
@@ -49,7 +51,7 @@ public class ReservationPanel extends JPanel {
 	/************************************************************************/
 
 	ReservationService reservationService;
-	FlightReservationMainFrame mainFrame;
+	FlightReservationMainFrame flightReservationMainFrame;
 	
 	/************************************************************************/
 
@@ -57,8 +59,9 @@ public class ReservationPanel extends JPanel {
 	 * Create the panel.
 	 */
 	public ReservationPanel() {
+		
 		setLayout(new BorderLayout(0, 0));
-
+	
 		JPanel reservAirPanel = new JPanel();
 		reservAirPanel.setBackground(Color.WHITE);
 		add(reservAirPanel, BorderLayout.CENTER);
@@ -224,6 +227,7 @@ public class ReservationPanel extends JPanel {
 						ArrayList<Flight> flightList = reservationService.readOneWay(finishPoint, flightStartMonth,
 								flightStartday);
 						OnewayReservationSearchResultDialog dialog=new OnewayReservationSearchResultDialog();
+						dialog.setMainFrame(flightReservationMainFrame);
 						dialog.setFlightList(flightList);
 						dialog.setAdultCount(adultCount);
 						dialog.setChildCount(childCount);
@@ -248,6 +252,7 @@ public class ReservationPanel extends JPanel {
 						ArrayList<Flight> flightList = reservationService.readOneWay(finishPoint, flightStartMonth,
 								flightStartday);
 						RoundTripGoingReservationSearchResultDialog dialog=new RoundTripGoingReservationSearchResultDialog();
+						dialog.setMainFrame(flightReservationMainFrame);
 						dialog.setFlightList(flightList);
 						dialog.setAdultCount(adultCount);
 						dialog.setChildCount(childCount);
@@ -294,8 +299,8 @@ public class ReservationPanel extends JPanel {
 
 
 	
-	public void setMainFrame(FlightReservationMainFrame mainFrame) {
-		this.mainFrame = mainFrame;
+	public void setMainFrame(FlightReservationMainFrame flightReservationMainFrame) {
+		this.flightReservationMainFrame = flightReservationMainFrame;
 	}
 
 
