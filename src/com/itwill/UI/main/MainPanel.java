@@ -21,8 +21,8 @@ public class MainPanel extends JPanel {
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\stu01\\git\\teamproject-flight\\이륙사진.jpg"));
-		lblNewLabel.setBounds(79, 0, 601, 400);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\stu01\\git\\teamproject-flight\\src\\시카고.jpg"));
+		lblNewLabel.setBounds(0, 0, 680, 680);
 		panel.add(lblNewLabel);
 
 	}
