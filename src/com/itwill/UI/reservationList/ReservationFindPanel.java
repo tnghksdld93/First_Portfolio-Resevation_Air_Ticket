@@ -50,7 +50,7 @@ public class ReservationFindPanel extends JPanel {
 	ReservationService reservationService;
 	PassengerService passengerService;
 	private ArrayList<Reservation> reservationList;
-	String loginId = "zzz";
+	String loginId = "";
 	private JTable travelInfoTable;
 	private JTextField nameTF;
 	private JTextField birthTF;
@@ -298,11 +298,11 @@ public class ReservationFindPanel extends JPanel {
 		Vector columnVector1 = new Vector();
 
 		columnVector1.add("티켓번호");
+		columnVector1.add("항공사");
 		columnVector1.add("여정");
 		columnVector1.add("항공편");
 		columnVector1.add("출발일시");
 		columnVector1.add("도착일시");
-		columnVector1.add("좌석구분");
 
 		tableModel1.setColumnIdentifiers(columnVector1);
 
@@ -313,6 +313,7 @@ public class ReservationFindPanel extends JPanel {
 			Vector rowVector1 = new Vector();
 
 			rowVector1.add(reservation.getReservationNo());
+			rowVector1.add(reservation.getFlight().getAirlineName());
 			rowVector1.add(reservation.getFlight().getStartPoint() + " -> " + reservation.getFlight().getFinishPoint());
 			rowVector1.add(reservation.getFlight().getFlightName());
 			rowVector1.add(reservation.getFlight().getFlightStartYear() + "/"
@@ -322,7 +323,7 @@ public class ReservationFindPanel extends JPanel {
 					reservation.getFlight().getFlightFinishYear() + "/" + reservation.getFlight().getFlightFinishMonth()
 							+ "/" + reservation.getFlight().getFlightFinishDay() + "-"
 							+ reservation.getFlight().getFlightFinishTime());
-			rowVector1.add(reservation.getSeatRating());
+			
 
 			tableModel1.addRow(rowVector1);
 
@@ -360,6 +361,7 @@ public class ReservationFindPanel extends JPanel {
 
 		columnVector2.add("탑승객");
 		columnVector2.add("항공요금");
+		columnVector2.add("좌석구분");
 		columnVector2.add("예약상태");
 
 		tableModel2.setColumnIdentifiers(columnVector2);
@@ -372,6 +374,7 @@ public class ReservationFindPanel extends JPanel {
 
 			rowVector2.add(reservation.getCount());
 			rowVector2.add(reservation.getFlight().getFee());
+			rowVector2.add(reservation.getSeatRating());
 			rowVector2.add(true);
 
 			tableModel2.addRow(rowVector2);
