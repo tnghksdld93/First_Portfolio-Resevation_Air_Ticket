@@ -70,12 +70,13 @@ public class ReservationFindPanel extends JPanel {
 	 * @throws Exception
 	 */
 	public ReservationFindPanel() throws Exception {
-		addFocusListener(new FocusAdapter() {
+		addComponentListener(new ComponentAdapter()   {
 			@Override
-			public void focusGained(FocusEvent e) {
+			public void componentShown(ComponentEvent e) {
 				nameTF.setText(flightReservationMainFrame.loginPassenger.getMemberName());
 				birthTF.setText(flightReservationMainFrame.loginPassenger.getBirthDate());
 				phoneNoTF.setText(flightReservationMainFrame.loginPassenger.getPhoneNo());
+				
 				System.out.println("focus");
 			}
 		});
@@ -231,18 +232,21 @@ public class ReservationFindPanel extends JPanel {
 		add(lblNewLabel_2);
 
 		nameTF = new JTextField();
+		nameTF.setEditable(false);
 		nameTF.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		nameTF.setBounds(168, 75, 96, 21);
 		add(nameTF);
 		nameTF.setColumns(10);
 
 		birthTF = new JTextField();
+		birthTF.setEditable(false);
 		birthTF.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		birthTF.setBounds(168, 113, 96, 21);
 		add(birthTF);
 		birthTF.setColumns(10);
 
 		phoneNoTF = new JTextField();
+		phoneNoTF.setEditable(false);
 		phoneNoTF.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		phoneNoTF.setBounds(438, 73, 163, 38);
 		add(phoneNoTF);
