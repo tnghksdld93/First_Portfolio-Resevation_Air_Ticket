@@ -59,6 +59,10 @@ public class RoundTripGoingReservationSearchResultDialog extends JDialog {
 	private String finishPoint;
 	private String memberId;
 	
+	private int flightStartMonth;
+	private int flightStartDay;
+	
+	
 	private JTable searchResultT;
 	private JTextField seatRatingTF;
 	private JTextField feeTF;
@@ -215,7 +219,7 @@ public class RoundTripGoingReservationSearchResultDialog extends JDialog {
 						
 						JOptionPane.showMessageDialog(null, "오시는 날 예약화면으로 넘어갑니다.");
 						
-						ArrayList<Flight> flightList = reservationService.readRoundTrip(finishPoint,"인천", flightComingMonth, flightComingDay);
+						ArrayList<Flight> flightList = reservationService.readRoundTrip(finishPoint,"인천", flightComingMonth, flightComingDay, flightStartMonth, flightStartDay);
 						RoundTripComingReservationSearchResultDialog dialog=new RoundTripComingReservationSearchResultDialog();
 						dialog.setMainFrame(flightReservationMainFrame);
 						dialog.setFlightList(flightList);
@@ -329,6 +333,20 @@ public class RoundTripGoingReservationSearchResultDialog extends JDialog {
 	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
+	public int getFlightGoingMonth() {
+		return flightStartMonth;
+	}
+	public void setFlightGoingMonth(int flightGoingMonth) {
+		this.flightStartMonth = flightGoingMonth;
+	}
+	public int getFlightGoingDay() {
+		return flightStartDay;
+	}
+	public void setFlightGoingDay(int flightGoingDay) {
+		this.flightStartDay = flightGoingDay;
+	}
+	
+	
 	
 	/*
 	 * 요금 계산

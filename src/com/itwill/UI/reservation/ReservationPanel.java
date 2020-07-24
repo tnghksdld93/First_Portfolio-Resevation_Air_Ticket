@@ -79,11 +79,6 @@ public class ReservationPanel extends JPanel {
 		lblNewLabel_3.setFont(new Font("맑은 고딕", Font.BOLD, 15));
 		lblNewLabel_3.setBounds(118, 198, 112, 21);
 		reservAirPanel.add(lblNewLabel_3);
-
-		JLabel lblNewLabel_2 = new JLabel("목적지 선택");
-		lblNewLabel_2.setFont(new Font("맑은 고딕", Font.BOLD, 30));
-		lblNewLabel_2.setBounds(366, 101, 242, 67);
-		reservAirPanel.add(lblNewLabel_2);
 		passengerTypePanel.setBackground(SystemColor.menu);
 		passengerTypePanel.setLayout(null);
 		passengerTypePanel.setBounds(118, 301, 175, 87);
@@ -112,7 +107,7 @@ public class ReservationPanel extends JPanel {
 		finishPointCB = new JComboBox();
 		finishPointCB.setToolTipText("");
 		finishPointCB.setBackground(Color.WHITE);
-		finishPointCB.setModel(new DefaultComboBoxModel(new String[] { "", "다낭", "파리", "런던", "마드리드", "뉴욕" }));
+		finishPointCB.setModel(new DefaultComboBoxModel(new String[] {"목적지", "다낭", "파리", "런던", "마드리드", "뉴욕"}));
 		finishPointCB.setFont(new Font("맑은 고딕", Font.BOLD, 40));
 		finishPointCB.setBounds(366, 101, 185, 67);
 		reservAirPanel.add(finishPointCB);
@@ -242,15 +237,16 @@ public class ReservationPanel extends JPanel {
 						int flightStartday = startDayDP.getModel().getDay();
 						
 						int flightComingMonth = comingDayDP.getModel().getMonth() + 1;
-						int flightComingDay = comingDayDP.getModel().getDay();	
+						int flightComingDay = comingDayDP.getModel().getDay();
+						
 						
 						String finishPoint = (String) finishPointCB.getSelectedItem();
 						int adultCount = (int) adultCountSP.getValue();
 						int childCount = (int) childCountSP.getValue();
 						String seatRating = (String) seatRatingCB.getSelectedItem();
 												
-						ArrayList<Flight> flightList = reservationService.readOneWay(finishPoint, flightStartMonth,
-								flightStartday);
+						ArrayList<Flight> flightList = reservationService.readRoundGoing(finishPoint, flightStartMonth,
+								flightStartday, flightComingMonth, flightComingDay);
 						RoundTripGoingReservationSearchResultDialog dialog=new RoundTripGoingReservationSearchResultDialog();
 						dialog.setMainFrame(flightReservationMainFrame);
 						dialog.setFlightList(flightList);
@@ -259,6 +255,12 @@ public class ReservationPanel extends JPanel {
 						dialog.setSeatRating(seatRating);	
 						dialog.setFlightComingMonth(flightComingMonth);
 						dialog.setFlightComingDay(flightComingDay);
+						dialog.setFlightGoingMonth(flightStartMonth);
+						dialog.setFlightGoingDay(flightStartday);
+						
+						
+						
+						
 						dialog.setFinishPoint(finishPoint);
 						dialog.setVisible(true);
 						
