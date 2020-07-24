@@ -54,14 +54,31 @@ public class ReservationService {
 	 * 항공편 검색 (편도)
 	 */
 
-	public ArrayList<Flight> readOneWay(String finishPoint, int flightStartMonth, int flightStartday) throws Exception{     //????????test 필수
+	public ArrayList<Flight> readOneWay(String finishPoint, int flightStartMonth, int flightStartDay) throws Exception{     //????????test 필수
 		ArrayList<Flight> flightList = flightDAO.readFile();
 		ArrayList<Flight> temp = new ArrayList<Flight>();
 		for (Flight flight : flightList) {
 			if (flight.getFinishPoint().equals(finishPoint) && 
 					((flight.getFlightStartMonth() >= flightStartMonth && 
-					flight.getFlightStartDay() >= flightStartday)||flight.getFlightStartMonth()>flightStartMonth)) {
+					flight.getFlightStartDay() >= flightStartDay)||flight.getFlightStartMonth()>flightStartMonth)) {
 					temp.add(flight);
+			}
+		}
+		return temp;
+	}
+	/*
+	 * 왕복고잉
+	 */
+	public ArrayList<Flight> readRoundGoing(String finishPoint, int flightStartMonth, int flightStartDay, int flightComingMonth, int flightComingDay) throws Exception{     //????????test 필수
+		ArrayList<Flight> flightList = flightDAO.readFile();
+		ArrayList<Flight> temp = new ArrayList<Flight>();
+		for (Flight flight : flightList) {
+			if (flight.getFinishPoint().equals(finishPoint) && 
+				((flight.getFlightStartMonth() >= flightStartMonth && 
+				flight.getFlightStartDay() >= flightStartDay)) &&
+				flight.getFlightStartMonth() <= flightComingMonth &&
+				flight.getFlightStartDay() < flightComingDay) {
+				temp.add(flight);
 			}
 		}
 		return temp;
@@ -69,18 +86,18 @@ public class ReservationService {
 	
 	
 	/*
-	 * 항공편 검색 (왕복)
+	 * 항공편 검색 (왕복커밍)
 	 */
 	
-	public ArrayList<Flight> readRoundTrip(String startPoint, String finishPoint, int flightStartMonth, int flightStartDay) throws Exception{     //????????test 필수
+	public ArrayList<Flight> readRoundTrip(String startPoint, String finishPoint, int flightStartMonth, int flightStartDay, int flightComingMonth, int flightComingDay) throws Exception{     //????????test 필수
 		ArrayList<Flight> flightList = flightDAO.readFile();
 		ArrayList<Flight> temp = new ArrayList<Flight>();
 		for (Flight flight : flightList) {
 			if (flight.getFinishPoint().equals("인천") && 
-					flight.getStartPoint().equals(startPoint) &&
-					((flight.getFlightFinishMonth() == flightStartMonth && 
-					flight.getFlightFinishDay() >= flightStartDay) || flight.getFlightFinishMonth() > flightStartMonth)) {
-					temp.add(flight);
+				flight.getStartPoint().equals(startPoint)&&
+				((flight.getFlightStartMonth() >= flightStartMonth && 
+				flight.getFlightStartDay() >= flightStartDay)||flight.getFlightStartMonth()>flightStartMonth)) {
+				temp.add(flight);
 			}
 		}
 		return temp;
