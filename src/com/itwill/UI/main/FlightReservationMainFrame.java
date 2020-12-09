@@ -34,7 +34,7 @@ public class FlightReservationMainFrame extends JFrame {
 	private JMenuItem loginMenu;
 	private JMenuItem logoutMenu;
 	private JMenuItem updateMenu;
-	private JMenuItem reservationMenu;
+	private JMenuItem reservationMenu; 
 	private JMenuItem reservationInfoMenu;
 	private JMenuItem shutdownMenu;
 	   
