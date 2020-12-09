@@ -30,7 +30,7 @@ public class FlightReservationMainFrame extends JFrame {
 	public Passenger loginPassenger;
 	private CardLayout mainCardLayout;
 	/**********************************/
-	private JPanel parentPanel;
+	private JPanel parentPanel; 
 	private JMenuItem loginMenu;
 	private JMenuItem logoutMenu;
 	private JMenuItem updateMenu;
