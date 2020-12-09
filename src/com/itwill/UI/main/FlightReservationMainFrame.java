@@ -37,7 +37,7 @@ public class FlightReservationMainFrame extends JFrame {
 	private JMenuItem reservationMenu;
 	private JMenuItem reservationInfoMenu;
 	private JMenuItem shutdownMenu;
-	
+	   
 	private MainPanel mainPanel;
 	private ReservationPanel reservationPanel;
 	private ReservationFindPanel reservationFindPanel;
@@ -78,10 +78,10 @@ public class FlightReservationMainFrame extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenu mnNewMenu = new JMenu("계정관리");
+		JMenu mnNewMenu = new JMenu("怨꾩젙愿�由�");
 		menuBar.add(mnNewMenu);
 		
-		loginMenu = new JMenuItem("로그인");
+		loginMenu = new JMenuItem("濡쒓렇�씤");
 		loginMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -93,7 +93,7 @@ public class FlightReservationMainFrame extends JFrame {
 			}
 		});
 		
-		homepageMenu = new JMenuItem("홈으로");
+		homepageMenu = new JMenuItem("�솃�쑝濡�");
 		homepageMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				changePanel("mainP");
@@ -102,7 +102,7 @@ public class FlightReservationMainFrame extends JFrame {
 		mnNewMenu.add(homepageMenu);
 		mnNewMenu.add(loginMenu);
 		
-		logoutMenu = new JMenuItem("로그아웃");
+		logoutMenu = new JMenuItem("濡쒓렇�븘�썐");
 		logoutMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				logout();
@@ -112,7 +112,7 @@ public class FlightReservationMainFrame extends JFrame {
 		logoutMenu.setSelected(true);
 		mnNewMenu.add(logoutMenu);
 		
-		updateMenu = new JMenuItem("회원정보 수정");
+		updateMenu = new JMenuItem("�쉶�썝�젙蹂� �닔�젙");
 		updateMenu.setEnabled(false);
 		updateMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -121,7 +121,7 @@ public class FlightReservationMainFrame extends JFrame {
 		});
 		mnNewMenu.add(updateMenu);
 		
-		shutdownMenu = new JMenuItem("종료");
+		shutdownMenu = new JMenuItem("醫낅즺");
 		shutdownMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -132,10 +132,10 @@ public class FlightReservationMainFrame extends JFrame {
 		mnNewMenu.add(separator);
 		mnNewMenu.add(shutdownMenu);
 		
-		JMenu mnNewMenu_1 = new JMenu("예약");
+		JMenu mnNewMenu_1 = new JMenu("�삁�빟");
 		menuBar.add(mnNewMenu_1);
 		
-		reservationMenu = new JMenuItem("비행기 예약");
+		reservationMenu = new JMenuItem("鍮꾪뻾湲� �삁�빟");
 		reservationMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				changePanel("reservationP");
@@ -144,7 +144,7 @@ public class FlightReservationMainFrame extends JFrame {
 		reservationMenu.setEnabled(false);
 		mnNewMenu_1.add(reservationMenu);
 		
-		reservationInfoMenu = new JMenuItem("예약정보 확인");
+		reservationInfoMenu = new JMenuItem("�삁�빟�젙蹂� �솗�씤");
 		reservationInfoMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				changePanel("reservationFindP");
@@ -180,7 +180,7 @@ public class FlightReservationMainFrame extends JFrame {
 		parentPanel.add(updatePassengerPanel, "updatePassengerP");
 		
 		
-		this.setTitle("비행기 예매 프로그램");
+		this.setTitle("鍮꾪뻾湲� �삁留� �봽濡쒓렇�옩");
 		
 		mainPanel.setVisible(true);
 		setVisible(true);
@@ -190,7 +190,7 @@ public class FlightReservationMainFrame extends JFrame {
 
 	public void loginDialogShow() throws Exception {
 		/*
-		 * 로그인 다이얼로그
+		 * 濡쒓렇�씤 �떎�씠�뼹濡쒓렇
 		 */
 		
 		LoginDialog loginDialog = new LoginDialog();
@@ -210,13 +210,13 @@ public class FlightReservationMainFrame extends JFrame {
 		updateMenu.setEnabled(false);
 		reservationMenu.setEnabled(false);
 		reservationInfoMenu.setEnabled(false);
-		JOptionPane.showMessageDialog(null, "로그아웃 되었습니다");
+		JOptionPane.showMessageDialog(null, "濡쒓렇�븘�썐 �릺�뿀�뒿�땲�떎");
 		changePanel("mainP");
 	}
 
 	public void loginSuccess(String id, Passenger p) {
 		loginId = id;
-		setTitle(id + "님 로그인");
+		setTitle(id + "�떂 濡쒓렇�씤");
 		loginPassenger=p;
 		loginMenu.setEnabled(false);
 		logoutMenu.setEnabled(true);
